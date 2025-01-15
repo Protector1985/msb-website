@@ -1,4 +1,4 @@
-// Mock data fetching function (replace this with your API or database call)
+// This allows tabs to be rendered server side since this mock fetch is called on the server 
 async function getTabsData() {
     return [
         {
