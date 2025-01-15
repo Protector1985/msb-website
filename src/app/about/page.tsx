@@ -7,8 +7,11 @@ import SecurityApproach from "../../components/HomeOne/OurTraining";
 import Testimonials from "../../components/Common/Testimonials";
 import Partner from "../../components/Common/Partner";
 import Footer from "../../components/Layouts/Footer";
+import getTabsData from "@/data/residentialSecurityTabs";
 
-export default function Page() {
+export default async function Page() {
+  const tabsData = await getTabsData()
+
   return (
     <>
       <Navbar />
@@ -22,7 +25,7 @@ export default function Page() {
 
       <EffectiveProtection />
 
-      <ElectronicProtection />
+      <ElectronicProtection tabsData={tabsData} />
 
       <div className="pt-100">
         <SecurityApproach />
