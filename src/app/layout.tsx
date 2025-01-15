@@ -31,7 +31,7 @@ const barlow_condensed = Barlow_Condensed({
 
 export const metadata: Metadata = {
   title: "MSB Protection",
-  description: "Cutting Edge Public Figure Protection ",
+  description: "Beverly Hills' and Southern California's premier private security and executive protection firm, delivering world-class protection for the global elite.",
 };
 
 export default function RootLayout({
