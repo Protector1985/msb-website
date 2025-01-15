@@ -1,0 +1,32 @@
+.logoWrapper {
+
+    position: relative; 
+    width: 350px;       /* choose any width you like */
+    height: 100%;      /* choose any height you like */
+    /* optional: add overflow if you want to ensure the image never escapes the container */
+    overflow: hidden;
+    
+
+}
+
+.logo {
+    object-fit: contain;
+}
+
+@media (min-width: 986px) and (max-width: 1200px) {
+    .logoWrapper {
+        width: 310px
+    }
+}
+
+@media (min-width: 783px) and (max-width: 861px) {
+    .logoWrapper {
+        width: 280px
+    }
+}
+
+@media (max-width: 782px) {
+    .logoWrapper {
+        width: 200px
+    }
+}
