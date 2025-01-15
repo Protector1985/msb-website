@@ -30,7 +30,7 @@ const barlow_condensed = Barlow_Condensed({
 });
 
 export const metadata: Metadata = {
-  title: "Top Private Security & Executive Protection in Beverly Hills - MSB Protection",
+  title: "Premium Private Security & Executive Protection in Beverly Hills - MSB Protection",
   description: "Beverly Hills' and Southern California's premier private security and executive protection firm, delivering world-class protection for the global elite.",
 };
 
