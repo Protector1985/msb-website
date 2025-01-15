@@ -45,7 +45,7 @@ const NavbarFive: React.FC = () => {
               <div className="container-fluid">
                 <Link href="/" className="navbar-brand">
                   <Image
-                    src="/img/logo.png"
+                    src="/img/Logo.png"
                     alt="logo"
                     width={100}
                     height={39}

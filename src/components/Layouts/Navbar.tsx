@@ -46,7 +46,7 @@ const Navbar: React.FC = () => {
                   <Link href="/" className="navbar-brand">
                     <div className={styles.logoWrapper}>
                       <Image
-                        src="/img/logo.png"
+                        src="/img/Logo.png"
                         alt="logo"
                         className={styles.logo}
                         width={1280}

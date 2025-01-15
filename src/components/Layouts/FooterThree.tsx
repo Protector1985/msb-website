@@ -15,7 +15,7 @@ const FooterThree: React.FC = () => {
               <div className="single-footer-widget-card">
                 <Link href="/" className="logo">
                   <Image
-                    src="/img/logo.png"
+                    src="/img/Logo.png"
                     alt="Image"
                     width={100}
                     height={39}

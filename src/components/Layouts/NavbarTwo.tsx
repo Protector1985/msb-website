@@ -40,7 +40,7 @@ const NavbarTwo: React.FC = () => {
                 <nav className="navbar navbar-expand-md navbar-light">
                   <Link href="/" className="navbar-brand">
                     <Image
-                      src="/img/logo.png"
+                      src="/img/Logo.png"
                       alt="logo"
                       width={100}
                       height={39}
