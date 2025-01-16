@@ -4,9 +4,10 @@ import React from "react";
 import Link from "next/link";
 import Sidebar from "./Sidebar";
 import Image from "next/image";
+import moment from "moment"
+import LeaveAComment from "./LeaveAComment";
 
-async function BlogDetailsContent({ post }: any) {
-  console.log(post);
+async function BlogDetailsContent({ post, author }: any) {
 
   return (
     <>
@@ -22,78 +23,16 @@ async function BlogDetailsContent({ post }: any) {
                     <ul>
                       <li>
                         <span>Posted On:</span>
-                        <Link href="#">May 19, 2024</Link>
+                        <Link href="#">{moment(post.modified).format("MMM DD, YYYY")}</Link>
                       </li>
                       <li>
                         <span>Posted By:</span>
-                        <Link href="#">John Anderson</Link>
+                        <Link href="#">{author?.data?.name}</Link>
                       </li>
                     </ul>
                   </div>
 
-                  <div className="article-image">
-                    <Image
-                      src="/img/blog-details/blog-details.jpg"
-                      alt="image"
-                      width={900}
-                      height={600}
-                    />
-                  </div>
-
-                  <p>
-                    Quuntur magni dolores eos qui ratione voluptatem sequi
-                    nesciunt. Neque porro quia non numquam eius modi tempora
-                    incidunt ut labore et dolore magnam dolor sit, consectetur
-                    qui ratione voluptatem sequi.
-                  </p>
-
-                  <p>
-                    Lorem ipsum dolor sit amet, consectetur adipisicing elit,
-                    sed do eiusmod tempor incididunt ut labore et dolore magna
-                    aliqua. Ut enim ad minim veniam, quis nostrud exercitation
-                    ullamco laboris nisi ut aliquip ex ea commodo consequat.
-                    Duis aute irure dolor in reprehenderit in sed quia non
-                    numquam eius modi tempora incidunt ut labore et dolore
-                    magnam aliquam quaerat labore et dolore magna aliqua.
-                  </p>
-
-                  <blockquote className="flaticon-quote">
-                    <p>
-                      Lorem, ipsum dolor sit amet consectetur adipisicing elit.
-                      Repellendus aliquid praesentium eveniet illum asperiores,
-                      quidem, ipsum voluptatum numquam ducimus nisi
-                      exercitationem dolorum facilis Repellendus aliquid
-                      praesentium eveniet illum asperiores.
-                    </p>
-                  </blockquote>
-
-                  <p>
-                    Lorem ipsum dolor sit amet, consectetur adipisicing elit,
-                    sed do eiusmod tempor incididunt ut labore et dolore magna
-                    aliqua. Ut enim ad minim veniam, quis nostrud exercitation
-                    ullamco laboris nisi ut aliquip ex ea commodo consequat.
-                    Duis aute irure dolor in reprehenderit in sed quia non
-                    numquam eius modi tempora incidunt ut labore et dolore
-                    magnam aliquam quaerat. Lorem ipsum dolor sit amet,
-                    consectetur adipisicing elit, sed do eiusmod tempor
-                    incididunt ut labore et dolore magna aliqua. Ut enim ad
-                    minim veniam, quis nostrud exercitation ullamco laboris nisi
-                    ut aliquip ex ea commodo consequat. Duis aute irure dolor in
-                    reprehenderit in sed quia non numquam eius modi tempora
-                    incidunt ut labore et dolore magnam aliquam quaerat
-                    consectetur adipisicing Lorem ipsum dolor sit amet numquam.
-                  </p>
-
-                  <p>
-                    Lorem ipsum dolor sit amet, consectetur adipisicing elit,
-                    sed do eiusmod tempor incididunt ut labore et dolore magna
-                    aliqua. Ut enim ad minim veniam, quis nostrud exercitation
-                    ullamco laboris nisi ut aliquip ex ea commodo consequat.
-                    Duis aute irure dolor in reprehenderit in sed quia non
-                    numquam eius modi tempora incidunt ut labore et dolore
-                    magnam aliquam quaerat ullamco laboris nisi ut aliquip ex
-                    ea.
-                  </p>
+                  <div dangerouslySetInnerHTML={{__html:post.content.rendered}} />
                 </div>
 
                 <div className="article-footer">
@@ -266,59 +205,7 @@ async function BlogDetailsContent({ post }: any) {
                     </li>
                   </ol>
 
-                  <div className="comment-respond">
-                    <h3 className="comment-reply-title">Leave a Reply</h3>
-
-                    <form className="comment-form">
-                      <p className="comment-notes">
-                        <span id="email-notes">
-                          Your email address will not be published.
-                        </span>
-                        Required fields are marked
-                        <span className="required">*</span>
-                      </p>
-
-                      <p className="comment-form-author">
-                        <label>
-                          Name <span className="required">*</span>
-                        </label>
-                        <input type="text" id="author" name="author" required />
-                      </p>
-
-                      <p className="comment-form-email">
-                        <label>
-                          Email <span className="required">*</span>
-                        </label>
-                        <input type="email" id="email" name="email" required />
-                      </p>
-
-                      <p className="comment-form-url">
-                        <label>Website</label>
-                        <input type="url" id="url" name="url" />
-                      </p>
-
-                      <p className="comment-form-comment">
-                        <label>Comment</label>
-                        <textarea
-                          name="comment"
-                          id="comment"
-                          cols={45}
-                          rows={5}
-                          required
-                        ></textarea>
-                      </p>
-
-                      <p className="form-submit">
-                        <input
-                          type="submit"
-                          name="submit"
-                          id="submit"
-                          className="submit"
-                          value="Post A Comment"
-                        />
-                      </p>
-                    </form>
-                  </div>
+                  <LeaveAComment postId={post.id} />
                 </div>
               </div>
             </div>

@@ -28,7 +28,7 @@ async function getNPosts(number: number) {
 
 async function fetchPost(postId: string) {
   const res = await fetch(
-    `https://backend.msbprotection.com/wp-json/wp/v2/posts/${postId}`,
+    `${process.env.WORDPRESS_API}/posts/${postId}`,
   );
   if (!res.ok) {
     throw new Error("Failed to fetch post");

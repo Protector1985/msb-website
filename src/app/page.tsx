@@ -13,12 +13,16 @@ import LatesNews from "../components/Common/LatesNews";
 import Footer from "../components/Layouts/Footer";
 import getTabsData from "@/data/residentialSecurityTabs";
 import { getNPosts } from "@/api/getPosts";
+import ComingSoon from "./coming-soon/page";
+
 
 export default async function Home() {
   const tabsData = await getTabsData();
   const posts = await getNPosts(3);
+  
 
   return (
+    process.env.COMING_SOON? <ComingSoon /> :
     <>
       <Navbar />
 
@@ -46,4 +50,5 @@ export default async function Home() {
       <Footer />
     </>
   );
+
 }
