@@ -1,4 +1,3 @@
-import { GetServerSideProps } from "next";
 import Navbar from "../components/Layouts/Navbar";
 import MainBanner from "../components/HomeOne/MainBanner";
 import Partner from "../components/Common/Partner";
@@ -15,14 +14,13 @@ import getTabsData from "@/data/residentialSecurityTabs";
 import { getNPosts } from "@/api/getPosts";
 import ComingSoon from "./coming-soon/page";
 
-
 export default async function Home() {
   const tabsData = await getTabsData();
   const posts = await getNPosts(3);
-  
 
-  return (
-    process.env.COMING_SOON !== "OFF" ? <ComingSoon /> :
+  return process.env.COMING_SOON !== "OFF" ? (
+    <ComingSoon />
+  ) : (
     <>
       <Navbar />
 
@@ -50,5 +48,4 @@ export default async function Home() {
       <Footer />
     </>
   );
-
 }

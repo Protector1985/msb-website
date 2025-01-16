@@ -12,6 +12,7 @@ import "../../styles/responsive.css";
 
 import type { Metadata } from "next";
 import { Rubik, Barlow_Condensed } from "next/font/google";
+import Script from "next/script";
 
 // For all body text font
 const rubik = Rubik({
@@ -45,6 +46,25 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
+      <head>
+        {/* Google Analytics */}
+        <Script
+          strategy="afterInteractive"
+          src="https://www.googletagmanager.com/gtag/js?id=G-JHGH1JP53X"
+        />
+        <Script
+          id="google-analytics"
+          strategy="afterInteractive"
+          dangerouslySetInnerHTML={{
+            __html: `
+              window.dataLayer = window.dataLayer || [];
+              function gtag(){dataLayer.push(arguments);}
+              gtag('js', new Date());
+              gtag('config', 'G-JHGH1JP53X');
+            `,
+          }}
+        />
+      </head>
       <body className={`${rubik.variable} ${barlow_condensed.variable}`}>
         {children}
       </body>

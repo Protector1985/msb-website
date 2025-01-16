@@ -17,7 +17,7 @@ const ComingSoon = () => {
   };
   return (
     <>
-      <Countdown endDate={endDate } seoContent={seoContent} />
+      <Countdown endDate={endDate} seoContent={seoContent} />
     </>
   );
 };
