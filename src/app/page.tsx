@@ -22,7 +22,7 @@ export default async function Home() {
   
 
   return (
-    process.env.COMING_SOON? <ComingSoon /> :
+    process.env.COMING_SOON !== "OFF" ? <ComingSoon /> :
     <>
       <Navbar />
 
