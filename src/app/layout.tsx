@@ -33,9 +33,9 @@ export const metadata: Metadata = {
   icons: {
     icon: "/img/favicon.png",
   },
-  title: "Premium Executive Protection in Beverly Hills - MSB Protection",
+  title: "Professional Network for Property Managers & Security Experts",
   description:
-    "Beverly Hills' premier private security and executive protection firm, delivering world-class protection for the global elite.",
+    "Discover a trusted space for Property Managers, Executive Assistants, and Security Specialists to connect, share ideas, and build valuable partnerships. Join a vetted community of professionals dedicated to elevating the industry through collaboration and innovation.",
 };
 
 export default function RootLayout({

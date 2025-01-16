@@ -4,21 +4,27 @@ import React, { useState, useEffect } from "react";
 
 interface CountdownProps {
   endDate: string; // Format: "Month Day, Year HH:mm:ss"
+  seoContent: {
+    title: string;
+    description: string;
+    socialLinks: { platform: string; url: string }[];
+  };
 }
 
-const Countdown: React.FC<CountdownProps> = ({ endDate }) => {
+const Countdown: React.FC<CountdownProps> = ({ endDate, seoContent }) => {
   const calculateTimeLeft = () => {
-    const endDateTime = new Date("August 23, 2025 17:00:00 PDT").getTime();
+    const endDateTime = new Date(endDate).getTime();
     const now = new Date().getTime();
+
     const timeRemaining = endDateTime - now;
 
     if (timeRemaining > 0) {
       const days = Math.floor(timeRemaining / (1000 * 60 * 60 * 24));
       const hours = Math.floor(
-        (timeRemaining % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60),
+        (timeRemaining % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60)
       );
       const minutes = Math.floor(
-        (timeRemaining % (1000 * 60 * 60)) / (1000 * 60),
+        (timeRemaining % (1000 * 60 * 60)) / (1000 * 60)
       );
       const seconds = Math.floor((timeRemaining % (1000 * 60)) / 1000);
 
@@ -49,12 +55,8 @@ const Countdown: React.FC<CountdownProps> = ({ endDate }) => {
         <div className="d-table-cell">
           <div className="container">
             <div className="coming-soon-content">
-              <h1>Coming Soon</h1>
-              <p>
-                Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
-                eiusmod tempor incididunt ut labore et dolore magna aliqua. Quis
-                ipsum suspendisse ultrices.
-              </p>
+              <h1>{seoContent.title}</h1>
+              <p>{seoContent.description}</p>
 
               <div id="timer">
                 <div id="days">
@@ -71,7 +73,7 @@ const Countdown: React.FC<CountdownProps> = ({ endDate }) => {
                 </div>
               </div>
 
-              <form className="newsletter-form">
+              {/* <form className="newsletter-form">
                 <input
                   type="email"
                   className="input-newsletter"
@@ -79,33 +81,19 @@ const Countdown: React.FC<CountdownProps> = ({ endDate }) => {
                   name="email"
                   required
                 />
-
                 <button type="submit" className="default-btn">
                   Notify Me
                 </button>
-              </form>
+              </form> */}
 
               <ul className="header-content-right">
-                <li>
-                  <a href="https://www.facebook.com/" target="_blank">
-                    <i className="bx bxl-facebook"></i>
-                  </a>
-                </li>
-                <li>
-                  <a href="https://www.twitter.com/" target="_blank">
-                    <i className="bx bxl-twitter"></i>
-                  </a>
-                </li>
-                <li>
-                  <a href="https://www.linkedin.com/" target="_blank">
-                    <i className="bx bxl-linkedin"></i>
-                  </a>
-                </li>
-                <li>
-                  <a href="https://www.instagram.com/" target="_blank">
-                    <i className="bx bxl-instagram"></i>
-                  </a>
-                </li>
+                {seoContent.socialLinks.map((link, index) => (
+                  <li key={index}>
+                    <a href={link.url} target="_blank" rel="noopener noreferrer">
+                      <i className={`bx bxl-${link.platform}`}></i>
+                    </a>
+                  </li>
+                ))}
               </ul>
             </div>
           </div>
