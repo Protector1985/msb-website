@@ -1,7 +1,9 @@
 "use client";
-  
-import React from "react";
 
+import React from "react";
+import { FaYoutube } from "react-icons/fa6";
+import { FaLinkedin } from "react-icons/fa";
+import { FaInstagramSquare } from "react-icons/fa";
 const TopHeader: React.FC = () => {
   return (
     <>
@@ -13,7 +15,10 @@ const TopHeader: React.FC = () => {
                 <li>
                   <a href="mailto:hello@pisa.com">
                     <i className="bx bx-envelope"></i>
-                    Email: mbraun@execudev-inc.com
+                    Email:{" "}
+                    <a href="mailto:admin@msbprotection.com">
+                      admin@msbprotection.com
+                    </a>
                   </a>
                 </li>
               </ul>
@@ -22,23 +27,34 @@ const TopHeader: React.FC = () => {
             <div className="col-lg-6 col-sm-4">
               <ul className="header-content-right">
                 <li>
-                  <a href="https://www.facebook.com/" target="_blank">
-                    <i className="bx bxl-facebook"></i>
+                  <a
+                    href="https://youtube.com/@msb-protection?si=7gVNA_Z46H-Rm7Js"
+                    target="_blank"
+                  >
+                    <i>
+                      <FaYoutube />
+                    </i>
+                  </a>
+                </li>
+
+                <li>
+                  <a
+                    href="https://www.linkedin.com/in/michael-b-336437333"
+                    target="_blank"
+                  >
+                    <i>
+                      <FaLinkedin />
+                    </i>
                   </a>
                 </li>
                 <li>
-                  <a href="https://www.twitter.com/" target="_blank">
-                    <i className="bx bxl-twitter"></i>
-                  </a>
-                </li>
-                <li>
-                  <a href="https://www.linkedin.com/" target="_blank">
-                    <i className="bx bxl-linkedin"></i>
-                  </a>
-                </li>
-                <li>
-                  <a href="https://www.instagram.com/" target="_blank">
-                    <i className="bx bxl-instagram"></i>
+                  <a
+                    href="https://www.instagram.com/msb_protection/?hl=en"
+                    target="_blank"
+                  >
+                    <i>
+                      <FaInstagramSquare />
+                    </i>
                   </a>
                 </li>
               </ul>

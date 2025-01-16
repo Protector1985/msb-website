@@ -4,7 +4,7 @@ import Countdown from "../../components/ComingSoon/Countdown";
 const ComingSoon = () => {
   return (
     <>
-      <Countdown endDate=""/>
+      <Countdown endDate="" />
     </>
   );
 };

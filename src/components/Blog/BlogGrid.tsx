@@ -1,5 +1,5 @@
 "use client";
-  
+
 import React from "react";
 import Link from "next/link";
 import Image from "next/image";
@@ -10,10 +10,12 @@ const BlogGrid: React.FC = () => {
       <section className="blog-area ptb-100">
         <div className="container">
           <div className="section-title">
-          <h2>Our Latest Articles</h2>
-<p>
-  Explore our insightful articles designed for security professionals, estate managers, property managers, as well as executive and personal assistants.
-</p>
+            <h2>Our Latest Articles</h2>
+            <p>
+              Explore our insightful articles designed for security
+              professionals, estate managers, property managers, as well as
+              executive and personal assistants.
+            </p>
           </div>
 
           <div className="row">

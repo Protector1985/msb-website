@@ -1,5 +1,5 @@
 "use client";
-  
+
 import React from "react";
 import Link from "next/link";
 import Image from "next/image";
@@ -112,15 +112,13 @@ const FooterTwo: React.FC = () => {
                   </li>
                   <li>
                     <span>Email:</span>
-                    <a href="mailto:hello@pisa.com">hello@pisa.com</a>
+                    <a href="mailto:admin@msbprotection.com">
+                      admin@msbprotection.com
+                    </a>
                   </li>
                   <li>
                     <span>Phone:</span>
-                    <a href="tel:+44-587-154756">+44 587 154756</a>
-                  </li>
-                  <li>
-                    <span>Fax:</span>
-                    <a href="tel:+44-785-4578964">+44 785 4578964</a>
+                    <a href={`(805) 285-2807`}>{`(805) 285-2807`}</a>
                   </li>
                 </ul>
               </div>
@@ -136,12 +134,11 @@ const FooterTwo: React.FC = () => {
               <p>
                 Copyright <i className="bx bx-copyright"></i>
                 {currentYear} MSB Protection
-                
               </p>
             </div>
 
             <div className="col-lg-6 col-md-6">
-              <ul className="footer-menu">
+              {/* <ul className="footer-menu">
                 <li>
                   <Link href="/privacy-policy" target="_blank">
                     Privacy Policy
@@ -152,7 +149,7 @@ const FooterTwo: React.FC = () => {
                     Terms & Conditions
                   </Link>
                 </li>
-              </ul>
+              </ul> */}
             </div>
           </div>
         </div>

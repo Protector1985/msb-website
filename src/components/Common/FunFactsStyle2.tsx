@@ -1,5 +1,5 @@
 "use client";
-  
+
 import React from "react";
 
 const FunFactsStyle2: React.FC = () => {
@@ -43,7 +43,7 @@ const FunFactsStyle2: React.FC = () => {
                 <p>Cybersecurity Experts</p>
               </div>
             </div>
-            
+
             <div className="col-lg-3 col-sm-6 col-6 col-md-6">
               <div className="single-funfacts-card">
                 <div className="icon">

@@ -1,6 +1,6 @@
 import React from "react";
 import Navbar from "../../../components/Layouts/Navbar";
-import PageBanner from "../../../components/Common/PageBanner"; 
+import PageBanner from "../../../components/Common/PageBanner";
 import Footer from "../../../components/Layouts/Footer";
 import LetsGetToWork from "../../../components/Common/LetsGetToWork";
 import ProjectDetailsContent from "../../../components/Projects/ProjectDetailsContent";

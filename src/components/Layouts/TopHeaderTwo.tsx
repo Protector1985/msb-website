@@ -1,5 +1,5 @@
 "use client";
-  
+
 import React from "react";
 import Link from "next/link";
 
@@ -20,7 +20,10 @@ const TopHeaderTwo: React.FC = () => {
                 <li>
                   <a href="mailto:hello@pisa.com">
                     <i className="bx bx-envelope"></i>
-                    Email: hello@pisa.com
+                    Email:{" "}
+                    <a href="mailto:admin@msbprotection.com">
+                      admin@msbprotection.com
+                    </a>
                   </a>
                 </li>
               </ul>

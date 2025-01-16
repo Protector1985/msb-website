@@ -1,5 +1,5 @@
 "use client";
-  
+
 import React from "react";
 import Image from "next/image";
 
@@ -68,8 +68,8 @@ const ProjectDetailsContent: React.FC = () => {
                   consectetur, from a Lorem Ipsum passage, and going through the
                   cites of the word in classNameical literature, discovered the
                   undoubtable source. Lorem Ipsum comes from sections 1.10.32
-                  and 1.10.33 of de Finibus Bonorum et Malorum (The Extremes
-                  of Good and Evil) by Cicero, written in 45 BC.
+                  and 1.10.33 of de Finibus Bonorum et Malorum (The Extremes of
+                  Good and Evil) by Cicero, written in 45 BC.
                 </p>
 
                 <h3>Solutions for Everyone</h3>

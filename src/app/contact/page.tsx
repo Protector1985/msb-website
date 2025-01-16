@@ -17,7 +17,7 @@ export default function Page() {
         activePageText="Contact"
       />
 
-      <ContactInfo />
+      {/* <ContactInfo /> */}
 
       <ContactForm />
 

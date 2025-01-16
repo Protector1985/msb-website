@@ -10,7 +10,7 @@ import Footer from "../../components/Layouts/Footer";
 import getTabsData from "@/data/residentialSecurityTabs";
 
 export default async function Page() {
-  const tabsData = await getTabsData()
+  const tabsData = await getTabsData();
 
   return (
     <>

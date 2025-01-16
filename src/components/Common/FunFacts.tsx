@@ -1,5 +1,5 @@
 "use client";
-  
+
 import React from "react";
 
 const FunFacts: React.FC = () => {

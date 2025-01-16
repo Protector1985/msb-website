@@ -1,19 +1,19 @@
 .bannerArea {
-    position: relative;
-    background: 
-        linear-gradient(rgba(12, 6, 40, 0.5), rgba(12, 6, 40, 0.5)), /* Tint overlay */
-        url('/img/home-one/body5.png') no-repeat center center; /* Background image */
-    background-size: cover; /* Ensure the image fills the container */
-    color: #fff; /* Optional: Ensure text remains readable */
-    height: 100%; /* Adjust as per your layout */
-    width: 100%; /* Adjust as per your layout */
+  position: relative;
+  background:
+    linear-gradient(rgba(12, 6, 40, 0.5), rgba(12, 6, 40, 0.5)),
+    /* Tint overlay */ url("/img/home-one/body5.png") no-repeat center center; /* Background image */
+  background-size: cover; /* Ensure the image fills the container */
+  color: #fff; /* Optional: Ensure text remains readable */
+  height: 100%; /* Adjust as per your layout */
+  width: 100%; /* Adjust as per your layout */
 }
 
 .bannerBackground {
-    display: none; /* This is no longer needed */
+  display: none; /* This is no longer needed */
 }
 
 .banner-text {
-    position: relative; /* Keeps the text above the background */
-    z-index: 2; /* Ensures text is on top */
+  position: relative; /* Keeps the text above the background */
+  z-index: 2; /* Ensures text is on top */
 }

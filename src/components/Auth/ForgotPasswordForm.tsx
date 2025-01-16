@@ -1,5 +1,5 @@
 "use client";
-  
+
 import React from "react";
 import Link from "next/link";
 
@@ -37,7 +37,7 @@ const ForgotPasswordForm: React.FC = () => {
                     Sign In your account
                   </Link>
                 </div>
-                
+
                 <div className="col-lg-6 col-sm-6">
                   <p className="now-register">
                     Not a member?

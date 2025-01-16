@@ -12,12 +12,11 @@ import CyberSecurityOperation from "../components/HomeOne/CyberSecurityOperation
 import LatesNews from "../components/Common/LatesNews";
 import Footer from "../components/Layouts/Footer";
 import getTabsData from "@/data/residentialSecurityTabs";
-
-
+import { getNPosts } from "@/api/getPosts";
 
 export default async function Home() {
-
-  const tabsData = await getTabsData()
+  const tabsData = await getTabsData();
+  const posts = await getNPosts(3);
 
   return (
     <>
@@ -42,11 +41,9 @@ export default async function Home() {
 
       {/* <CyberSecurityOperation /> */}
 
-      <LatesNews />
+      <LatesNews posts={posts?.data} />
 
       <Footer />
     </>
   );
 }
-
-

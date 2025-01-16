@@ -1,5 +1,5 @@
 "use client";
-  
+
 import React from "react";
 import Link from "next/link";
 
@@ -18,25 +18,27 @@ const Footer: React.FC = () => {
                   <li>
                     <i className="bx bx-phone-call"></i>
                     <span>Hotline:</span>
-                    <a href="tel:Phone:+892-569-756">Phone: +892-569-756</a>
+                    <a href={`(805) 285-2807`}>{`(805) 285-2807`}</a>
                   </li>
 
                   <li>
                     <i className="bx bx-envelope"></i>
                     <span>Email:</span>
-                    <a href="mailto:hello@pisa.com">hello@pisa.com</a>
+                    <a href="mailto:admin@msbprotection.com">
+                      admin@msbprotection.com
+                    </a>
                   </li>
 
                   <li>
                     <i className="bx bx-location-plus"></i>
-                    <span>Address:</span>
-                    658 Lane Drive st Riverside. California
+                    <span>CA PPO:</span>
+                    #122329,
                   </li>
                 </ul>
               </div>
             </div>
 
-            <div className="col-lg-3 col-md-6">
+            {/* <div className="col-lg-3 col-md-6">
               <div className="single-widget">
                 <h3>Services Link</h3>
 
@@ -79,9 +81,9 @@ const Footer: React.FC = () => {
                   </li>
                 </ul>
               </div>
-            </div>
+            </div> */}
 
-            <div className="col-lg-3 col-md-6">
+            {/* <div className="col-lg-3 col-md-6">
               <div className="single-widget">
                 <h3>Support & Help</h3>
 
@@ -124,9 +126,9 @@ const Footer: React.FC = () => {
                   </li>
                 </ul>
               </div>
-            </div>
+            </div> */}
 
-            <div className="col-lg-3 col-md-6">
+            {/* <div className="col-lg-3 col-md-6">
               <div className="single-widget">
                 <h3>Quick Links</h3>
 
@@ -169,7 +171,7 @@ const Footer: React.FC = () => {
                   </li>
                 </ul>
               </div>
-            </div>
+            </div> */}
           </div>
         </div>
       </footer>
@@ -179,17 +181,12 @@ const Footer: React.FC = () => {
           <div className="row align-items-center">
             <div className="col-lg-6">
               <div className="copy-right">
-                <p>
-                  Copyright &copy;{currentYear} Pisa. Designed{" "}
-                  <a href="https://envytheme.com/" target="blank">
-                    EnvyTheme
-                  </a>
-                </p>
+                <p>Copyright &copy;{currentYear} MSB Protection</p>
               </div>
             </div>
 
             <div className="col-lg-6">
-              <div className="condition-privacy">
+              {/* <div className="condition-privacy">
                 <ul>
                   <li>
                     <Link href="/terms-conditions">Terms & Condition</Link>
@@ -198,7 +195,7 @@ const Footer: React.FC = () => {
                     <Link href="/privacy-policy">Privacy Policy</Link>
                   </li>
                 </ul>
-              </div>
+              </div> */}
             </div>
           </div>
         </div>

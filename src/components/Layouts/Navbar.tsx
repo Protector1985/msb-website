@@ -6,7 +6,7 @@ import TopHeader from "./TopHeader";
 import Image from "next/image";
 import MenuItem from "./MenuItem";
 import { menus } from "../../../libs/menus";
-import styles from './navbarStyles/styles.module.css'
+import styles from "./navbarStyles/styles.module.css";
 
 const Navbar: React.FC = () => {
   const [menu, setMenu] = useState(true);
@@ -53,7 +53,6 @@ const Navbar: React.FC = () => {
                         height={170}
                       />
                     </div>
-                    
                   </Link>
 
                   <button

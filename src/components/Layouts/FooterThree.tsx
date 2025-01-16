@@ -1,5 +1,5 @@
 "use client";
-  
+
 import React from "react";
 import Link from "next/link";
 import Image from "next/image";
@@ -87,15 +87,13 @@ const FooterThree: React.FC = () => {
                   </li>
                   <li>
                     <span>Email:</span>{" "}
-                    <a href="mailto:hello@pisa.com">hello@pisa.com</a>
+                    <a href="mailto:admin@msbprotection.com">
+                      admin@msbprotection.com
+                    </a>
                   </li>
                   <li>
                     <span>Phone:</span>{" "}
-                    <a href="tel:+44-587-154756">+44 587 154756</a>
-                  </li>
-                  <li>
-                    <span>Fax:</span>{" "}
-                    <a href="tel:+44-785-4578964">+44 785 4578964</a>
+                    <a href={`(805) 285-2807`}>{`(805) 285-2807`}</a>
                   </li>
                 </ul>
               </div>
@@ -131,7 +129,6 @@ const FooterThree: React.FC = () => {
             <p>
               Copyright <i className="bx bx-copyright"></i>
               {currentYear} MSB Protection
-              
             </p>
             <div className="footer-shape-1">
               <Image

@@ -1,11 +1,13 @@
-"use client";
-  
+"use server";
+
 import React from "react";
 import Link from "next/link";
 import Sidebar from "./Sidebar";
 import Image from "next/image";
 
-const BlogDetailsContent: React.FC = () => {
+async function BlogDetailsContent({ post }: any) {
+  console.log(post);
+
   return (
     <>
       <section className="blog-details-area ptb-100">
@@ -14,9 +16,7 @@ const BlogDetailsContent: React.FC = () => {
             <div className="col-lg-8 col-md-12">
               <div className="blog-details-desc">
                 <div className="article-content">
-                  <h3>
-                    DHS Issues Emergency Directive To Prevent Hacking Attack
-                  </h3>
+                  <h3>{post.title.rendered}</h3>
 
                   <div className="entry-meta">
                     <ul>
@@ -334,6 +334,6 @@ const BlogDetailsContent: React.FC = () => {
       </section>
     </>
   );
-};
+}
 
 export default BlogDetailsContent;

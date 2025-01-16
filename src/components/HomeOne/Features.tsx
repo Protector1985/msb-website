@@ -1,6 +1,6 @@
 "use server";
-  
-import React from "react"; 
+
+import React from "react";
 
 const Features: React.FC = () => {
   return (
@@ -13,7 +13,8 @@ const Features: React.FC = () => {
                 <i className="bx bx-check-shield"></i> Security
               </h3>
               <p>
-              We provide elite security services to protect your life, assets, and reputation with absolute precision.
+                We provide elite security services to protect your life, assets,
+                and reputation with absolute precision.
               </p>
               <span className="bx bx-check-shield"></span>
             </div>
@@ -25,7 +26,8 @@ const Features: React.FC = () => {
                 <i className="bx bx-lock"></i> Privacy
               </h3>
               <p>
-              Our discreet solutions ensure your personal and professional privacy remain uncompromised.
+                Our discreet solutions ensure your personal and professional
+                privacy remain uncompromised.
               </p>
               <span className="bx bx-lock"></span>
             </div>
@@ -37,7 +39,8 @@ const Features: React.FC = () => {
                 <i className="bx bx-certification"></i> Peace of Mind
               </h3>
               <p>
-              Experience unmatched protection that lets you focus on what truly matters.
+                Experience unmatched protection that lets you focus on what
+                truly matters.
               </p>
               <span className="bx bx-certification"></span>
             </div>

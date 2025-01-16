@@ -30,8 +30,12 @@ const barlow_condensed = Barlow_Condensed({
 });
 
 export const metadata: Metadata = {
+  icons: {
+    icon: "/img/favicon.png",
+  },
   title: "Premium Executive Protection in Beverly Hills - MSB Protection",
-  description: "Beverly Hills' and Southern California's premier private security and executive protection firm, delivering world-class protection for the global elite.",
+  description:
+    "Beverly Hills' premier private security and executive protection firm, delivering world-class protection for the global elite.",
 };
 
 export default function RootLayout({

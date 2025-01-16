@@ -86,7 +86,7 @@ const NavbarThree: React.FC = () => {
                         className="burger-menu"
                         onClick={handleToggleSearchModal}
                       >
-                        <i className='bx bx-menu-alt-right'></i>
+                        <i className="bx bx-menu-alt-right"></i>
                       </div>
                     </div>
                   </div>

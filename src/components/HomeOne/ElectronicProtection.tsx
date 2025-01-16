@@ -15,17 +15,26 @@ interface ElectronicProtectionProps {
   tabsData: TabData[];
 }
 
-const ElectronicProtection: React.FC<ElectronicProtectionProps> = ({ tabsData }) => {
-  const openTabSection = (evt: React.MouseEvent<HTMLLIElement>, tabName: string) => {
+const ElectronicProtection: React.FC<ElectronicProtectionProps> = ({
+  tabsData,
+}) => {
+  const openTabSection = (
+    evt: React.MouseEvent<HTMLLIElement>,
+    tabName: string,
+  ) => {
     let i: number;
-    let tabcontent: HTMLCollectionOf<Element> = document.getElementsByClassName("tabs_item");
+    let tabcontent: HTMLCollectionOf<Element> =
+      document.getElementsByClassName("tabs_item");
     for (i = 0; i < tabcontent.length; i++) {
       (tabcontent[i] as HTMLElement).style.display = "none";
     }
 
-    let tablinks: HTMLCollectionOf<Element> = document.getElementsByTagName("li");
+    let tablinks: HTMLCollectionOf<Element> =
+      document.getElementsByTagName("li");
     for (i = 0; i < tablinks.length; i++) {
-      (tablinks[i] as HTMLElement).className = (tablinks[i] as HTMLElement).className.replace("current", "");
+      (tablinks[i] as HTMLElement).className = (
+        tablinks[i] as HTMLElement
+      ).className.replace("current", "");
     }
 
     let element = document.getElementById(tabName);
@@ -66,7 +75,9 @@ const ElectronicProtection: React.FC<ElectronicProtectionProps> = ({ tabsData })
                           key={tab.id}
                           id={tab.id}
                           className="tabs_item"
-                          style={{ display: tab.id === "tab1" ? "block" : "none" }}
+                          style={{
+                            display: tab.id === "tab1" ? "block" : "none",
+                          }}
                         >
                           {tab.content.map((paragraph, index) => (
                             <p key={index}>{paragraph}</p>
