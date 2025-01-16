@@ -1,5 +1,5 @@
 module.exports = {
-  siteUrl: process.env.SITE_URL || "http://localhost:3000",
+  siteUrl: process.env.SITE_URL,
   generateRobotsTxt: true,
   exclude: [],
   transform: async (config, path) => {
