@@ -4,11 +4,10 @@ import React from "react";
 import Link from "next/link";
 import Sidebar from "./Sidebar";
 import Image from "next/image";
-import moment from "moment"
+import moment from "moment";
 import LeaveAComment from "./LeaveAComment";
 
 async function BlogDetailsContent({ post, author }: any) {
-
   return (
     <>
       <section className="blog-details-area ptb-100">
@@ -23,7 +22,9 @@ async function BlogDetailsContent({ post, author }: any) {
                     <ul>
                       <li>
                         <span>Posted On:</span>
-                        <Link href="#">{moment(post.modified).format("MMM DD, YYYY")}</Link>
+                        <Link href="#">
+                          {moment(post.modified).format("MMM DD, YYYY")}
+                        </Link>
                       </li>
                       <li>
                         <span>Posted By:</span>
@@ -32,7 +33,9 @@ async function BlogDetailsContent({ post, author }: any) {
                     </ul>
                   </div>
 
-                  <div dangerouslySetInnerHTML={{__html:post.content.rendered}} />
+                  <div
+                    dangerouslySetInnerHTML={{ __html: post.content.rendered }}
+                  />
                 </div>
 
                 <div className="article-footer">

@@ -14,11 +14,9 @@ export default async function Page({
 }) {
   //fetches the individual post from the backend
   const post = await getPostById(searchParams.id);
-  const author = await getAuthorById(post?.data.author)
-  const comments = await getComments(searchParams.id)
+  const author = await getAuthorById(post?.data.author);
+  const comments = await getComments(searchParams.id);
 
- 
- 
   return (
     <>
       <Navbar />

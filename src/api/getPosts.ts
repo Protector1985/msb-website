@@ -27,9 +27,7 @@ async function getNPosts(number: number) {
 }
 
 async function fetchPost(postId: string) {
-  const res = await fetch(
-    `${process.env.WORDPRESS_API}/posts/${postId}`,
-  );
+  const res = await fetch(`${process.env.WORDPRESS_API}/posts/${postId}`);
   if (!res.ok) {
     throw new Error("Failed to fetch post");
   }
