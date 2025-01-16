@@ -21,9 +21,6 @@ module.exports = {
       };
 
     }
-    
-
-    // Return undefined for other paths to exclude them
     return undefined;
   },
 };
