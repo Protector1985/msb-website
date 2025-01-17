@@ -1,5 +1,6 @@
 "use client";
 
+import { getToken } from "@/api/auth";
 import { postComment } from "@/api/comments";
 import React, { useState } from "react";
 
@@ -11,34 +12,36 @@ const LeaveAComment: React.FC<any> = ({ postId }) => {
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
-    console.log("SUBMITTING");
-    // Validate all fields are filled out
-    if (!name || !email || !text) {
-      setError("All fields are required.");
-      return;
-    }
+    // const res = await getToken("user", "pnl:JKqBlB5a")
+    // console.log(res)
+    // console.log("SUBMITTING");
+    // // Validate all fields are filled out
+    // if (!name || !email || !text) {
+    //   setError("All fields are required.");
+    //   return;
+    // }
 
-    setError(null); // Clear any previous errors
+    // setError(null); // Clear any previous errors
 
-    const payload = {
-      post: postId,
-      author_name: name,
-      author_email: email,
-      content: text,
-    };
+    // const payload = {
+    //   post: postId,
+    //   author_name: name,
+    //   author_email: email,
+    //   content: text,
+    // };
 
-    try {
-      const res = await postComment(payload); // Assuming `postComment` is an async function
-      console.log("Comment submitted:", res);
+    // try {
+    //   const res = await postComment(payload); // Assuming `postComment` is an async function
+    //   console.log("Comment submitted:", res);
 
-      // Optionally clear the form after successful submission
-      //   setName('');
-      //   setEmail('');
-      //   setText('');
-    } catch (err) {
-      console.error("Failed to submit comment:", err);
-      setError("Failed to submit your comment. Please try again.");
-    }
+    //   // Optionally clear the form after successful submission
+    //   //   setName('');
+    //   //   setEmail('');
+    //   //   setText('');
+    // } catch (err) {
+    //   console.error("Failed to submit comment:", err);
+    //   setError("Failed to submit your comment. Please try again.");
+    // }
   };
 
   return (

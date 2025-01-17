@@ -8,13 +8,21 @@ import Testimonials from "../../components/Common/Testimonials";
 import Partner from "../../components/Common/Partner";
 import Footer from "../../components/Layouts/Footer";
 import getTabsData from "@/data/residentialSecurityTabs";
+import { cookies } from "next/headers";
 
 export default async function Page() {
   const tabsData = await getTabsData();
+  let isAuthenticated = false;
+  const cookieStore = cookies();
+  const authToken = cookieStore.get("auth_token")?.value;
+  if (authToken) {
+    isAuthenticated = true;
+  }
+  const userNickname = cookieStore.get("user_nicename")?.value;
 
   return (
     <>
-      <Navbar />
+      <Navbar isAuthenticated={isAuthenticated} nickName={userNickname} />
 
       <PageBanner
         pageTitle="About"

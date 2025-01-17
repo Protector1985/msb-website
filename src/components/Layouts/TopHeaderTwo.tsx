@@ -18,13 +18,13 @@ const TopHeaderTwo: React.FC = () => {
                   </a>
                 </li>
                 <li>
-                  <a href="mailto:hello@pisa.com">
+                  <div>
                     <i className="bx bx-envelope"></i>
                     Email:{" "}
                     <a href="mailto:admin@msbprotection.com">
                       admin@msbprotection.com
                     </a>
-                  </a>
+                  </div>
                 </li>
               </ul>
             </div>

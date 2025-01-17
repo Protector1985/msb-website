@@ -8,7 +8,12 @@ import MenuItem from "./MenuItem";
 import { menus } from "../../../libs/menus";
 import styles from "./navbarStyles/styles.module.css";
 
-const Navbar: React.FC = () => {
+interface NavbarInterface {
+  isAuthenticated: boolean;
+  nickName: string | undefined;
+}
+
+const Navbar: React.FC<NavbarInterface> = ({ isAuthenticated, nickName }) => {
   const [menu, setMenu] = useState(true);
   const toggleNavbar = () => {
     setMenu(!menu);
@@ -80,9 +85,15 @@ const Navbar: React.FC = () => {
 
                   <div className="others-option">
                     <div className="get-quote">
-                      <Link href="/contact" className="default-btn">
-                        Get A Quote
-                      </Link>
+                      {isAuthenticated ? (
+                        <p
+                          className={styles.welcomeMessage}
+                        >{`${nickName}, is logged in`}</p>
+                      ) : (
+                        <Link href="/sign-in" className="default-btn">
+                          Login
+                        </Link>
+                      )}
                     </div>
                   </div>
                 </nav>
