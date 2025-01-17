@@ -1,25 +1,19 @@
 import axios from "axios";
 
-interface CreateUserParams {
-  username: string;
-  email: string;
-  password: string;
-  role?: string; // Defaults to 'subscriber'
-  user_type: string; // User type (e.g., "Estate Manager")
-}
-
 interface CreateUserResponse {
   success: boolean;
   message: string;
   userId?: number; // Included if the user is successfully created
 }
 
-const createUser = async ({
-  username,
-  email,
-  password,
-  user_type,
-}: CreateUserParams): Promise<CreateUserResponse> => {
+const createUser = async (
+  username: string,
+  email: string,
+  password: string,
+  user_type: string,
+  first_name: string,
+  last_name: string,
+): Promise<CreateUserResponse> => {
   try {
     const response = await axios.post(
       `${process.env.NEXT_PUBLIC_WORDPRESS_CREATE_API}`,
@@ -29,9 +23,11 @@ const createUser = async ({
         password,
         role: "subscriber",
         user_type,
+        first_name,
+        last_name,
       },
     );
-
+    console.log(response);
     return {
       success: true,
       message: response.data.message,

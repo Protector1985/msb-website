@@ -3,10 +3,12 @@
 import React, { useState } from "react";
 import Link from "next/link";
 import axios from "axios";
+import { createUser } from "@/api/user";
 
 const SignUpForm: React.FC = () => {
   const [formData, setFormData] = useState({
-    name: "",
+    firstName: "",
+    lastName: "",
     username: "",
     email: "",
     password: "",
@@ -39,9 +41,24 @@ const SignUpForm: React.FC = () => {
     setError(null);
     setSuccess(null);
 
-    const { name, username, email, password, jobType, agreeToTerms } = formData;
+    const {
+      firstName,
+      lastName,
+      username,
+      email,
+      password,
+      jobType,
+      agreeToTerms,
+    } = formData;
 
-    if (!name || !username || !email || !password || !jobType) {
+    if (
+      !firstName ||
+      !lastName ||
+      !username ||
+      !email ||
+      !password ||
+      !jobType
+    ) {
       setError("All fields are required.");
       return;
     }
@@ -53,18 +70,20 @@ const SignUpForm: React.FC = () => {
 
     try {
       // Example API call to create a user
-      const response = await axios.post("/api/signup", {
-        name,
+      const response = await createUser(
         username,
         email,
         password,
         jobType,
-      });
+        firstName,
+        lastName,
+      );
 
-      if (response.status === 201) {
+      if (response.success) {
         setSuccess("Account created successfully! You can now log in.");
         setFormData({
-          name: "",
+          firstName: "",
+          lastName: "",
           username: "",
           email: "",
           password: "",
@@ -95,9 +114,22 @@ const SignUpForm: React.FC = () => {
                     <input
                       className="form-control"
                       type="text"
-                      name="name"
-                      placeholder="Name"
-                      value={formData.name}
+                      name="firstName"
+                      placeholder="First Name"
+                      value={formData.firstName}
+                      onChange={handleInputChange}
+                      required
+                    />
+                  </div>
+                </div>
+                <div className="col-md-12 col-sm-12">
+                  <div className="form-group">
+                    <input
+                      className="form-control"
+                      type="text"
+                      name="lastName"
+                      placeholder="Last Name"
+                      value={formData.lastName}
                       onChange={handleInputChange}
                       required
                     />
