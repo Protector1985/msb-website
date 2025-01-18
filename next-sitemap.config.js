@@ -1,8 +1,5 @@
 const { default: axios } = require("axios");
 
-
-
-
 const fetchDynamicBlogRoutes = async () => {
   // Replace with your actual API call or function to fetch posts
   const posts = await axios.get(`${process.env.WORDPRESS_API}/posts`);
@@ -14,9 +11,20 @@ module.exports = {
   generateRobotsTxt: true,
   exclude: [], // Specify routes to exclude, if any
   additionalPaths: async (config) => {
-    const dynamicBlogRoutes = await fetchDynamicBlogRoutes();
+    // Check if the COMING_SOON page should be the only route
+    if (process.env.COMING_SOON === "ON") {
+      return [
+        {
+          loc: `${config.siteUrl}/coming-soon`,
+          changefreq: "daily",
+          priority: 1.0,
+          lastmod: new Date().toISOString(),
+        },
+      ];
+    }
 
-    // Add additional dynamic routes
+    // Otherwise, include dynamic blog routes
+    const dynamicBlogRoutes = await fetchDynamicBlogRoutes();
     return dynamicBlogRoutes.map((route) => ({
       loc: `${config.siteUrl}${route}`,
       changefreq: "daily",
