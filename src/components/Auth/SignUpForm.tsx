@@ -3,7 +3,7 @@
 import React, { useState } from "react";
 import Link from "next/link";
 import ReCAPTCHA from "react-google-recaptcha";
-import axios from "axios";
+import { createUser } from "@/api/user"; // Ensure this is the correct path
 import styles from "./styles/styles.module.css";
 
 const SignUpForm: React.FC = () => {
@@ -70,14 +70,20 @@ const SignUpForm: React.FC = () => {
 
   const submitDataToWordPress = async () => {
     setLoading(true);
-    try {
-      // Send the form data and captchaToken to your WordPress backend
-      const response = await axios.post("/api/signup", {
-        ...formData,
-        captchaToken,
-      });
+    const { email, password, jobType, firstName, lastName } = formData;
 
-      if (response.data.success) {
+    try {
+      // Use the `createUser` function as provided in your code
+      const response = await createUser(
+        email,
+        email, // Assuming username and email are the same
+        password,
+        jobType,
+        firstName,
+        lastName,
+      );
+
+      if (response.success) {
         setSuccess("Account created successfully! You can now log in.");
         setFormData({
           firstName: "",
@@ -88,7 +94,7 @@ const SignUpForm: React.FC = () => {
           agreeToTerms: false,
         });
       } else {
-        setError("CAPTCHA verification failed.");
+        setError(response.message || "CAPTCHA verification failed.");
       }
     } catch (err) {
       setError("An error occurred during signup. Please try again.");
