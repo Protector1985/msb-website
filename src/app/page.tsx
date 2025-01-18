@@ -12,7 +12,7 @@ import LatesNews from "../components/Common/LatesNews";
 import Footer from "../components/Layouts/Footer";
 import getTabsData from "@/data/residentialSecurityTabs";
 import { getNPosts } from "@/api/getPosts";
-import ComingSoon from "./_coming-soon/page";
+import ComingSoon from "./coming-soon/page";
 import { cookies } from "next/headers";
 import { verifyToken } from "@/api/auth";
 import { redirect } from "next/navigation";
@@ -28,6 +28,10 @@ export default async function Home() {
     isAuthenticated = true;
   }
   const userNickname = cookieStore.get("user_nicename")?.value;
+
+  if(process.env.COMING_SOON === "ON") {
+    redirect("/coming-soon");
+  }
 
   //redirects to the blog only as long as the fbn is not approved
   if (process.env.FBN_APPROVED === "NO") {
