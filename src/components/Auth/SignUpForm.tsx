@@ -19,7 +19,9 @@ const SignUpForm: React.FC = () => {
     agreeToTerms: false,
   });
   const [error, setError] = useState<string | null>(null);
-  const [success, setSuccess] = useState<string | null>(null);
+
+  const isDevelopment =
+    typeof window !== "undefined" && window.location.hostname === "localhost";
 
   const handleInputChange = (
     e: React.ChangeEvent<HTMLInputElement | HTMLSelectElement>,
@@ -49,7 +51,6 @@ const SignUpForm: React.FC = () => {
   const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
     setError(null);
-    setSuccess(null);
 
     const { firstName, lastName, email, password, jobType, agreeToTerms } =
       formData;
@@ -64,8 +65,13 @@ const SignUpForm: React.FC = () => {
       return;
     }
 
-    // Show the CAPTCHA instead of the submit button
-    setShowCaptcha(true);
+    // If on localhost, skip CAPTCHA and directly submit the form
+    if (isDevelopment) {
+      submitDataToWordPress();
+    } else {
+      // Show the CAPTCHA instead of the submit button
+      setShowCaptcha(true);
+    }
   };
 
   const submitDataToWordPress = async () => {
@@ -84,7 +90,6 @@ const SignUpForm: React.FC = () => {
       );
 
       if (response.success) {
-        setSuccess("Account created successfully! You can now log in.");
         setFormData({
           firstName: "",
           lastName: "",
@@ -249,7 +254,6 @@ const SignUpForm: React.FC = () => {
                 </div>
               </div>
             </form>
-            {success && <p className={styles.successMessage}>{success}</p>}
           </div>
         </div>
       </section>
