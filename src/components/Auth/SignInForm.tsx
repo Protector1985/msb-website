@@ -83,13 +83,6 @@ const SignInForm: React.FC = () => {
                   </div>
                 </div>
 
-                <div className="col-lg-6 col-sm-6 form-condition">
-                  <div className="agree-label">
-                    <input type="checkbox" id="chb1" />
-                    <label htmlFor="chb1">Remember Me</label>
-                  </div>
-                </div>
-
                 <div className="col-lg-6 col-sm-6">
                   <Link href="/forgot-password" className="forget">
                     Forgot my password?

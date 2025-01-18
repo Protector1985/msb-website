@@ -1,0 +1,12 @@
+.errorMessage {
+  color: #dc3545;
+  margin-top: 0px;
+  margin-bottom: 0px;
+  font-weight: 400;
+  font-size: 18px;
+}
+
+.captcha {
+  display: flex;
+  justify-content: center;
+}

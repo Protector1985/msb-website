@@ -2,14 +2,17 @@
 
 import React, { useState } from "react";
 import Link from "next/link";
+import ReCAPTCHA from "react-google-recaptcha";
 import axios from "axios";
-import { createUser } from "@/api/user";
+import styles from "./styles/styles.module.css";
 
 const SignUpForm: React.FC = () => {
+  const [loading, setLoading] = useState(false);
+  const [showCaptcha, setShowCaptcha] = useState(false); // State to show reCAPTCHA
+  const [captchaToken, setCaptchaToken] = useState<string | null>(null); // Captcha token
   const [formData, setFormData] = useState({
     firstName: "",
     lastName: "",
-    username: "",
     email: "",
     password: "",
     jobType: "",
@@ -36,29 +39,22 @@ const SignUpForm: React.FC = () => {
     }
   };
 
-  const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
+  const handleCaptchaChange = (token: string | null) => {
+    setCaptchaToken(token); // Store the token for verification
+    if (token) {
+      submitDataToWordPress(); // Proceed to submit data once captcha is solved
+    }
+  };
+
+  const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
     setError(null);
     setSuccess(null);
 
-    const {
-      firstName,
-      lastName,
-      username,
-      email,
-      password,
-      jobType,
-      agreeToTerms,
-    } = formData;
+    const { firstName, lastName, email, password, jobType, agreeToTerms } =
+      formData;
 
-    if (
-      !firstName ||
-      !lastName ||
-      !username ||
-      !email ||
-      !password ||
-      !jobType
-    ) {
+    if (!firstName || !lastName || !email || !password || !jobType) {
       setError("All fields are required.");
       return;
     }
@@ -68,31 +64,37 @@ const SignUpForm: React.FC = () => {
       return;
     }
 
-    try {
-      // Example API call to create a user
-      const response = await createUser(
-        username,
-        email,
-        password,
-        jobType,
-        firstName,
-        lastName,
-      );
+    // Show the CAPTCHA instead of the submit button
+    setShowCaptcha(true);
+  };
 
-      if (response.success) {
+  const submitDataToWordPress = async () => {
+    setLoading(true);
+    try {
+      // Send the form data and captchaToken to your WordPress backend
+      const response = await axios.post("/api/signup", {
+        ...formData,
+        captchaToken,
+      });
+
+      if (response.data.success) {
         setSuccess("Account created successfully! You can now log in.");
         setFormData({
           firstName: "",
           lastName: "",
-          username: "",
           email: "",
           password: "",
           jobType: "",
           agreeToTerms: false,
         });
+      } else {
+        setError("CAPTCHA verification failed.");
       }
     } catch (err) {
       setError("An error occurred during signup. Please try again.");
+    } finally {
+      setLoading(false);
+      setShowCaptcha(false); // Hide the CAPTCHA after submission
     }
   };
 
@@ -130,21 +132,6 @@ const SignUpForm: React.FC = () => {
                       name="lastName"
                       placeholder="Last Name"
                       value={formData.lastName}
-                      onChange={handleInputChange}
-                      required
-                    />
-                  </div>
-                </div>
-
-                {/* Username Field */}
-                <div className="col-md-12 col-sm-12">
-                  <div className="form-group">
-                    <input
-                      className="form-control"
-                      type="text"
-                      name="username"
-                      placeholder="Username"
-                      value={formData.username}
                       onChange={handleInputChange}
                       required
                     />
@@ -194,15 +181,22 @@ const SignUpForm: React.FC = () => {
                       <option value="" disabled>
                         Job Type
                       </option>
-                      <option value="ESTATE_MANAGER">
-                        Estate/Property Manager
-                      </option>
-                      <option value="EXECUTIVE_ASSISTANT">
-                        Executive Assistant
-                      </option>
                       <option value="SECURITY_PROFESSIONAL">
                         Security Professional
                       </option>
+                      <option value="PROPERTY_MANAGER">Property Manager</option>
+                      <option value="ESTATE_MANAGER">Estate Manager</option>
+                      <option value="EXECUTIVE_ASSISTANT">
+                        Executive Assistant
+                      </option>
+                      <option value="PERSONAL_ASSISTANT">
+                        Personal Assistant
+                      </option>
+                      <option value="CFO">CFO</option>
+                      <option value="ACCOUNTING">Accountant</option>
+                      <option value="CHIEF_OF_STAFF">Chief of Staff</option>
+                      <option value="HOUSE_KEEPER">House Keeper</option>
+                      <option value="OTHER">Other</option>
                     </select>
                   </div>
                 </div>
@@ -224,26 +218,32 @@ const SignUpForm: React.FC = () => {
                       <Link href="/privacy-policy">Privacy Policy</Link>
                     </label>
                   </div>
+                  {error && <p className={styles.errorMessage}>{error}</p>}
                 </div>
 
-                {/* Submit Button */}
+                {/* Submit Button or CAPTCHA */}
                 <div className="col-12">
-                  {error && <p className="error-message">{error}</p>}
-                  {success && <p className="success-message">{success}</p>}
-                  <button className="default-btn btn-two" type="submit">
-                    Sign Up
-                  </button>
-                </div>
-
-                {/* Already Registered */}
-                <div className="col-12">
-                  <p className="account-desc">
-                    Already have an account?{" "}
-                    <Link href="/sign-in">Sign In</Link>
-                  </p>
+                  {showCaptcha ? (
+                    <div className={styles.captcha}>
+                      <ReCAPTCHA
+                        className={styles.captcha}
+                        sitekey={`${process.env.NEXT_PUBLIC_CAPTCHA_SITE_KEY}`} // Replace with your actual Site Key
+                        onChange={handleCaptchaChange}
+                      />
+                    </div>
+                  ) : (
+                    <button
+                      disabled={loading}
+                      className="default-btn btn-two"
+                      type="submit"
+                    >
+                      {loading ? "Please wait..." : "Sign Up"}
+                    </button>
+                  )}
                 </div>
               </div>
             </form>
+            {success && <p className={styles.successMessage}>{success}</p>}
           </div>
         </div>
       </section>

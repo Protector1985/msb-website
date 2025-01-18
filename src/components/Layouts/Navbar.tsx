@@ -7,6 +7,7 @@ import Image from "next/image";
 import MenuItem from "./MenuItem";
 import { menus } from "../../../libs/menus";
 import styles from "./navbarStyles/styles.module.css";
+import Button from "../Button/Button";
 
 interface NavbarInterface {
   isAuthenticated: boolean;
@@ -90,9 +91,12 @@ const Navbar: React.FC<NavbarInterface> = ({ isAuthenticated, nickName }) => {
                           className={styles.welcomeMessage}
                         >{`${nickName}, is logged in`}</p>
                       ) : (
-                        <Link href="/sign-in" className="default-btn">
-                          Login
-                        </Link>
+                        <Button
+                          type="ROUTING"
+                          route="/sign-in"
+                          text="Login"
+                          color="PINK"
+                        />
                       )}
                     </div>
                   </div>
