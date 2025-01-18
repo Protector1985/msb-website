@@ -13,16 +13,25 @@ import Footer from "../components/Layouts/Footer";
 import getTabsData from "@/data/residentialSecurityTabs";
 import { getNPosts } from "@/api/getPosts";
 import ComingSoon from "./coming-soon/page";
+import { cookies } from "next/headers";
+import { verifyToken } from "@/api/auth";
 
 export default async function Home() {
   const tabsData = await getTabsData();
   const posts = await getNPosts(3);
+  let isAuthenticated = false;
+  const cookieStore = cookies();
+  const authToken = cookieStore.get("auth_token")?.value;
+  if (authToken) {
+    isAuthenticated = true;
+  }
+  const userNickname = cookieStore.get("user_nicename")?.value;
 
   return process.env.COMING_SOON !== "OFF" ? (
     <ComingSoon />
   ) : (
     <>
-      <Navbar />
+      <Navbar isAuthenticated={isAuthenticated} nickName={userNickname} />
 
       <MainBanner />
 

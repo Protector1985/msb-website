@@ -6,6 +6,17 @@
   overflow: hidden;
 }
 
+.noHover:hover {
+  pointer-events: none;
+  cursor: default;
+}
+
+.welcomeMessage {
+  margin-top: 0px;
+  margin-bottom: 0px;
+  color: white;
+}
+
 .logo {
   object-fit: contain;
 }

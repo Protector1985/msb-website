@@ -6,6 +6,7 @@ import Sidebar from "./Sidebar";
 import Image from "next/image";
 import moment from "moment";
 import LeaveAComment from "./LeaveAComment";
+import { getToken } from "@/api/auth";
 
 async function BlogDetailsContent({ post, author }: any) {
   return (

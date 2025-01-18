@@ -6,6 +6,7 @@ import Footer from "../../../components/Layouts/Footer";
 import { getPostById } from "@/api/getPosts";
 import { getAuthorById } from "@/api/getAuthor";
 import { getComments } from "@/api/comments";
+import { cookies } from "next/headers";
 
 export default async function Page({
   searchParams,
@@ -16,10 +17,17 @@ export default async function Page({
   const post = await getPostById(searchParams.id);
   const author = await getAuthorById(post?.data.author);
   const comments = await getComments(searchParams.id);
+  const cookieStore = cookies();
+  let isAuthenticated = false;
+  const authToken = cookieStore.get("auth_token")?.value;
+  if (authToken) {
+    isAuthenticated = true;
+  }
+  const userNickname = cookieStore.get("user_nicename")?.value;
 
   return (
     <>
-      <Navbar />
+      <Navbar isAuthenticated={isAuthenticated} nickName={userNickname} />
 
       <PageBanner
         pageTitle="Blog Details"

@@ -5,6 +5,7 @@ import FsLightbox from "fslightbox-react";
 import Link from "next/link";
 import Features from "./Features";
 import styles from "./styles/mainBanner.module.css";
+import Button from "../Button/Button";
 
 const MainBanner: React.FC = () => {
   // const [toggler, setToggler] = useState(false);
@@ -39,12 +40,18 @@ const MainBanner: React.FC = () => {
                   evolving threats.
                 </p>
                 <div className="banner-btn">
-                  <Link href="/contact" className="default-btn">
-                    Quote
-                  </Link>
-                  <Link href="/about" className="default-btn active">
-                    About Us
-                  </Link>
+                  <Button
+                    type="ROUTING"
+                    route="/contact"
+                    text="Free Assessment"
+                    color="PINK"
+                  />
+                  <Button
+                    type="ROUTING"
+                    route="/about"
+                    text="About Us"
+                    color="WHITE"
+                  />
                 </div>
               </div>
             </div>

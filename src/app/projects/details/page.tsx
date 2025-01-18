@@ -8,7 +8,7 @@ import ProjectDetailsContent from "../../../components/Projects/ProjectDetailsCo
 export default function Page() {
   return (
     <>
-      <Navbar />
+      {/* <Navbar /> */}
 
       <PageBanner
         pageTitle="Project Details"

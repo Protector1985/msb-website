@@ -13,13 +13,13 @@ const TopHeader: React.FC = () => {
             <div className="col-lg-6 col-sm-8">
               <ul className="header-content-left">
                 <li>
-                  <a href="mailto:hello@pisa.com">
+                  <div>
                     <i className="bx bx-envelope"></i>
                     Email:{" "}
                     <a href="mailto:admin@msbprotection.com">
                       admin@msbprotection.com
                     </a>
-                  </a>
+                  </div>
                 </li>
               </ul>
             </div>

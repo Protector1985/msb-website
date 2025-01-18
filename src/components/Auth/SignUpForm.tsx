@@ -1,58 +1,144 @@
 "use client";
 
-import React from "react";
+import React, { useState } from "react";
 import Link from "next/link";
+import ReCAPTCHA from "react-google-recaptcha";
+import axios from "axios";
+import styles from "./styles/styles.module.css";
 
 const SignUpForm: React.FC = () => {
+  const [loading, setLoading] = useState(false);
+  const [showCaptcha, setShowCaptcha] = useState(false); // State to show reCAPTCHA
+  const [captchaToken, setCaptchaToken] = useState<string | null>(null); // Captcha token
+  const [formData, setFormData] = useState({
+    firstName: "",
+    lastName: "",
+    email: "",
+    password: "",
+    jobType: "",
+    agreeToTerms: false,
+  });
+  const [error, setError] = useState<string | null>(null);
+  const [success, setSuccess] = useState<string | null>(null);
+
+  const handleInputChange = (
+    e: React.ChangeEvent<HTMLInputElement | HTMLSelectElement>,
+  ) => {
+    const target = e.target;
+
+    if (target.type === "checkbox") {
+      setFormData({
+        ...formData,
+        [target.name]: (target as HTMLInputElement).checked,
+      });
+    } else {
+      setFormData({
+        ...formData,
+        [target.name]: target.value,
+      });
+    }
+  };
+
+  const handleCaptchaChange = (token: string | null) => {
+    setCaptchaToken(token); // Store the token for verification
+    if (token) {
+      submitDataToWordPress(); // Proceed to submit data once captcha is solved
+    }
+  };
+
+  const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
+    e.preventDefault();
+    setError(null);
+    setSuccess(null);
+
+    const { firstName, lastName, email, password, jobType, agreeToTerms } =
+      formData;
+
+    if (!firstName || !lastName || !email || !password || !jobType) {
+      setError("All fields are required.");
+      return;
+    }
+
+    if (!agreeToTerms) {
+      setError("You must agree to the terms and conditions.");
+      return;
+    }
+
+    // Show the CAPTCHA instead of the submit button
+    setShowCaptcha(true);
+  };
+
+  const submitDataToWordPress = async () => {
+    setLoading(true);
+    try {
+      // Send the form data and captchaToken to your WordPress backend
+      const response = await axios.post("/api/signup", {
+        ...formData,
+        captchaToken,
+      });
+
+      if (response.data.success) {
+        setSuccess("Account created successfully! You can now log in.");
+        setFormData({
+          firstName: "",
+          lastName: "",
+          email: "",
+          password: "",
+          jobType: "",
+          agreeToTerms: false,
+        });
+      } else {
+        setError("CAPTCHA verification failed.");
+      }
+    } catch (err) {
+      setError("An error occurred during signup. Please try again.");
+    } finally {
+      setLoading(false);
+      setShowCaptcha(false); // Hide the CAPTCHA after submission
+    }
+  };
+
   return (
     <>
       <section className="user-area-all-style sign-up-area ptb-100">
         <div className="container">
           <div className="section-title">
             <h2>Create an account!</h2>
-            <p>
-              Lorem ipsum, dolor sit amet consectetur adipisicing elit.
-              Laudantium quas cumque iste veniam id dolorem deserunt ratione
-              error voluptas rem ullam possimus placeat, ut, odio
-            </p>
+            <p>To take full advantage of this page, sign-up for free!</p>
           </div>
 
           <div className="contact-form-action">
-            <form>
+            <form onSubmit={handleSubmit}>
               <div className="row">
+                {/* Name Field */}
                 <div className="col-md-12 col-sm-12">
                   <div className="form-group">
                     <input
                       className="form-control"
                       type="text"
-                      name="name"
+                      name="firstName"
                       placeholder="First Name"
+                      value={formData.firstName}
+                      onChange={handleInputChange}
+                      required
                     />
                   </div>
                 </div>
-
                 <div className="col-md-12 col-sm-12">
                   <div className="form-group">
                     <input
                       className="form-control"
                       type="text"
-                      name="name"
+                      name="lastName"
                       placeholder="Last Name"
+                      value={formData.lastName}
+                      onChange={handleInputChange}
+                      required
                     />
                   </div>
                 </div>
 
-                <div className="col-md-12 col-sm-12">
-                  <div className="form-group">
-                    <input
-                      className="form-control"
-                      type="text"
-                      name="name"
-                      placeholder="Username"
-                    />
-                  </div>
-                </div>
-
+                {/* Email Field */}
                 <div className="col-md-12 col-sm-12">
                   <div className="form-group">
                     <input
@@ -60,46 +146,104 @@ const SignUpForm: React.FC = () => {
                       type="email"
                       name="email"
                       placeholder="Email Address"
+                      value={formData.email}
+                      onChange={handleInputChange}
+                      required
                     />
                   </div>
                 </div>
 
+                {/* Password Field */}
                 <div className="col-md-12 col-sm-12">
                   <div className="form-group">
                     <input
                       className="form-control"
-                      type="text"
+                      type="password"
                       name="password"
                       placeholder="Password"
+                      value={formData.password}
+                      onChange={handleInputChange}
+                      required
                     />
                   </div>
                 </div>
 
+                {/* Job Type Field */}
+                <div className="col-md-12 col-sm-12">
+                  <div className="form-group">
+                    <select
+                      className="form-control"
+                      name="jobType"
+                      value={formData.jobType}
+                      onChange={handleInputChange}
+                      required
+                    >
+                      <option value="" disabled>
+                        Job Type
+                      </option>
+                      <option value="SECURITY_PROFESSIONAL">
+                        Security Professional
+                      </option>
+                      <option value="PROPERTY_MANAGER">Property Manager</option>
+                      <option value="ESTATE_MANAGER">Estate Manager</option>
+                      <option value="EXECUTIVE_ASSISTANT">
+                        Executive Assistant
+                      </option>
+                      <option value="PERSONAL_ASSISTANT">
+                        Personal Assistant
+                      </option>
+                      <option value="CFO">CFO</option>
+                      <option value="ACCOUNTING">Accountant</option>
+                      <option value="CHIEF_OF_STAFF">Chief of Staff</option>
+                      <option value="HOUSE_KEEPER">House Keeper</option>
+                      <option value="OTHER">Other</option>
+                    </select>
+                  </div>
+                </div>
+
+                {/* Terms & Conditions */}
                 <div className="col-md-12 col-sm-12 col-xs-12 form-condition">
                   <div className="agree-label">
-                    <input type="checkbox" id="chb2" />
+                    <input
+                      type="checkbox"
+                      id="chb2"
+                      name="agreeToTerms"
+                      checked={formData.agreeToTerms}
+                      onChange={handleInputChange}
+                      required
+                    />
                     <label htmlFor="chb2">
-                      I agree with Pisa
+                      I agree with
                       <Link href="/terms-conditions">Terms & Conditions</Link> &
                       <Link href="/privacy-policy">Privacy Policy</Link>
                     </label>
                   </div>
+                  {error && <p className={styles.errorMessage}>{error}</p>}
                 </div>
 
+                {/* Submit Button or CAPTCHA */}
                 <div className="col-12">
-                  <button className="default-btn btn-two" type="submit">
-                    Sign Up
-                  </button>
-                </div>
-
-                <div className="col-12">
-                  <p className="account-desc">
-                    Already have an account?{" "}
-                    <Link href="/sign-in">Sign In</Link>
-                  </p>
+                  {showCaptcha ? (
+                    <div className={styles.captcha}>
+                      <ReCAPTCHA
+                        className={styles.captcha}
+                        sitekey={`${process.env.NEXT_PUBLIC_CAPTCHA_SITE_KEY}`} // Replace with your actual Site Key
+                        onChange={handleCaptchaChange}
+                      />
+                    </div>
+                  ) : (
+                    <button
+                      disabled={loading}
+                      className="default-btn btn-two"
+                      type="submit"
+                    >
+                      {loading ? "Please wait..." : "Sign Up"}
+                    </button>
+                  )}
                 </div>
               </div>
             </form>
+            {success && <p className={styles.successMessage}>{success}</p>}
           </div>
         </div>
       </section>
