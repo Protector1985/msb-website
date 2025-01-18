@@ -1,223 +1,79 @@
-"use client";
-
-import React from "react";
+import React, { useState } from "react";
 import Link from "next/link";
 import Image from "next/image";
+import { getNPosts, getTotalPosts } from "@/api/getPosts";
+import styles from "./styles/blogGrid.module.css";
+import Pagination from '../Pagination/Pagination'
 
-const BlogGrid: React.FC = () => {
+export default async function BlogGrid({ searchParams }: { searchParams: { page?: string } }) {
+  const currentPage = parseInt(searchParams?.page || "1", 10); // Default to page 1
+  const postsPerPage = 6;
+
+  const totalPosts = await getTotalPosts(); // Fetch total posts
+  const totalPages = Math.ceil(totalPosts / postsPerPage); // Calculate total pages
+  const posts = await getNPosts(postsPerPage, currentPage);
+
+  // Handle page change (use React state to manage)
+  const handlePageChange = (page: number) => {
+    const url = new URL(window.location.href);
+    url.searchParams.set("page", page.toString());
+    window.location.href = url.toString(); // Navigate to the selected page
+  };
+
   return (
-    <>
-      <section className="blog-area ptb-100">
-        <div className="container">
-          <div className="section-title">
-            <h2>Our Latest Articles</h2>
-            <p>
-              Explore our insightful articles designed for security
-              professionals, estate managers, property managers, as well as
-              executive and personal assistants.
-            </p>
-          </div>
-
-          <div className="row">
-            <div className="col-lg-4 col-sm-6">
-              <div className="single-blog">
-                <Image
-                  src="/img/blog/blog1.jpg"
-                  alt="Image"
-                  width={570}
-                  height={600}
-                />
-
-                <div className="blog-content">
-                  <h3>
-                    <Link href="/blog/details">Secure Managed IT</Link>
-                  </h3>
-                  <p>
-                    Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed
-                    do eiusmod tempor incididunt ut labore et dolorer
-                  </p>
-
-                  <Link href="/blog/details" className="read-more">
-                    Read More
-                  </Link>
-                </div>
-              </div>
-            </div>
-
-            <div className="col-lg-4 col-sm-6">
-              <div className="single-blog">
-                <Image
-                  src="/img/blog/blog2.jpg"
-                  alt="Image"
-                  width={570}
-                  height={600}
-                />
-
-                <div className="blog-content">
-                  <h3>
-                    <Link href="/blog/details">Cloud Security</Link>
-                  </h3>
-                  <p>
-                    Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed
-                    do eiusmod tempor incididunt ut labore et dolorer
-                  </p>
-
-                  <Link href="/blog/details" className="read-more">
-                    Read More
-                  </Link>
-                </div>
-              </div>
-            </div>
-
-            <div className="col-lg-4 col-sm-6">
-              <div className="single-blog">
-                <Image
-                  src="/img/blog/blog3.jpg"
-                  alt="Image"
-                  width={570}
-                  height={600}
-                />
-
-                <div className="blog-content">
-                  <h3>
-                    <Link href="/blog/details">Secure Managed IT</Link>
-                  </h3>
-                  <p>
-                    Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed
-                    do eiusmod tempor incididunt ut labore et dolorer
-                  </p>
-
-                  <Link href="/blog/details" className="read-more">
-                    Read More
-                  </Link>
-                </div>
-              </div>
-            </div>
-
-            <div className="col-lg-4 col-sm-6">
-              <div className="single-blog">
-                <Image
-                  src="/img/blog/blog4.jpg"
-                  alt="Image"
-                  width={570}
-                  height={600}
-                />
-
-                <span>Cyber Security</span>
-                <div className="blog-content">
-                  <div className="date">
-                    <i className="bx bx-calendar"></i>
-                    Jun 20 2024
-                  </div>
-
-                  <h3>
-                    <Link href="/blog/details">
-                      DHS issues emergency directive to prevent hacking attack
-                    </Link>
-                  </h3>
-
-                  <Link href="/blog/details" className="read-more">
-                    Read More
-                  </Link>
-                </div>
-              </div>
-            </div>
-
-            <div className="col-lg-4 col-sm-6">
-              <div className="single-blog">
-                <Image
-                  src="/img/blog/blog5.jpg"
-                  alt="Image"
-                  width={570}
-                  height={600}
-                />
-
-                <span>Cyber Crime</span>
-                <div className="blog-content">
-                  <div className="date">
-                    <i className="bx bx-calendar"></i>
-                    Jun 21 2024
-                  </div>
-
-                  <h3>
-                    <Link href="/blog/details">
-                      Drughydrus add google drive to roughrobin torjan
-                    </Link>
-                  </h3>
-
-                  <Link href="/blog/details" className="read-more">
-                    Read More
-                  </Link>
-                </div>
-              </div>
-            </div>
-
-            <div className="col-lg-4 col-sm-6">
-              <div className="single-blog">
-                <Image
-                  src="/img/blog/blog6.jpg"
-                  alt="Image"
-                  width={570}
-                  height={600}
-                />
-
-                <span>Hacking Protection</span>
-                <div className="blog-content">
-                  <div className="date">
-                    <i className="bx bx-calendar"></i>
-                    Jun 22 2024
-                  </div>
-
-                  <h3>
-                    <Link href="/blog/details">
-                      Security in a fragment world of workload
-                    </Link>
-                  </h3>
-
-                  <Link href="/blog/details" className="read-more">
-                    Read More
-                  </Link>
-                </div>
-              </div>
-            </div>
-
-            {/* Pagination */}
-            <div className="col-lg-12">
-              <div className="page-navigation-area">
-                <ul className="pagination">
-                  <li className="page-item">
-                    <Link href="#" className="page-link page-links">
-                      <i className="bx bx-chevrons-left"></i>
-                    </Link>
-                  </li>
-                  <li className="page-item active">
-                    <Link href="#" className="page-link">
-                      1
-                    </Link>
-                  </li>
-                  <li className="page-item">
-                    <Link href="#" className="page-link">
-                      2
-                    </Link>
-                  </li>
-                  <li className="page-item">
-                    <Link href="#" className="page-link">
-                      3
-                    </Link>
-                  </li>
-                  <li className="page-item">
-                    <Link href="#" className="page-link">
-                      <i className="bx bx-chevrons-right"></i>
-                    </Link>
-                  </li>
-                </ul>
-              </div>
-            </div>
-          </div>
+    <section className="blog-area ptb-100">
+      <div className="container">
+        <div className="section-title">
+          <h2>Our Latest Articles</h2>
+          <p>
+            Explore our insightful articles designed for security
+            professionals, estate managers, property managers, as well as
+            executive and personal assistants.
+          </p>
         </div>
-      </section>
-    </>
-  );
-};
 
-export default BlogGrid;
+        <div className="row">
+          {posts?.map((post: any) => (
+            <div className="col-lg-4 col-sm-6" key={post.id}>
+              <div className={styles.singleBlog}>
+                <div className={styles.imageContainer}>
+                  <Image
+                    src={post.jetpack_featured_media_url || "/default.jpg"}
+                    alt={post.title.rendered}
+                    layout="fill"
+                    objectFit="cover"
+                    objectPosition="center"
+                    className={styles.image}
+                  />
+                </div>
+                <div className={styles.blogContent}>
+                  <h3>
+                    <Link href={`/blog/details/${post.id}/${post.slug}`}>
+                      {post.title.rendered}
+                    </Link>
+                  </h3>
+                  <p>
+                    {post.excerpt.rendered.replace(/<[^>]+>/g, "").slice(0, 120) + "..."}
+                  </p>
+                  <Link
+                    href={`/blog/details/${post.id}/${post.slug}`}
+                    className={`read-more ${styles.readMore}`}
+                  >
+                    Read More
+                  </Link>
+                </div>
+              </div>
+            </div>
+          ))}
+        </div>
+
+        {/* Pagination Controls */}
+        <Pagination
+          currentPage={currentPage}
+          totalPages={totalPages}
+          onPageChange={handlePageChange}
+        />
+      </div>
+    </section>
+  );
+}
