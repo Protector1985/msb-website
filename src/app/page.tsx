@@ -21,7 +21,6 @@ export default async function Home() {
   const tabsData = await getTabsData();
   const posts = await getNPosts(3);
 
-  
   let isAuthenticated = false;
   const cookieStore = cookies();
   const authToken = cookieStore.get("auth_token")?.value;
@@ -32,7 +31,7 @@ export default async function Home() {
 
   //redirects to the blog only as long as the fbn is not approved
   if (process.env.FBN_APPROVED === "NO") {
-    redirect("/blog"); 
+    redirect("/blog");
   }
 
   return process.env.COMING_SOON !== "OFF" ? (
@@ -60,7 +59,7 @@ export default async function Home() {
 
       {/* <CyberSecurityOperation /> */}
 
-      <LatesNews posts={posts} /> 
+      <LatesNews posts={posts} />
 
       <Footer />
     </>

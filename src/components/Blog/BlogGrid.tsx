@@ -1,23 +1,39 @@
-import React, { useState } from "react";
+"use client";
+
+import React, { useEffect, useState } from "react";
 import Link from "next/link";
 import Image from "next/image";
-import { getNPosts, getTotalPosts } from "@/api/getPosts";
+import axios from "axios";
+import Pagination from "../Pagination/Pagination";
 import styles from "./styles/blogGrid.module.css";
-import Pagination from '../Pagination/Pagination'
 
-export default async function BlogGrid({ searchParams }: { searchParams: { page?: string } }) {
-  const currentPage = parseInt(searchParams?.page || "1", 10); // Default to page 1
-  const postsPerPage = 6;
+const BlogGrid: React.FC = () => {
+  const [posts, setPosts] = useState<any[]>([]); // Store posts
+  const [currentPage, setCurrentPage] = useState(1); // Current page
+  const [totalPages, setTotalPages] = useState(1); // Total pages
+  const postsPerPage = 6; // Number of posts per page
 
-  const totalPosts = await getTotalPosts(); // Fetch total posts
-  const totalPages = Math.ceil(totalPosts / postsPerPage); // Calculate total pages
-  const posts = await getNPosts(postsPerPage, currentPage);
+  // Fetch posts dynamically
+  const fetchPosts = async (page: number) => {
+    try {
+      const response = await axios.get(
+        `${process.env.NEXT_PUBLIC_WORDPRESS_API}/posts?_embed&per_page=${postsPerPage}&page=${page}`,
+      );
+      setPosts(response.data); // Set posts
+      const totalPosts = parseInt(response.headers["x-wp-total"], 10); // Total posts from headers
+      setTotalPages(Math.ceil(totalPosts / postsPerPage)); // Calculate total pages
+    } catch (err) {
+      console.error("Error fetching posts:", err);
+    }
+  };
 
-  // Handle page change (use React state to manage)
+  // Fetch posts whenever the page changes
+  useEffect(() => {
+    fetchPosts(currentPage);
+  }, [currentPage]);
+
   const handlePageChange = (page: number) => {
-    const url = new URL(window.location.href);
-    url.searchParams.set("page", page.toString());
-    window.location.href = url.toString(); // Navigate to the selected page
+    setCurrentPage(page); // Update current page
   };
 
   return (
@@ -26,23 +42,23 @@ export default async function BlogGrid({ searchParams }: { searchParams: { page?
         <div className="section-title">
           <h2>Our Latest Articles</h2>
           <p>
-            Explore our insightful articles designed for security
-            professionals, estate managers, property managers, as well as
-            executive and personal assistants.
+            Explore our insightful articles designed for security professionals,
+            estate managers, property managers, as well as executive and
+            personal assistants.
           </p>
         </div>
 
         <div className="row">
-          {posts?.map((post: any) => (
+          {posts.map((post: any) => (
             <div className="col-lg-4 col-sm-6" key={post.id}>
               <div className={styles.singleBlog}>
                 <div className={styles.imageContainer}>
                   <Image
-                    src={post.jetpack_featured_media_url || "/default.jpg"}
+                    src={post.jetpack_featured_media_url || "/default.jpg"} // Fallback to default image
                     alt={post.title.rendered}
-                    layout="fill"
-                    objectFit="cover"
-                    objectPosition="center"
+                    layout="fill" // Fill container
+                    objectFit="cover" // Proper cropping
+                    objectPosition="center" // Center the image
                     className={styles.image}
                   />
                 </div>
@@ -53,7 +69,9 @@ export default async function BlogGrid({ searchParams }: { searchParams: { page?
                     </Link>
                   </h3>
                   <p>
-                    {post.excerpt.rendered.replace(/<[^>]+>/g, "").slice(0, 120) + "..."}
+                    {post.excerpt.rendered
+                      .replace(/<[^>]+>/g, "")
+                      .slice(0, 120) + "..."}
                   </p>
                   <Link
                     href={`/blog/details/${post.id}/${post.slug}`}
@@ -76,4 +94,6 @@ export default async function BlogGrid({ searchParams }: { searchParams: { page?
       </div>
     </section>
   );
-}
+};
+
+export default BlogGrid;

@@ -14,12 +14,12 @@ export default async function Page({
   params: { id: string; slug: string };
 }) {
   let isAuthenticated = false;
-    const cookieStore = cookies();
-    const authToken = cookieStore.get("auth_token")?.value;
-    if (authToken) {
-      isAuthenticated = true;
-    }
-    const userNickname = cookieStore.get("user_nicename")?.value;
+  const cookieStore = cookies();
+  const authToken = cookieStore.get("auth_token")?.value;
+  if (authToken) {
+    isAuthenticated = true;
+  }
+  const userNickname = cookieStore.get("user_nicename")?.value;
   // Fetch the post by ID
   const post = await getPostById(params.id);
 
