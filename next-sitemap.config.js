@@ -1,25 +1,31 @@
+const fetchDynamicBlogRoutes = async () => {
+  // Replace with your actual API call or function to fetch posts
+  const posts = await getNPosts(100); // Fetch posts dynamically
+  return posts.map((post) => `/blog/details/${post.id}/${post.slug}`);
+};
+
 module.exports = {
   siteUrl: process.env.SITE_URL,
   generateRobotsTxt: true,
-  exclude: [],
+  exclude: [], // Specify routes to exclude, if any
+  additionalPaths: async (config) => {
+    const dynamicBlogRoutes = await fetchDynamicBlogRoutes();
+
+    // Add additional dynamic routes
+    return dynamicBlogRoutes.map((route) => ({
+      loc: `${config.siteUrl}${route}`,
+      changefreq: "daily",
+      priority: 0.8,
+      lastmod: new Date().toISOString(),
+    }));
+  },
   transform: async (config, path) => {
-    if (process.env.COMING_SOON !== "OFF") {
-      if (path === "/") {
-        return {
-          loc: `${config.siteUrl}${path}`,
-          changefreq: "daily",
-          priority: 1.0,
-          lastmod: new Date().toISOString(),
-        };
-      }
-    } else {
-      return {
-        loc: `${config.siteUrl}${path}`,
-        changefreq: "daily",
-        priority: 1.0,
-        lastmod: new Date().toISOString(),
-      };
-    }
-    return undefined;
+    // Customize sitemap entries
+    return {
+      loc: `${config.siteUrl}${path}`,
+      changefreq: "daily",
+      priority: 1.0,
+      lastmod: new Date().toISOString(),
+    };
   },
 };
