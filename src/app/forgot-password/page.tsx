@@ -7,7 +7,7 @@ import ForgotPasswordForm from "../../components/Auth/ForgotPasswordForm";
 export default function Page() {
   return (
     <>
-      <Navbar />
+      {/* <Navbar /> */}
 
       <PageBanner
         pageTitle="Forgot Password"

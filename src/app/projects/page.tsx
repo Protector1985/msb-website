@@ -8,7 +8,7 @@ import ProjectsCard from "../../components/Projects/ProjectsCard";
 export default function Page() {
   return (
     <>
-      <Navbar />
+      {/* <Navbar /> */}
 
       <PageBanner
         pageTitle="Projects"

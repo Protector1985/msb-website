@@ -7,7 +7,7 @@ import Footer from "../../../components/Layouts/Footer";
 export default function Page() {
   return (
     <>
-      <Navbar />
+      {/* <Navbar /> */}
 
       <PageBanner
         pageTitle="Blog Left Sidebar"
