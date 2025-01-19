@@ -29,7 +29,7 @@ export default async function Home() {
   }
   const userNickname = cookieStore.get("user_nicename")?.value;
 
-  if(process.env.COMING_SOON === "ON") {
+  if (process.env.COMING_SOON === "ON") {
     redirect("/coming-soon");
   }
 
