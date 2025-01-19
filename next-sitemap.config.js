@@ -9,7 +9,10 @@ const fetchDynamicBlogRoutes = async () => {
 module.exports = {
   siteUrl: process.env.SITE_URL,
   generateRobotsTxt: true,
-  exclude: process.env.COMING_SOON === "ON" ? ["*", "!/coming-soon"] : ["/coming-soon"],
+  exclude:
+    process.env.COMING_SOON === "ON"
+      ? ["*", "!/coming-soon"]
+      : ["/coming-soon"],
   additionalPaths: async (config) => {
     // Check if the COMING_SOON page should be the only route
     if (process.env.COMING_SOON === "ON") {

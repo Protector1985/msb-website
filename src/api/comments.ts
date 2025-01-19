@@ -7,21 +7,32 @@ interface CommentPayload {
   content: string;
 }
 
-async function getComments(postId: string) {
-  const res = await fetch(
-    `${process.env.WORDPRESS_API}/comments?post=${postId}`,
+async function getComments(postId: number) {
+  const res = await axios.get(
+    `${process.env.NEXT_PUBLIC_WORDPRESS_API}/comments?post=${postId}`,
   );
-  if (!res.ok) {
-    throw new Error("Failed to fetch post");
-  }
-  return res.json();
+
+  return res.data;
 }
 
-async function postComment(payload: CommentPayload) {
-  return await axios.post(
-    `${process.env.NEXT_PUBLIC_WORDPRESS_API}/comments`,
-    payload,
-  );
+async function postComment(payload: CommentPayload, token: string) {
+  try {
+    const response = await axios.post(
+      `${process.env.NEXT_PUBLIC_WORDPRESS_API}/comments`,
+      payload,
+      {
+        headers: {
+          Authorization: `Bearer ${token}`, // Attach the token in the Authorization header
+          "Content-Type": "application/json", // Ensure proper content type
+        },
+      },
+    );
+    console.log(response);
+    return { success: true };
+  } catch (error) {
+    console.error("Error posting comment:", error);
+    throw error;
+  }
 }
 
 export { getComments, postComment };

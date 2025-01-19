@@ -1,0 +1,17 @@
+.inputContainer {
+  margin-bottom: 20px;
+}
+
+.forgotPw {
+  width: 98%;
+
+  display: flex;
+  justify-content: space-between;
+}
+
+.btnContainer {
+  width: 98%;
+  margin: auto;
+  display: flex;
+  justify-content: center;
+}

@@ -1,47 +1,56 @@
 "use client";
 
-import { getToken } from "@/api/auth";
 import { postComment } from "@/api/comments";
 import React, { useState } from "react";
 
-const LeaveAComment: React.FC<any> = ({ postId }) => {
-  const [name, setName] = useState("");
-  const [email, setEmail] = useState("");
+interface LeaveACommentProps {
+  postId: number;
+  token: string;
+  name: string;
+  email: string;
+  onNewComment: (newComment: any) => void; // Callback to handle new comments dynamically
+}
+
+const LeaveAComment: React.FC<LeaveACommentProps> = ({
+  postId,
+  token,
+  name,
+  email,
+  onNewComment,
+}) => {
   const [text, setText] = useState("");
   const [error, setError] = useState<string | null>(null);
+  const [loading, setLoading] = useState(false);
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
-    // const res = await getToken("user", "pnl:JKqBlB5a")
-    // console.log(res)
-    // console.log("SUBMITTING");
-    // // Validate all fields are filled out
-    // if (!name || !email || !text) {
-    //   setError("All fields are required.");
-    //   return;
-    // }
 
-    // setError(null); // Clear any previous errors
+    // Validate all fields are filled out
+    if (!name || !email || !text) {
+      setError("All fields are required.");
+      return;
+    }
 
-    // const payload = {
-    //   post: postId,
-    //   author_name: name,
-    //   author_email: email,
-    //   content: text,
-    // };
+    setError(null); // Clear any previous errors
+    setLoading(true); // Set loading state
 
-    // try {
-    //   const res = await postComment(payload); // Assuming `postComment` is an async function
-    //   console.log("Comment submitted:", res);
+    const payload = {
+      post: postId,
+      author_name: name,
+      author_email: email,
+      content: text,
+    };
 
-    //   // Optionally clear the form after successful submission
-    //   //   setName('');
-    //   //   setEmail('');
-    //   //   setText('');
-    // } catch (err) {
-    //   console.error("Failed to submit comment:", err);
-    //   setError("Failed to submit your comment. Please try again.");
-    // }
+    try {
+      const newComment = await postComment(payload, token); // Assuming `postComment` is an async function
+      onNewComment(newComment); // Pass the new comment to the parent component
+      setText(""); // Clear the form after successful submission
+    } catch (err) {
+      console.error("Failed to submit comment:", err);
+      setError("Failed to submit your comment. Please try again.");
+    } finally {
+      setLoading(false); // Reset loading state
+    }
   };
 
   return (
@@ -51,41 +60,6 @@ const LeaveAComment: React.FC<any> = ({ postId }) => {
       {error && <p style={{ color: "red" }}>{error}</p>}
 
       <form className="comment-form" onSubmit={handleSubmit}>
-        <p className="comment-notes">
-          <span id="email-notes">
-            Your email address will not be published.
-          </span>
-          Required fields are marked <span className="required">*</span>
-        </p>
-
-        <p className="comment-form-author">
-          <label>
-            Name <span className="required">*</span>
-          </label>
-          <input
-            type="text"
-            id="author"
-            name="author"
-            value={name}
-            onChange={(e) => setName(e.target.value)}
-            required
-          />
-        </p>
-
-        <p className="comment-form-email">
-          <label>
-            Email <span className="required">*</span>
-          </label>
-          <input
-            type="email"
-            id="email"
-            name="email"
-            value={email}
-            onChange={(e) => setEmail(e.target.value)}
-            required
-          />
-        </p>
-
         <p className="comment-form-comment">
           <label>Comment</label>
           <textarea
@@ -105,7 +79,8 @@ const LeaveAComment: React.FC<any> = ({ postId }) => {
             name="submit"
             id="submit"
             className="submit"
-            value="Post A Comment"
+            value={loading ? "Posting..." : "Post A Comment"}
+            disabled={loading} // Disable the button while loading
           />
         </p>
       </form>

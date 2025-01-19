@@ -5,14 +5,17 @@ export async function POST(req: Request) {
   const { token, user_email, user_nicename, user_display_name } =
     await req.json();
 
-  if (!token || !user_nicename || !user_display_name) {
+  if (!token || !user_email || !user_nicename || !user_display_name) {
     return NextResponse.json(
       { error: "Missing required fields" },
       { status: 400 },
     );
   }
 
-  const response = NextResponse.json({ message: "Session set successfully" });
+  const response = NextResponse.json({
+    success: true,
+    message: "Session set successfully",
+  });
 
   // Set auth_token cookie
   response.headers.append(
@@ -42,6 +45,18 @@ export async function POST(req: Request) {
   response.headers.append(
     "Set-Cookie",
     serialize("user_display_name", user_display_name, {
+      httpOnly: false, // Allow client-side access if needed
+      secure: process.env.NODE_ENV === "production",
+      sameSite: "strict",
+      path: "/",
+      maxAge: 7 * 24 * 60 * 60,
+    }),
+  );
+
+  // Set user_email cookie
+  response.headers.append(
+    "Set-Cookie",
+    serialize("user_email", user_email, {
       httpOnly: false, // Allow client-side access if needed
       secure: process.env.NODE_ENV === "production",
       sameSite: "strict",
