@@ -202,9 +202,7 @@ const DynamicComments: React.FC<Props> = ({
           ))}
       </ol>
 
-      {!isAuthenticated ? (
-        <PleaseLogIn />
-      ) : (
+      
         <LeaveAComment
           email={userEmail || ""}
           name={userName || ""}
@@ -212,7 +210,7 @@ const DynamicComments: React.FC<Props> = ({
           postId={postId}
           onNewComment={handleNewComment}
         />
-      )}
+     
     </div>
   );
 };
