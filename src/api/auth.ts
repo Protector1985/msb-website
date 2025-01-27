@@ -20,13 +20,10 @@ async function verifyToken(token: string) {
 
 async function getToken(username: string, password: string) {
   try {
-    const response = await axios.post(
-      `${process.env.NEXT_PUBLIC_WORDPRESS_JWT_API}`,
-      {
-        username,
-        password,
-      },
-    );
+    const response = await axios.post(`${process.env.WORDPRESS_JWT_API}`, {
+      username,
+      password,
+    });
 
     // Extract the required data from the response
     const { token, user_email, user_nicename, user_display_name } =
