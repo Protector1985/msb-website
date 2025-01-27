@@ -26,8 +26,6 @@ const PleaseLogIn: React.FC = () => {
         user_display_name,
       });
 
-      console.log(response);
-
       if (response.data.success) {
         window.location.reload();
       } else {

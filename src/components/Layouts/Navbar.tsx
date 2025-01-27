@@ -86,7 +86,7 @@ const Navbar: React.FC<NavbarInterface> = ({ isAuthenticated, nickName }) => {
 
                   <div className="others-option">
                     <div className="get-quote">
-                      {isAuthenticated ? (
+                      {/* {isAuthenticated ? (
                         <p
                           className={styles.welcomeMessage}
                         >{`${nickName}, is logged in`}</p>
@@ -97,7 +97,7 @@ const Navbar: React.FC<NavbarInterface> = ({ isAuthenticated, nickName }) => {
                           text="Login"
                           color="PINK"
                         />
-                      )}
+                      )} */}
                     </div>
                   </div>
                 </nav>

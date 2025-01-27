@@ -27,7 +27,7 @@ const createUser = async (
         last_name,
       },
     );
-    console.log(response);
+
     return {
       success: true,
       message: response.data.message,

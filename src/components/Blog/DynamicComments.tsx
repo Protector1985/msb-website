@@ -7,6 +7,7 @@ import moment from "moment";
 import LeaveAComment from "./LeaveAComment";
 import PleaseLogIn from "./PleaseLogIn";
 import { getComments } from "@/api/comments";
+import axios from "axios";
 
 interface Comment {
   id: number;
@@ -21,11 +22,25 @@ interface Comment {
 
 interface Props {
   postId: number;
-  isAuthenticated: boolean; // Include isAuthenticated
+  isAuthenticated: boolean;
   authToken?: string;
   userEmail?: string;
   userName?: string;
 }
+
+const parseCommentData = (
+  data: string,
+): { name: string; email: string; content: string } => {
+  const nameMatch = data.match(/%%NAME%%([\s\S]*?)%%NAME%%/);
+  const emailMatch = data.match(/%%EMAIL%%([\s\S]*?)%%EMAIL%%/);
+  const contentMatch = data.match(/%%CONTENT%%([\s\S]*?)%%CONTENT%%/);
+
+  return {
+    name: nameMatch?.[1] || "",
+    email: emailMatch?.[1] || "",
+    content: contentMatch?.[1] || "",
+  };
+};
 
 const DynamicComments: React.FC<Props> = ({
   postId,
@@ -38,14 +53,46 @@ const DynamicComments: React.FC<Props> = ({
   const [loading, setLoading] = useState(true);
 
   useEffect(() => {
+    getToken();
     fetchComments();
   }, []);
+
+  async function getToken() {
+    try {
+      const res = await axios.get("/api/get-token");
+      const { token, user_email, user_nicename, user_display_name } = res.data;
+
+      // Send token and user data to the server to set cookies
+      const response = await axios.post("/api/set-token", {
+        token,
+        user_email,
+        user_nicename,
+        user_display_name,
+      });
+
+      if (response.data.success) {
+        console.log("Token set successfully");
+      } else {
+        console.error("Failed to set token");
+      }
+    } catch (err) {
+      console.error("Error fetching token:", err);
+    }
+  }
 
   const fetchComments = async () => {
     setLoading(true);
     try {
       const data = await getComments(postId);
-      setComments(data);
+      const parsedComments = data.map((comment: Comment) => {
+        const parsedContent = parseCommentData(comment.content.rendered);
+        return {
+          ...comment,
+          author_name: parsedContent.name || comment.author_name,
+          content: { rendered: parsedContent.content },
+        };
+      });
+      setComments(parsedComments);
     } catch (error) {
       console.error("Failed to fetch comments:", error);
     } finally {

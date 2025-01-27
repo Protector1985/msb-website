@@ -8,7 +8,7 @@ import moment from "moment";
 import { cookies } from "next/headers";
 import DynamicComments from "./DynamicComments";
 
-async function BlogDetailsContent({ post, author }: any) {
+function BlogDetailsContent({ post, author, popularPosts }: any) {
   const cookieStore = cookies();
   const authToken = cookieStore.get("auth_token")?.value;
   const userEmail = cookieStore.get("user_email")?.value;
@@ -55,7 +55,7 @@ async function BlogDetailsContent({ post, author }: any) {
             </div>
             <div className="col-lg-4 col-md-12">
               <div className="blog-right-sidebar sidebar-pl-15">
-                <Sidebar />
+                <Sidebar popularPosts={popularPosts} />
               </div>
             </div>
           </div>

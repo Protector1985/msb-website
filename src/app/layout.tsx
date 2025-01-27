@@ -13,6 +13,9 @@ import "../../styles/responsive.css";
 import type { Metadata } from "next";
 import { Rubik, Barlow_Condensed } from "next/font/google";
 import Script from "next/script";
+import { getToken } from "@/api/auth";
+import axios from "axios";
+import { cookies } from "next/headers";
 
 // For all body text font
 const rubik = Rubik({
@@ -39,7 +42,7 @@ export const metadata: Metadata = {
     "Discover a trusted space for Property Managers, Executive Assistants, and Security Specialists to connect, share ideas, and build valuable partnerships. Join a vetted community of professionals dedicated to elevating the industry through collaboration and innovation.",
 };
 
-export default function RootLayout({
+export default async function RootLayout({
   children,
 }: Readonly<{
   children: React.ReactNode;

@@ -7,6 +7,7 @@ import { getPostById } from "@/api/getPosts";
 import { getAuthorById } from "@/api/getAuthor";
 import { notFound } from "next/navigation";
 import { cookies } from "next/headers";
+import { fetchPopularPosts } from "@/api/comments";
 
 export default async function Page({
   params,
@@ -16,12 +17,14 @@ export default async function Page({
   let isAuthenticated = false;
   const cookieStore = cookies();
   const authToken = cookieStore.get("auth_token")?.value;
+
   if (authToken) {
     isAuthenticated = true;
   }
   const userNickname = cookieStore.get("user_nicename")?.value;
   // Fetch the post by ID
   const post = await getPostById(params.id);
+  const popularPosts = await fetchPopularPosts();
 
   // Validate the slug to ensure it matches
   if (!post || post.slug !== params.slug) {
@@ -41,7 +44,11 @@ export default async function Page({
         activePageText="Blog Details"
       />
 
-      <BlogDetailsContent author={author} post={post} />
+      <BlogDetailsContent
+        popularPosts={popularPosts}
+        author={author}
+        post={post}
+      />
 
       <Footer />
     </>

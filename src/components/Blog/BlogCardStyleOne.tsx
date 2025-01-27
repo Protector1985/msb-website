@@ -14,7 +14,7 @@ const BlogCardStyleOne: React.FC = () => {
             <div className="col-lg-4 col-md-12">
               {/* Sidebar */}
               <div className="sidebar-pr-15">
-                <Sidebar />
+                <Sidebar  popularPosts={[]}/>
               </div>
             </div>
 
