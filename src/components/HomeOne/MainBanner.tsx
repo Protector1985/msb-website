@@ -40,18 +40,18 @@ const MainBanner: React.FC = () => {
                   evolving threats.
                 </p>
                 <div className="banner-btn">
-                  <Button
+                  {/* <Button
                     type="ROUTING"
                     route="/contact"
                     text="Free Assessment"
                     color="PINK"
-                  />
-                  <Button
+                  /> */}
+                  {/* <Button
                     type="ROUTING"
                     route="/about"
                     text="About Us"
                     color="WHITE"
-                  />
+                  /> */}
                 </div>
               </div>
             </div>

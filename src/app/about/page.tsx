@@ -9,6 +9,7 @@ import Partner from "../../components/Common/Partner";
 import Footer from "../../components/Layouts/Footer";
 import getTabsData from "@/data/residentialSecurityTabs";
 import { cookies } from "next/headers";
+import MichaelProfile from "@/components/About/MichaelProfile";
 
 export default async function Page() {
   const tabsData = await getTabsData();
@@ -31,17 +32,7 @@ export default async function Page() {
         activePageText="About"
       />
 
-      <EffectiveProtection />
-
-      <ElectronicProtection tabsData={tabsData} />
-
-      <div className="pt-100">
-        <SecurityApproach />
-      </div>
-
-      <Testimonials />
-
-      {/* <Partner /> */}
+      <MichaelProfile />
 
       <Footer />
     </>

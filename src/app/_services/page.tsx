@@ -1,7 +1,7 @@
 import React from "react";
 import Navbar from "../../components/Layouts/Navbar";
 import PageBanner from "../../components/Common/PageBanner";
-import WebsiteSecurity from "../../components/ServicesStyleOne/WebsiteSecurity";
+import WebsiteSecurity from "../../components/ServicesStyleOne/SecurityAssessment";
 import ServicesCard from "../../components/ServicesStyleOne/ServicesCard";
 import Footer from "../../components/Layouts/Footer";
 

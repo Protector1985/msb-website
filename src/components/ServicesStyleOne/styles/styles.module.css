@@ -1,0 +1,28 @@
+/* Example custom classes if you're not using Bootstrap classes */
+.row {
+  display: flex;
+  flex-wrap: wrap;
+  /* Additional row styling */
+}
+
+.col-lg-3 {
+  flex: 1 0 25%;
+  box-sizing: border-box;
+  padding: 15px;
+  /* Additional column styling */
+}
+
+.align-items-stretch {
+  align-items: stretch;
+}
+
+.d-flex {
+  display: flex;
+}
+
+.single-security {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}

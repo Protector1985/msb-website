@@ -92,7 +92,7 @@ const ServiceDetailsContent: React.FC = () => {
             </div>
 
             <div className="col-lg-4 col-md-12">
-            {/* <Sidebar  popularPosts={[]}/> */}
+              {/* <Sidebar  popularPosts={[]}/> */}
             </div>
           </div>
         </div>

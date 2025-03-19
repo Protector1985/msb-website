@@ -3,6 +3,7 @@
 import React, { useState } from "react";
 import ReCAPTCHA from "react-google-recaptcha";
 import { postComment } from "@/api/comments";
+import axios from "axios";
 
 interface LeaveACommentProps {
   postId: number;
@@ -19,6 +20,7 @@ const LeaveAComment: React.FC<LeaveACommentProps> = ({
   email,
   onNewComment,
 }) => {
+  console.log(process.env.NEXT_PUBLIC_CAPTCHA_SITE_KEY);
   const [text, setText] = useState("");
   const [error, setError] = useState<string | null>(null);
   const [loading, setLoading] = useState(false);
@@ -28,10 +30,29 @@ const LeaveAComment: React.FC<LeaveACommentProps> = ({
   const [showCaptcha, setShowCaptcha] = useState(false);
   const [captchaToken, setCaptchaToken] = useState<string | null>(null);
 
-  const handleCaptchaChange = (token: string | null) => {
+  const handleCaptchaChange = async (token: string | null) => {
     setCaptchaToken(token); // Store reCAPTCHA token
-    if (token) {
-      submitComment(); // Automatically proceed to comment submission after successful CAPTCHA
+
+    if (!token) {
+      setError("CAPTCHA token is missing or invalid.");
+      return;
+    }
+
+    try {
+      // Verify the CAPTCHA token with the server
+      const response = await axios.post("/api/validate-captcha", { token });
+
+      if (response.data.success) {
+        // Proceed to submit the comment if CAPTCHA validation is successful
+        submitComment();
+      } else {
+        setError("CAPTCHA validation failed. Please try again.");
+      }
+    } catch (err) {
+      console.error("Error validating CAPTCHA:", err);
+      setError(
+        "An error occurred during CAPTCHA validation. Please try again.",
+      );
     }
   };
 
@@ -50,11 +71,6 @@ const LeaveAComment: React.FC<LeaveACommentProps> = ({
   };
 
   const submitComment = async () => {
-    if (!captchaToken) {
-      setError("Please complete the CAPTCHA.");
-      return;
-    }
-
     setLoading(true);
     setError(null);
 
@@ -130,13 +146,7 @@ const LeaveAComment: React.FC<LeaveACommentProps> = ({
           ></textarea>
         </p>
 
-        {showCaptcha ? (
-          <ReCAPTCHA
-            sitekey={`${process.env.NEXT_PUBLIC_CAPTCHA_SITE_KEY}`} // Replace with your actual Site Key
-            onChange={handleCaptchaChange}
-            onExpired={() => setCaptchaToken(null)}
-          />
-        ) : (
+        {showCaptcha ? null : (
           <p className="form-submit">
             <input
               type="submit"
@@ -149,6 +159,12 @@ const LeaveAComment: React.FC<LeaveACommentProps> = ({
           </p>
         )}
       </form>
+      {showCaptcha ? (
+        <ReCAPTCHA
+          sitekey={`${process.env.NEXT_PUBLIC_CAPTCHA_SITE_KEY}`} // Replace with your actual Site Key
+          onChange={handleCaptchaChange}
+        />
+      ) : null}
     </div>
   );
 };

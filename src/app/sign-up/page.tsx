@@ -12,7 +12,7 @@ export default function Page() {
   if (authToken) {
     isAuthenticated = true;
     //no need to sign up if already authenticated
-    window.location.href = "/";
+    // window.location.href = "/";
   }
   const userNickname = cookieStore.get("user_nicename")?.value;
 

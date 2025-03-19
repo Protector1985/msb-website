@@ -219,7 +219,7 @@ const BlogCardStyleTwo: React.FC = () => {
             <div className="col-lg-4 col-md-12">
               {/* Sidebar */}
               <div className="sidebar-pl-15">
-                <Sidebar  popularPosts={[]}/>
+                <Sidebar popularPosts={[]} />
               </div>
             </div>
           </div>

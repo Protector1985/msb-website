@@ -202,15 +202,13 @@ const DynamicComments: React.FC<Props> = ({
           ))}
       </ol>
 
-      
-        <LeaveAComment
-          email={userEmail || ""}
-          name={userName || ""}
-          token={authToken || ""}
-          postId={postId}
-          onNewComment={handleNewComment}
-        />
-     
+      <LeaveAComment
+        email={userEmail || ""}
+        name={userName || ""}
+        token={authToken || ""}
+        postId={postId}
+        onNewComment={handleNewComment}
+      />
     </div>
   );
 };

@@ -101,8 +101,8 @@ export const menus = [
     //   },
     // ],
   },
-  {
-    label: "Contact",
-    link: "/contact/",
-  },
+  // {
+  //   label: "Assessment",
+  //   link: "/security_assessment/",
+  // },
 ];

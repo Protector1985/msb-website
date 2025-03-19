@@ -5,16 +5,16 @@ import React from "react";
 const CyberSecurityOperation: React.FC = () => {
   return (
     <>
-      <section className="cybersecurity-area ptb-100">
+      <section style={{ paddingTop: 0 }} className="cybersecurity-area ptb-100">
         <div className="container-fluid">
           <div className="row">
             <div className="col-lg-6">
               <div className="cybersecurity-content">
-                <h2>24/7 Cybersecurity Operation Center</h2>
+                <h2>Comprehensive Security Assessment Report</h2>
                 <p>
-                  Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed
-                  do eiusmod tempor incididunt ut labore et dolore magna aliqua.
-                  Quis ipsum suspendisse.
+                  After an extensive on-site review, we’ve highlighted the most
+                  impactful strategies to strengthen your security posture.
+                  Below are the key recommendations in brief.
                 </p>
 
                 <div className="row">
@@ -22,23 +22,25 @@ const CyberSecurityOperation: React.FC = () => {
                     <ul className="cybersecurity-item">
                       <li>
                         <i className="bx bx-check"></i>
-                        Managed Web Application
+                        Early Warning System
                       </li>
                       <li>
                         <i className="bx bx-check"></i>
-                        SIEM Threat Detection
+                        Perimeter Upgrades
+                      </li>
+
+                      <li>
+                        <i className="bx bx-check"></i>
+                        Alarm & Fire
+                      </li>
+
+                      <li>
+                        <i className="bx bx-check"></i>
+                        Intercom Setup
                       </li>
                       <li>
                         <i className="bx bx-check"></i>
-                        Content Delivery Network
-                      </li>
-                      <li>
-                        <i className="bx bx-check"></i>
-                        Website Hack Repair
-                      </li>
-                      <li>
-                        <i className="bx bx-check"></i>
-                        Instant Malware Removal
+                        Safe Room
                       </li>
                     </ul>
                   </div>
@@ -47,23 +49,24 @@ const CyberSecurityOperation: React.FC = () => {
                     <ul>
                       <li>
                         <i className="bx bx-check"></i>
-                        Instant Malware Removal
+                        Keyless Access
+                      </li>
+
+                      <li>
+                        <i className="bx bx-check"></i>
+                        Duress Switches
                       </li>
                       <li>
                         <i className="bx bx-check"></i>
-                        Instant Malware Removal
+                        Glass Protection
                       </li>
                       <li>
                         <i className="bx bx-check"></i>
-                        Instant Malware Removal
+                        Secure Storage
                       </li>
                       <li>
                         <i className="bx bx-check"></i>
-                        Instant Malware Removal
-                      </li>
-                      <li>
-                        <i className="bx bx-check"></i>
-                        Instant Malware Removal
+                        Staff & Vendors
                       </li>
                     </ul>
                   </div>
