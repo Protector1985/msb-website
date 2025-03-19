@@ -29,19 +29,16 @@ export default async function Home() {
   }
   const userNickname = cookieStore.get("user_nicename")?.value;
 
-  if (process.env.COMING_SOON === "ON") {
-    redirect("/coming-soon");
-  }
+  // if (process.env.COMING_SOON === "ON") {
+  //   redirect("/coming-soon");
+  // }
 
-  //redirects to the blog only as long as the fbn is not approved
-  if (process.env.FBN_APPROVED === "NO") {
-    redirect("/blog");
-  }
+  // //redirects to the blog only as long as the fbn is not approved
+  // if (process.env.FBN_APPROVED === "NO") {
+  //   redirect("/blog");
+  // }
 
-  return process.env.COMING_SOON !== "OFF" ? (
-    <ComingSoon />
-  ) : (
-    <>
+  return <>
       <Navbar isAuthenticated={isAuthenticated} nickName={userNickname} />
 
       <MainBanner />
@@ -67,5 +64,5 @@ export default async function Home() {
 
       <Footer />
     </>
-  );
+  ;
 }

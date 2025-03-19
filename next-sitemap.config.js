@@ -10,23 +10,8 @@ module.exports = {
   siteUrl: process.env.SITE_URL,
   generateRobotsTxt: true,
   exclude:
-    process.env.COMING_SOON === "ON"
-      ? ["*", "!/coming-soon"]
-      : ["/coming-soon"],
+    ["/coming-soon"],
   additionalPaths: async (config) => {
-    // Check if the COMING_SOON page should be the only route
-    if (process.env.COMING_SOON === "ON") {
-      return [
-        {
-          loc: `${config.siteUrl}/coming-soon`,
-          changefreq: "daily",
-          priority: 1.0,
-          lastmod: new Date().toISOString(),
-        },
-      ];
-    }
-
-    // Otherwise, include dynamic blog routes
     const dynamicBlogRoutes = await fetchDynamicBlogRoutes();
     return dynamicBlogRoutes.map((route) => ({
       loc: `${config.siteUrl}${route}`,
