@@ -8,7 +8,7 @@ import styles from "./styles/styles.module.css";
 
 const SignUpForm: React.FC = () => {
   const [loading, setLoading] = useState(false);
-  const [showCaptcha, setShowCaptcha] = useState(false); // State to show reCAPTCHA
+  const [showCaptcha, setShowCaptcha] = useState(true); // State to show reCAPTCHA
   const [captchaToken, setCaptchaToken] = useState<string | null>(null); // Captcha token
   const [formData, setFormData] = useState({
     firstName: "",
@@ -66,12 +66,12 @@ const SignUpForm: React.FC = () => {
     }
 
     // If on localhost, skip CAPTCHA and directly submit the form
-    if (isDevelopment) {
-      submitDataToWordPress();
-    } else {
-      // Show the CAPTCHA instead of the submit button
-      setShowCaptcha(true);
-    }
+    // if (isDevelopment) {
+    //   submitDataToWordPress();
+    // } else {
+    // Show the CAPTCHA instead of the submit button
+    setShowCaptcha(true);
+    // }
   };
 
   const submitDataToWordPress = async () => {

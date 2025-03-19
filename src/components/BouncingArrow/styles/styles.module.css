@@ -1,0 +1,18 @@
+.bouncingArrow {
+  display: inline-block; /* Keep the arrow in its own block */
+  animation: bounce 1.5s infinite; /* Duration and infinite repetition */
+  font-size: 24px; /* Adjust arrow size as needed */
+  margin-top: 10px; /* Spacing above/below as desired */
+  cursor: pointer; /* If you want it clickable */
+}
+
+/* Keyframe animation for a gentle bounce */
+@keyframes bounce {
+  0%,
+  100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(10px); /* Move down 10px at halfway */
+  }
+}

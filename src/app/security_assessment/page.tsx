@@ -5,6 +5,14 @@ import ContactInfo from "../../components/Contact/ContactInfo";
 import ContactForm from "../../components/Contact/ContactForm";
 import Footer from "../../components/Layouts/Footer";
 import { cookies } from "next/headers";
+import SecurityAssessment from "@/components/ServicesStyleOne/SecurityAssessment";
+import CyberSecurityOperation from "@/components/HomeOne/CyberSecurityOperation";
+import EffectiveProtection from "@/components/HomeOne/EffectiveProtection";
+import SecurityApproach from "@/components/ServicesStyleThree/SecurityApproach";
+import FeaturesCard from "@/components/ServicesStyleTwo/FeaturesCard";
+import ServicesCard from "@/components/ServicesStyleOne/ServicesCard";
+import TeamCard from "@/components/Team/TeamCard";
+import SecurityAssessmentContact from "@/components/Contact/SecurityAssessment";
 
 export default function Page() {
   let isAuthenticated = false;
@@ -19,15 +27,19 @@ export default function Page() {
       <Navbar isAuthenticated={isAuthenticated} nickName={userNickname} />
 
       <PageBanner
-        pageTitle="Contact"
+        pageTitle="Security Assessments"
         homePageUrl="/"
         homePageText="Home"
-        activePageText="Contact"
+        activePageText="Security Assessments"
       />
+
+      <SecurityAssessment />
+      <CyberSecurityOperation />
+      <EffectiveProtection />
 
       {/* <ContactInfo /> */}
 
-      <ContactForm />
+      <SecurityAssessmentContact />
 
       <Footer />
     </>

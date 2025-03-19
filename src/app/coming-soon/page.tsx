@@ -5,9 +5,9 @@ const ComingSoon = () => {
   const endDate = "March 23, 2025 17:00:00 PDT";
 
   const seoContent = {
-    title: "Coming Soon",
+    title: "MSB Protection",
     description:
-      "Discover a trusted community tailored to the ultra-high-net-worth service sector—uniting estate managers, executive assistants, property managers, security specialists, and more. Connect with like-minded professionals, share insights, and forge valuable partnerships within a vetted network committed to delivering exceptional service and driving innovation across the industry.",
+     "Experience premier security services tailored for ultra-high-net-worth individuals in Beverly Hills, Malibu, and Ventura County. Our elite team delivers unparalleled protection, ensuring safety, discretion, and peace of mind. Stay ahead with top-tier security solutions designed for those who demand excellence.",
     socialLinks: [
       { platform: "facebook", url: "https://www.facebook.com/" },
       { platform: "twitter", url: "https://www.twitter.com/" },
