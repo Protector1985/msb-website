@@ -37,9 +37,9 @@ export const metadata: Metadata = {
   icons: {
     icon: "/img/favicon.png",
   },
-  title: "Professional Network for Property Managers & Security Experts",
+  title: "Elite Executive Protection in Beverly Hills, Malibu & Ventura County | MSB Protection",
   description:
-    "Discover a trusted space for Property Managers, Executive Assistants, and Security Specialists to connect, share ideas, and build valuable partnerships. Join a vetted community of professionals dedicated to elevating the industry through collaboration and innovation.",
+    "MSB Protection provides elite security services for ultra-high-net-worth individuals in Beverly Hills, Malibu, and Ventura County. Our expert team ensures safety, discretion, and peace of mind with top-tier executive protection, estate security, and personal security solutions.",
 };
 
 export default async function RootLayout({
