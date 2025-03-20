@@ -25,8 +25,9 @@ module.exports = {
     }));
   },
   transform: async (config, path) => {
-    // Exclude specific paths explicitly during transformation
-    if (path.includes("/api/get-token/")) {
+    console.log("Processing path:", path);
+    if (path === "/api/get-token" || path === "/api/get-token/") {
+      console.log("Excluding path:", path);
       return null;
     }
     return {
