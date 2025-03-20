@@ -154,7 +154,7 @@ export default function TermsAndConditions() {
               <br />
               <strong>Phone:</strong> (805) 285-2807
               <br />
-              <strong>Email:</strong> admin@msbprotection.com
+              <strong>Email:</strong> contact@msbprotection.com
             </p>
             <p>
               By using our website or engaging our services, you acknowledge

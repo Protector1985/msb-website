@@ -24,8 +24,8 @@ const Footer: React.FC = () => {
                   <li>
                     <i className="bx bx-envelope"></i>
                     <span>Email:</span>
-                    <a href="mailto:admin@msbprotection.com">
-                      admin@msbprotection.com
+                    <a href="mailto:contact@msbprotection.com">
+                    contact@msbprotection.com
                     </a>
                   </li>
 

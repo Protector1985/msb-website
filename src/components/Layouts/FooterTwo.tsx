@@ -112,8 +112,8 @@ const FooterTwo: React.FC = () => {
                   </li>
                   <li>
                     <span>Email:</span>
-                    <a href="mailto:admin@msbprotection.com">
-                      admin@msbprotection.com
+                    <a href="mailto:contact@msbprotection.com">
+                    contact@msbprotection.com
                     </a>
                   </li>
                   <li>
