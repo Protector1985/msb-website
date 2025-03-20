@@ -1,7 +1,6 @@
 const { default: axios } = require("axios");
 
 const fetchDynamicBlogRoutes = async () => {
-  // Replace with your actual API call or function to fetch posts
   const posts = await axios.get(`${process.env.WORDPRESS_API}/posts`);
   return posts.data.map((post) => `/blog/details/${post.id}/${post.slug}`);
 };
