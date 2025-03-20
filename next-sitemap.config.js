@@ -25,7 +25,10 @@ module.exports = {
     }));
   },
   transform: async (config, path) => {
-    // Customize sitemap entries
+    // Exclude specific paths explicitly during transformation
+    if (path === "/api/get-token/") {
+      return null;
+    }
     return {
       loc: `${config.siteUrl}${path}`,
       changefreq: "daily",
