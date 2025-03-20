@@ -38,9 +38,9 @@ export const metadata: Metadata = {
     icon: "/img/favicon.png",
   },
   title:
-    "Elite Executive Protection in Beverly Hills, Malibu & Ventura County | MSB Protection",
+    "MSB Protection | Next Generation Private Security",
   description:
-    "MSB Protection provides elite security services for ultra-high-net-worth individuals in Beverly Hills, Malibu, and Ventura County. Our expert team ensures safety, discretion, and peace of mind with top-tier executive protection, estate security, and personal security solutions.",
+    "MSB Protection provides elite security services for ultra-high-net-worth individuals in Beverly Hills, Malibu, Hidden Hills, Westlake Village. Our expert team ensures safety, discretion, and peace of mind with top-tier executive protection, estate security, and personal security solutions.",
 };
 
 export default async function RootLayout({
