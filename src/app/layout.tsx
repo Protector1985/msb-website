@@ -68,6 +68,7 @@ export default async function RootLayout({
             `,
           }}
         />
+        <link rel="icon" type="image/png" sizes="32x32" href="/img/favicon.png" />
       </head>
       <body className={`${rubik.variable} ${barlow_condensed.variable}`}>
         {children}
