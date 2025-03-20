@@ -3,10 +3,10 @@ export const menus = [
     label: "Home",
     link: "/",
   },
-  {
-    label: "About",
-    link: "/about/",
-  },
+  // {
+  //   label: "About",
+  //   link: "/about/",
+  // },
   // {
   //   label: "Pages",
   //   link: "#",
