@@ -7,7 +7,7 @@ const ComingSoon = () => {
   const seoContent = {
     title: "MSB Protection",
     description:
-     "Experience premier security services tailored for ultra-high-net-worth individuals in Beverly Hills, Malibu, and Ventura County. Our elite team delivers unparalleled protection, ensuring safety, discretion, and peace of mind. Stay ahead with top-tier security solutions designed for those who demand excellence.",
+      "Experience premier security services tailored for ultra-high-net-worth individuals in Beverly Hills, Malibu, and Ventura County. Our elite team delivers unparalleled protection, ensuring safety, discretion, and peace of mind. Stay ahead with top-tier security solutions designed for those who demand excellence.",
     socialLinks: [
       { platform: "facebook", url: "https://www.facebook.com/" },
       { platform: "twitter", url: "https://www.twitter.com/" },

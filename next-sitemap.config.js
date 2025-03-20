@@ -8,8 +8,13 @@ const fetchDynamicBlogRoutes = async () => {
 module.exports = {
   siteUrl: process.env.SITE_URL,
   generateRobotsTxt: true,
-  exclude:
-    ["/coming-soon"],
+  exclude: [
+    "/coming-soon",
+    "/with-left-sidebar/",
+    "/with-right-sidebar/",
+    "/api/get-token/",
+    "/forgot-password/",
+  ],
   additionalPaths: async (config) => {
     const dynamicBlogRoutes = await fetchDynamicBlogRoutes();
     return dynamicBlogRoutes.map((route) => ({

@@ -38,7 +38,8 @@ export default async function Home() {
   //   redirect("/blog");
   // }
 
-  return <>
+  return (
+    <>
       <Navbar isAuthenticated={isAuthenticated} nickName={userNickname} />
 
       <MainBanner />
@@ -64,5 +65,5 @@ export default async function Home() {
 
       <Footer />
     </>
-  ;
+  );
 }
