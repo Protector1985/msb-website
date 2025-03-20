@@ -26,7 +26,7 @@ module.exports = {
   },
   transform: async (config, path) => {
     // Exclude specific paths explicitly during transformation
-    if (path === "/api/get-token/") {
+    if (path.includes("/api/get-token/")) {
       return null;
     }
     return {
