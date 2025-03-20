@@ -12,7 +12,7 @@ import LatesNews from "../components/Common/LatesNews";
 import Footer from "../components/Layouts/Footer";
 import getTabsData from "@/data/residentialSecurityTabs";
 import { getNPosts } from "@/api/getPosts";
-import ComingSoon from "./coming-soon/page";
+import ComingSoon from "./_coming-soon/page";
 import { cookies } from "next/headers";
 import { verifyToken } from "@/api/auth";
 import { redirect } from "next/navigation";
