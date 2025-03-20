@@ -6,7 +6,7 @@ const fetchDynamicBlogRoutes = async () => {
 };
 
 module.exports = {
-  siteUrl: process.env.SITE_URL,
+  siteUrl: 'https://www.msbprotection.com',
   generateRobotsTxt: true,
   exclude: [
     "/coming-soon",
