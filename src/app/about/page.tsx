@@ -9,7 +9,7 @@ import Partner from "../../components/Common/Partner";
 import Footer from "../../components/Layouts/Footer";
 import getTabsData from "@/data/residentialSecurityTabs";
 import { cookies } from "next/headers";
-import MichaelProfile from "@/components/About/MichaelProfile";
+// import MichaelProfile from "@/components/_About/MichaelProfile";
 
 export default async function Page() {
   const tabsData = await getTabsData();
@@ -32,7 +32,7 @@ export default async function Page() {
         activePageText="About"
       />
 
-      <MichaelProfile />
+      {/* <MichaelProfile /> */}
 
       <Footer />
     </>
