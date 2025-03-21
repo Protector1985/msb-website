@@ -13,6 +13,7 @@ const NavbarThree: React.FC = () => {
     setMenu(!menu);
   };
 
+  //...
   useEffect(() => {
     let elementId = document.getElementById("navbar");
     document.addEventListener("scroll", () => {
