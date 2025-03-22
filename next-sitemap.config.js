@@ -7,32 +7,45 @@ const fetchDynamicBlogRoutes = async () => {
   return posts.data.map((post) => `/blog/details/${post.id}/${post.slug}`);
 };
 
-const generateSitemapIndex = (numOfSitemaps) => {
-  let sitemapIndexContent = `<?xml version="1.0" encoding="UTF-8"?>\n<sitemapindex xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">\n`;
-  
-  for (let i = 0; i < numOfSitemaps; i++) {
-    sitemapIndexContent += `  <sitemap>\n    <loc>https://www.msbprotection.com/sitemap-${i}.xml</loc>\n  </sitemap>\n`;
-  }
-  
-  sitemapIndexContent += `</sitemapindex>`;
-  
-  fs.writeFileSync(path.join(__dirname, "public", "sitemap-index.xml"), sitemapIndexContent);
-};
+const generateSitemapFiles = (routes, config) => {
+  const chunkSize = 10;
+  const chunks = [];
 
-const generateSitemap = (routes, index) => {
-  let sitemapContent = `<?xml version="1.0" encoding="UTF-8"?>\n<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">\n`;
-  
-  routes.forEach((route) => {
-    sitemapContent += `  <url>\n    <loc>https://www.msbprotection.com${route}</loc>\n    <lastmod>${new Date().toISOString()}</lastmod>\n    <changefreq>daily</changefreq>\n    <priority>0.8</priority>\n  </url>\n`;
+  // Split routes into chunks of 10
+  for (let i = 0; i < routes.length; i += chunkSize) {
+    chunks.push(routes.slice(i, i + chunkSize));
+  }
+
+  // Generate sitemap index file
+  const sitemapIndexContent = `<?xml version="1.0" encoding="UTF-8"?>\n<sitemapindex xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">\n${chunks
+    .map(
+      (_, index) => `  <sitemap>
+    <loc>${config.siteUrl}/sitemap-${index}.xml</loc>
+  </sitemap>`
+    )
+    .join("\n")}\n</sitemapindex>`;
+
+  fs.writeFileSync(path.join("public", "sitemap.xml"), sitemapIndexContent);
+
+  // Generate each sitemap file
+  chunks.forEach((chunk, index) => {
+    const sitemapContent = `<?xml version="1.0" encoding="UTF-8"?>\n<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">\n${chunk
+      .map(
+        (route) => `  <url>
+    <loc>${config.siteUrl}${route}</loc>
+    <lastmod>${new Date().toISOString()}</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.8</priority>
+  </url>`
+      )
+      .join("\n")}\n</urlset>`;
+
+    fs.writeFileSync(path.join("public", `sitemap-${index}.xml`), sitemapContent);
   });
-  
-  sitemapContent += `</urlset>`;
-  
-  fs.writeFileSync(path.join(__dirname, "public", `sitemap-${index}.xml`), sitemapContent);
 };
 
 module.exports = {
-  siteUrl: 'https://www.msbprotection.com',
+  siteUrl: "https://www.msbprotection.com",
   generateRobotsTxt: true,
   exclude: [
     "/coming-soon",
@@ -43,16 +56,9 @@ module.exports = {
   ],
   additionalPaths: async (config) => {
     const dynamicBlogRoutes = await fetchDynamicBlogRoutes();
-    const chunkSize = 10;
-    const chunks = [];
-    
-    for (let i = 0; i < dynamicBlogRoutes.length; i += chunkSize) {
-      chunks.push(dynamicBlogRoutes.slice(i, i + chunkSize));
-    }
+    generateSitemapFiles(dynamicBlogRoutes, config);
 
-    chunks.forEach((chunk, index) => generateSitemap(chunk, index));
-    generateSitemapIndex(chunks.length);
-
+    // Return an empty array since we handle sitemap generation manually
     return [];
   },
   transform: async (config, path) => {
