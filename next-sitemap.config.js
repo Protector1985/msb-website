@@ -7,41 +7,34 @@ const fetchDynamicBlogRoutes = async () => {
   return posts.data.map((post) => `/blog/details/${post.id}/${post.slug}`);
 };
 
-const generateSitemapFiles = (routes, config) => {
-  const chunkSize = 10;
-  const chunks = [];
-
-  // Split routes into chunks of 10
-  for (let i = 0; i < routes.length; i += chunkSize) {
-    chunks.push(routes.slice(i, i + chunkSize));
-  }
-
-  // Generate sitemap index file
-  const sitemapIndexContent = `<?xml version="1.0" encoding="UTF-8"?>\n<sitemapindex xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">\n${chunks
+// Utility function to write sitemap XML files
+const writeSitemapFile = (filename, urls) => {
+  const sitemapContent = `<?xml version="1.0" encoding="UTF-8"?>\n<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">\n${urls
     .map(
-      (_, index) => `  <sitemap>
-    <loc>${config.siteUrl}/sitemap-${index}.xml</loc>
-  </sitemap>`
-    )
-    .join("\n")}\n</sitemapindex>`;
-
-  fs.writeFileSync(path.join("public", "sitemap.xml"), sitemapIndexContent);
-
-  // Generate each sitemap file
-  chunks.forEach((chunk, index) => {
-    const sitemapContent = `<?xml version="1.0" encoding="UTF-8"?>\n<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">\n${chunk
-      .map(
-        (route) => `  <url>
-    <loc>${config.siteUrl}${route}</loc>
-    <lastmod>${new Date().toISOString()}</lastmod>
-    <changefreq>daily</changefreq>
-    <priority>0.8</priority>
+      (url) => `  <url>
+    <loc>${url.loc}</loc>
+    <lastmod>${url.lastmod}</lastmod>
+    <changefreq>${url.changefreq}</changefreq>
+    <priority>${url.priority}</priority>
   </url>`
-      )
-      .join("\n")}\n</urlset>`;
+    )
+    .join("\n")}\n</urlset>`;
 
-    fs.writeFileSync(path.join("public", `sitemap-${index}.xml`), sitemapContent);
-  });
+  fs.writeFileSync(path.join(__dirname, "public", filename), sitemapContent);
+};
+
+// Generate Sitemap Index
+const writeSitemapIndex = (count, siteUrl) => {
+  const sitemapIndexContent = `<?xml version="1.0" encoding="UTF-8"?>\n<sitemapindex xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">\n${Array.from(
+    { length: count },
+    (_, i) =>
+      `  <sitemap>\n    <loc>${siteUrl}/sitemap-${i}.xml</loc>\n  </sitemap>`
+  ).join("\n")}\n</sitemapindex>`;
+
+  fs.writeFileSync(
+    path.join(__dirname, "public", "sitemap.xml"),
+    sitemapIndexContent
+  );
 };
 
 module.exports = {
@@ -56,9 +49,29 @@ module.exports = {
   ],
   additionalPaths: async (config) => {
     const dynamicBlogRoutes = await fetchDynamicBlogRoutes();
-    generateSitemapFiles(dynamicBlogRoutes, config);
 
-    // Return an empty array since we handle sitemap generation manually
+    const allRoutes = dynamicBlogRoutes.map((route) => ({
+      loc: `${config.siteUrl}${route}`,
+      changefreq: "daily",
+      priority: 0.8,
+      lastmod: new Date().toISOString(),
+    }));
+
+    // Split routes into chunks of 10
+    const chunks = [];
+    for (let i = 0; i < allRoutes.length; i += 10) {
+      chunks.push(allRoutes.slice(i, i + 10));
+    }
+
+    // Write individual sitemap files
+    chunks.forEach((chunk, idx) => {
+      writeSitemapFile(`sitemap-${idx}.xml`, chunk);
+    });
+
+    // Write sitemap index
+    writeSitemapIndex(chunks.length, config.siteUrl);
+
+    // Returning an empty array since we handle sitemap generation manually
     return [];
   },
   transform: async (config, path) => {
