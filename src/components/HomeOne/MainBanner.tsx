@@ -8,6 +8,7 @@ import styles from "./styles/mainBanner.module.css";
 import Button from "../Button/Button";
 
 const MainBanner: React.FC = () => {
+  //..
   // const [toggler, setToggler] = useState(false);
   return (
     <>
