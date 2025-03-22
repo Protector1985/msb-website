@@ -1,13 +1,42 @@
 const { default: axios } = require("axios");
 
 const fetchDynamicBlogRoutes = async () => {
-  const posts = await axios.get(`${process.env.WORDPRESS_API}/posts`);
-  return posts.data.map((post) => `/blog/details/${post.id}/${post.slug}`);
+  let allPosts = [];
+  let page = 1;
+  let hasMorePosts = true;
+
+  while (hasMorePosts) {
+    try {
+      const response = await axios.get(`${process.env.WORDPRESS_API}/posts`, {
+        params: {
+          per_page: 100, // Get the maximum allowed per page
+          page: page,    // Pagination
+        },
+      });
+
+      console.log(`Fetched ${response.data.length} posts from page ${page}`);
+
+      if (response.data.length > 0) {
+        allPosts = [...allPosts, ...response.data];
+        page++;
+      } else {
+        hasMorePosts = false;
+      }
+    } catch (error) {
+      console.error("Error fetching blog routes:", error.message);
+      hasMorePosts = false;
+    }
+  }
+
+  console.log(`Total fetched posts: ${allPosts.length}`);
+  return allPosts.map((post) => `/blog/details/${post.id}/${post.slug}`);
 };
 
 module.exports = {
   siteUrl: 'https://www.msbprotection.com',
   generateRobotsTxt: true,
+  sitemapSize: 5000,
+  verbose: true,
   exclude: [
     "/coming-soon",
     "/with-left-sidebar/",
@@ -17,6 +46,7 @@ module.exports = {
   ],
   additionalPaths: async (config) => {
     const dynamicBlogRoutes = await fetchDynamicBlogRoutes();
+    console.log(`Total dynamic routes: ${dynamicBlogRoutes.length}`);
     return dynamicBlogRoutes.map((route) => ({
       loc: `${config.siteUrl}${route}`,
       changefreq: "daily",
