@@ -1,27 +1,8 @@
 const { default: axios } = require("axios");
 
 const fetchDynamicBlogRoutes = async () => {
-  let allPosts = [];
-  let page = 1;
-  let hasMorePosts = true;
-
-  while (hasMorePosts) {
-    const response = await axios.get(`${process.env.WORDPRESS_API}/posts`, {
-      params: {
-        per_page: 100,  // Adjust this based on your API limits
-        page: page,
-      },
-    });
-
-    if (response.data.length > 0) {
-      allPosts = [...allPosts, ...response.data];
-      page++;
-    } else {
-      hasMorePosts = false;
-    }
-  }
-
-  return allPosts.map((post) => `/blog/details/${post.id}/${post.slug}`);
+  const posts = await axios.get(`${process.env.WORDPRESS_API}/posts`);
+  return posts.data.map((post) => `/blog/details/${post.id}/${post.slug}`);
 };
 
 module.exports = {
