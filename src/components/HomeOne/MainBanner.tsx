@@ -33,12 +33,12 @@ const MainBanner: React.FC = () => {
 From estate protection to discreet executive services, we deliver unparalleled security solutions tailored to the affluent lifestyle. Our dedicated Research & Development department continuously enhances our capabilities with innovative tools and cutting-edge strategies, keeping us ahead of evolving threats.
                 </p>
                 <div className="banner-btn">
-                  {/* <Button
+                  <Button
                     type="ROUTING"
-                    route="/contact"
+                    route="/security_assessment"
                     text="Free Assessment"
                     color="PINK"
-                  /> */}
+                  /> 
                   {/* <Button
                     type="ROUTING"
                     route="/about"

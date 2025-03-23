@@ -5,7 +5,7 @@ const ComingSoon = () => {
   const endDate = "March 23, 2025 17:00:00 PDT";
 
   const seoContent = {
-    title: "MSB Protection | Defining Excellence in Private Security",
+    title: "MSB Protection | Next Generation Private Security",
     description:
       "Experience premier security services tailored for ultra-high-net-worth individuals in Beverly Hills, Malibu, and Ventura County. Our elite team delivers unparalleled protection, ensuring safety, discretion, and peace of mind. Stay ahead with top-tier security solutions designed for those who demand excellence.",
     socialLinks: [

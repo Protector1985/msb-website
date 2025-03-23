@@ -1,7 +1,8 @@
-"use client";
-
+"use client"
 import axios from "axios";
 import React, { useState } from "react";
+import ReCAPTCHA from "react-google-recaptcha";
+import styles from './securityAssessmentContact/styles.module.css'
 
 const SecurityAssessmentContact: React.FC = () => {
   const [name, setName] = useState("");
@@ -9,12 +10,11 @@ const SecurityAssessmentContact: React.FC = () => {
   const [email, setEmail] = useState("");
   const [subject, setSubject] = useState("");
   const [address, setAddress] = useState("");
+  const [recaptchaToken, setRecaptchaToken] = useState<string | null>("");
+  const [showRecaptcha, setShowRecaptcha] = useState(false);
 
   function formatUSPhoneNumber(value: string) {
-    // Remove all non-digits
     const digits = value.replace(/\D/g, "");
-
-    // Format into (XXX) XXX-XXXX
     if (digits.length <= 3) {
       return digits;
     } else if (digits.length <= 6) {
@@ -30,22 +30,41 @@ const SecurityAssessmentContact: React.FC = () => {
     setPhone(formatted);
   }
 
+  function handleRecaptcha(value: string | null) {
+    console.log("TOKEN:", value);
+    setRecaptchaToken(value);
+    if(value) {
+      handleVerification(value);
+    }
+  }
+
   async function handleSubmit(e: React.FormEvent<HTMLFormElement>) {
     e.preventDefault();
+    setShowRecaptcha(true);
+  }
 
-    // Optional: Additional JavaScript validation before sending
-    // e.g., Ensure phone has 10 digits, etc.
+  async function handleVerification(captchaToken: string) {
+    console.log("Verifying with token:", captchaToken);
+    if (!captchaToken) {
+      alert("Please complete the reCAPTCHA verification.");
+      return;
+    }
 
     try {
-      await axios.post("/api/sendMessage", {
+      const res = await axios.post("/api/sendMessage", {
         email,
         phone,
         subject: "Request for Assessment",
         address,
         name,
+        captchaToken
       });
+      console.log("Response:", res);
+      alert("Message sent successfully!");
+      setShowRecaptcha(false);
     } catch (err) {
-      console.log(err);
+      console.error("Error during message submission:", err);
+      alert("Error sending message. Please try again.");
     }
   }
 
@@ -58,7 +77,6 @@ const SecurityAssessmentContact: React.FC = () => {
               <div className="contact-form">
                 <form onSubmit={handleSubmit}>
                   <div className="row">
-                    {/* Name Field */}
                     <div className="col-lg-6 col-md-6">
                       <div className="form-group">
                         <input
@@ -73,7 +91,6 @@ const SecurityAssessmentContact: React.FC = () => {
                       </div>
                     </div>
 
-                    {/* Email Field */}
                     <div className="col-lg-6 col-md-6">
                       <div className="form-group">
                         <input
@@ -88,7 +105,6 @@ const SecurityAssessmentContact: React.FC = () => {
                       </div>
                     </div>
 
-                    {/* Phone Field (Formatted) */}
                     <div className="col-lg-6 col-md-6">
                       <div className="form-group">
                         <input
@@ -103,7 +119,6 @@ const SecurityAssessmentContact: React.FC = () => {
                       </div>
                     </div>
 
-                    {/* Address Field */}
                     <div className="col-lg-6 col-md-6">
                       <div className="form-group">
                         <input
@@ -118,15 +133,26 @@ const SecurityAssessmentContact: React.FC = () => {
                       </div>
                     </div>
 
-                    {/* Submit Button */}
-                    <div className="col-lg-12 col-sm-12">
-                      <button type="submit" className="default-btn page-btn">
-                        Send Message
-                      </button>
-                    </div>
+                    {showRecaptcha ? (
+                      <div className={styles.captchaContainer}>
+                        <ReCAPTCHA
+                          className={styles.captcha}
+                          sitekey={`${process.env.NEXT_PUBLIC_CAPTCHA_SITE_KEY}`}
+                          onChange={(value) => {
+                            handleRecaptcha(value);
+                            
+                          }}
+                        />
+                      </div>
+                    ) : (
+                      <div className={styles.captchaContainer}>
+                        <button type="submit" className="default-btn page-btn">
+                          Send Message
+                        </button>
+                      </div>
+                    )}
                   </div>
                 </form>
-                {/* End form */}
               </div>
             </div>
           </div>
@@ -137,3 +163,4 @@ const SecurityAssessmentContact: React.FC = () => {
 };
 
 export default SecurityAssessmentContact;
+
