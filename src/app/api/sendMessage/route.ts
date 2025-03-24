@@ -3,7 +3,7 @@ import { NextResponse } from "next/server";
 export async function POST(req: Request) {
   try {
     const { email, phone, subject, name, address } = await req.json();
-
+    //....
     console.log("Email:", email);
     console.log("Phone:", phone);
     console.log("Subject:", subject);
