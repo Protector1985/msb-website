@@ -57,7 +57,7 @@ export default async function Page({
 }) {
   const cookieStore = cookies();
   const authToken = cookieStore.get("auth_token")?.value;
-
+  //....
   const isAuthenticated = Boolean(authToken);
   const userNickname = cookieStore.get("user_nicename")?.value;
 
