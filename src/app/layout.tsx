@@ -37,8 +37,7 @@ export const metadata: Metadata = {
   icons: {
     icon: "/img/favicon.png",
   },
-  title:
-    "MSB Protection | Next Generation Private Security",
+  title: "MSB Protection | Next Generation Private Security",
   description:
     "MSB Protection provides elite security services for ultra-high-net-worth individuals in Beverly Hills, Malibu, Hidden Hills, Westlake Village. Our expert team ensures safety, discretion, and peace of mind with top-tier executive protection, estate security, and personal security solutions.",
 };
@@ -50,8 +49,10 @@ export default async function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <head>
-        {/* Google Analytics */}
+      <body className={`${rubik.variable} ${barlow_condensed.variable}`}>
+        {children}
+
+        {/* Google Analytics scripts placed correctly outside <head> */}
         <Script
           strategy="afterInteractive"
           src="https://www.googletagmanager.com/gtag/js?id=G-JHGH1JP53X"
@@ -68,10 +69,6 @@ export default async function RootLayout({
             `,
           }}
         />
-        <link rel="icon" type="image/png" sizes="32x32" href="/img/favicon.png" />
-      </head>
-      <body className={`${rubik.variable} ${barlow_condensed.variable}`}>
-        {children}
       </body>
     </html>
   );

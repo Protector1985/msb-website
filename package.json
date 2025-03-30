@@ -14,8 +14,10 @@
     "axios": "^1.7.9",
     "cookie": "^1.0.2",
     "fslightbox-react": "^1.7.6",
+    "he": "^1.2.0",
     "moment": "^2.30.1",
     "next": "14.2.2",
+    "next-seo": "^6.6.0",
     "next-sitemap": "^4.2.3",
     "react": "^18",
     "react-accessible-accordion": "^5.0.0",
@@ -29,6 +31,7 @@
   },
   "devDependencies": {
     "@types/fslightbox-react": "^1.7.7",
+    "@types/he": "^1.2.3",
     "@types/node": "^20",
     "@types/react": "^18",
     "@types/react-dom": "^18",
