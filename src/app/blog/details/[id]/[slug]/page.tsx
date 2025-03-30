@@ -77,8 +77,9 @@ export default async function Page({
     author: {
       "@type": "Person",
       name: author?.data.name,
+      url: "https://www.linkedin.com/in/michael-b-336437333/"
     },
-    datePublished: post.date,
+    datePublished: new Date(post.date).toISOString(),
     image:
       post.featured_media_url ||
       "https://msbprotection.com/default-blog-image.jpg",
