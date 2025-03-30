@@ -6,7 +6,6 @@ import Footer from "../../components/Layouts/Footer";
 export default function PrivacyPolicy() {
   return (
     <>
-    
       <PageBanner
         pageTitle="Privacy Policy"
         homePageUrl="/"

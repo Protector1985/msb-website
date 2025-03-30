@@ -10,7 +10,7 @@ const fetchDynamicBlogRoutes = async () => {
       const response = await axios.get(`${process.env.WORDPRESS_API}/posts`, {
         params: {
           per_page: 100, // Get the maximum allowed per page
-          page: page,    // Pagination
+          page: page, // Pagination
         },
       });
 
@@ -33,7 +33,7 @@ const fetchDynamicBlogRoutes = async () => {
 };
 
 module.exports = {
-  siteUrl: 'https://www.msbprotection.com',
+  siteUrl: "https://www.msbprotection.com",
   generateRobotsTxt: true,
   sitemapSize: 5000,
   verbose: true,

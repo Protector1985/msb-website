@@ -22,7 +22,7 @@ const TopHeaderTwo: React.FC = () => {
                     <i className="bx bx-envelope"></i>
                     Email:{" "}
                     <a href="mailto:contact@msbprotection.com">
-                    contact@msbprotection.com
+                      contact@msbprotection.com
                     </a>
                   </div>
                 </li>
