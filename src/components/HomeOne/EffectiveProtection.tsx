@@ -14,7 +14,7 @@ const EffectiveProtection: React.FC = () => {
               <div
                 className="complete-img"
                 style={{
-                  backgroundImage: `url(/img/complete-img.jpg)`,
+                  backgroundImage: `url(/img/shakingHands.png)`,
                 }}
               ></div>
             </div>

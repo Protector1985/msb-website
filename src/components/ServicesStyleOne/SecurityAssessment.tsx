@@ -21,6 +21,10 @@ const SecurityAssessment: React.FC = () => {
               charge.
             </p>
           </div>
+          {/* Scroll-down invitation */}
+          <div className="section-title mt-4" style={{ textAlign: "center" }}>
+            <BouncingArrow />
+          </div>
 
           {/* Flex row to ensure uniform height */}
           <div className="row align-items-stretch">
@@ -79,15 +83,6 @@ const SecurityAssessment: React.FC = () => {
                 </p>
               </div>
             </div>
-          </div>
-
-          {/* Scroll-down invitation */}
-          <div className="section-title mt-4" style={{ textAlign: "center" }}>
-            <p>
-              <strong>Scroll down to apply</strong> for your free, no-obligation
-              assessment.
-            </p>
-            <BouncingArrow />
           </div>
         </div>
       </div>

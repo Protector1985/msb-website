@@ -1,7 +1,8 @@
 "use client";
 
 import React from "react";
-
+import Image from "next/image";
+import styles from "./styles/CyberSecurity.module.css";
 const CyberSecurityOperation: React.FC = () => {
   return (
     <>
@@ -74,7 +75,13 @@ const CyberSecurityOperation: React.FC = () => {
               </div>
             </div>
             <div className="col-lg-6 pr-0">
-              <div className="cybersecurity-img"></div>
+              <Image
+                className={styles.guardPic}
+                src="/img/GuardFence.png"
+                alt="Bodyguard services in Beverly Hills"
+                width={700}
+                height={350}
+              />
             </div>
           </div>
         </div>
