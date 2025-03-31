@@ -32,7 +32,7 @@ const Footer: React.FC = () => {
                   <li>
                     <i className="bx bx-location-plus"></i>
                     <span>CA PPO:</span>
-                    #122329,
+                    #122329
                   </li>
                 </ul>
               </div>

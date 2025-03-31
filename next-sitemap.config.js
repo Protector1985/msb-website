@@ -46,8 +46,15 @@ module.exports = {
   ],
   additionalPaths: async (config) => {
     const dynamicBlogRoutes = await fetchDynamicBlogRoutes();
-    console.log(`Total dynamic routes: ${dynamicBlogRoutes.length}`);
-    return dynamicBlogRoutes.map((route) => ({
+  
+    // Add static routes manually
+    const staticRoutes = [
+      "/security_assessment/",
+    ];
+  
+    const allRoutes = [...dynamicBlogRoutes, ...staticRoutes];
+  
+    return allRoutes.map((route) => ({
       loc: `${config.siteUrl}${route}`,
       changefreq: "daily",
       priority: 0.8,
@@ -55,7 +62,6 @@ module.exports = {
     }));
   },
   transform: async (config, path) => {
-    console.log("Processing path:", path);
     if (path === "/api/get-token" || path === "/api/get-token/") {
       console.log("Excluding path:", path);
       return null;
