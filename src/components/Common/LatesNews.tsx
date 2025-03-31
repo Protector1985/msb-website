@@ -37,7 +37,9 @@ const LatesNews: React.FC<any> = ({ posts }) => {
 
                     <div className="blog-content">
                       <h3>
-                        <Link href={`/blog/details/${post.id}/${post.slug}`}>{post.title.rendered}</Link>
+                        <Link href={`/blog/details/${post.id}/${post.slug}`}>
+                          {post.title.rendered}
+                        </Link>
                       </h3>
 
                       <p>{`${trimToWords(post.excerpt.rendered, 20)}... `}</p>

@@ -1,11 +1,11 @@
 .captcha {
-    margin:auto;
+  margin: auto;
 }
 
 .captchaContainer {
-    width: 100%;
+  width: 100%;
 
-    display:flex;
-    justify-content:center;
-    align-items:center;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }

@@ -37,8 +37,7 @@ export const metadata: Metadata = {
   icons: {
     icon: "/img/favicon.png",
   },
-  title:
-    "MSB Protection | Next Generation Private Security",
+  title: "MSB Protection | Next Generation Private Security",
   description:
     "MSB Protection provides elite security services for ultra-high-net-worth individuals in Beverly Hills, Malibu, Hidden Hills, Westlake Village. Our expert team ensures safety, discretion, and peace of mind with top-tier executive protection, estate security, and personal security solutions.",
 };
@@ -68,7 +67,12 @@ export default async function RootLayout({
             `,
           }}
         />
-        <link rel="icon" type="image/png" sizes="32x32" href="/img/favicon.png" />
+        <link
+          rel="icon"
+          type="image/png"
+          sizes="32x32"
+          href="/img/favicon.png"
+        />
       </head>
       <body className={`${rubik.variable} ${barlow_condensed.variable}`}>
         {children}

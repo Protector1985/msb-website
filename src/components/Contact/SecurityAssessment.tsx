@@ -1,8 +1,8 @@
-"use client"
+"use client";
 import axios from "axios";
 import React, { useState } from "react";
 import ReCAPTCHA from "react-google-recaptcha";
-import styles from './securityAssessmentContact/styles.module.css'
+import styles from "./securityAssessmentContact/styles.module.css";
 import Calendly from "../Calendly/Calendly";
 
 const SecurityAssessmentContact: React.FC = () => {
@@ -34,7 +34,7 @@ const SecurityAssessmentContact: React.FC = () => {
   function handleRecaptcha(value: string | null) {
     console.log("TOKEN:", value);
     setRecaptchaToken(value);
-    if(value) {
+    if (value) {
       handleVerification(value);
     }
   }
@@ -58,7 +58,7 @@ const SecurityAssessmentContact: React.FC = () => {
         subject: "Request for Assessment",
         address,
         name,
-        captchaToken
+        captchaToken,
       });
       console.log("Response:", res);
       alert("Message sent successfully!");
@@ -75,8 +75,8 @@ const SecurityAssessmentContact: React.FC = () => {
         <div className="row">
           <div className="col-lg-12">
             <div className="contact-wrap">
-            <Calendly />
-          </div>
+              <Calendly />
+            </div>
           </div>
         </div>
       </div>
@@ -85,4 +85,3 @@ const SecurityAssessmentContact: React.FC = () => {
 };
 
 export default SecurityAssessmentContact;
-

@@ -28,9 +28,17 @@ const MainBanner: React.FC = () => {
                 </span>
                 <h1>Unmatched Public Figure Protection</h1>
                 <p>
-                Elite physical security and comprehensive threat assessments for ultra-high-net-worth individuals and public figures in Beverly Hills. Supported by world-class training and one of the industry’s highest ongoing training budgets, our team consistently excels at protecting lives, assets, and privacy.
-
-From estate protection to discreet executive services, we deliver unparalleled security solutions tailored to the affluent lifestyle. Our dedicated Research & Development department continuously enhances our capabilities with innovative tools and cutting-edge strategies, keeping us ahead of evolving threats.
+                  Elite physical security and comprehensive threat assessments
+                  for ultra-high-net-worth individuals and public figures in
+                  Beverly Hills. Supported by world-class training and one of
+                  the industry’s highest ongoing training budgets, our team
+                  consistently excels at protecting lives, assets, and privacy.
+                  From estate protection to discreet executive services, we
+                  deliver unparalleled security solutions tailored to the
+                  affluent lifestyle. Our dedicated Research & Development
+                  department continuously enhances our capabilities with
+                  innovative tools and cutting-edge strategies, keeping us ahead
+                  of evolving threats.
                 </p>
                 <div className="banner-btn">
                   <Button
@@ -38,7 +46,7 @@ From estate protection to discreet executive services, we deliver unparalleled s
                     route="/security_assessment"
                     text="Free Assessment"
                     color="PINK"
-                  /> 
+                  />
                   {/* <Button
                     type="ROUTING"
                     route="/about"
