@@ -41,12 +41,12 @@ const MainBanner: React.FC = () => {
                   of evolving threats.
                 </p>
                 <div className="banner-btn">
-                  {/* <Button
+                  <Button
                     type="ROUTING"
-                    route="/contact"
+                    route="/security_assessment"
                     text="Free Assessment"
                     color="PINK"
-                  /> */}
+                  />
                   {/* <Button
                     type="ROUTING"
                     route="/about"
