@@ -3,6 +3,7 @@ import axios from "axios";
 import React, { useState } from "react";
 import ReCAPTCHA from "react-google-recaptcha";
 import styles from './securityAssessmentContact/styles.module.css'
+import Calendly from "../Calendly/Calendly";
 
 const SecurityAssessmentContact: React.FC = () => {
   const [name, setName] = useState("");
@@ -74,87 +75,8 @@ const SecurityAssessmentContact: React.FC = () => {
         <div className="row">
           <div className="col-lg-12">
             <div className="contact-wrap">
-              <div className="contact-form">
-                <form onSubmit={handleSubmit}>
-                  <div className="row">
-                    <div className="col-lg-6 col-md-6">
-                      <div className="form-group">
-                        <input
-                          onChange={(e) => setName(e.target.value)}
-                          value={name}
-                          type="text"
-                          name="name"
-                          placeholder="Name"
-                          className="form-control"
-                          required
-                        />
-                      </div>
-                    </div>
-
-                    <div className="col-lg-6 col-md-6">
-                      <div className="form-group">
-                        <input
-                          onChange={(e) => setEmail(e.target.value)}
-                          value={email}
-                          type="email"
-                          name="email"
-                          placeholder="Email"
-                          className="form-control"
-                          required
-                        />
-                      </div>
-                    </div>
-
-                    <div className="col-lg-6 col-md-6">
-                      <div className="form-group">
-                        <input
-                          onChange={handlePhoneChange}
-                          value={phone}
-                          type="text"
-                          name="number"
-                          placeholder="Phone number"
-                          className="form-control"
-                          required
-                        />
-                      </div>
-                    </div>
-
-                    <div className="col-lg-6 col-md-6">
-                      <div className="form-group">
-                        <input
-                          onChange={(e) => setAddress(e.target.value)}
-                          value={address}
-                          type="text"
-                          name="FullAddress"
-                          placeholder="Full Address"
-                          className="form-control"
-                          required
-                        />
-                      </div>
-                    </div>
-
-                    {showRecaptcha ? (
-                      <div className={styles.captchaContainer}>
-                        <ReCAPTCHA
-                          className={styles.captcha}
-                          sitekey={`${process.env.NEXT_PUBLIC_CAPTCHA_SITE_KEY}`}
-                          onChange={(value) => {
-                            handleRecaptcha(value);
-                            
-                          }}
-                        />
-                      </div>
-                    ) : (
-                      <div className={styles.captchaContainer}>
-                        <button type="submit" className="default-btn page-btn">
-                          Send Message
-                        </button>
-                      </div>
-                    )}
-                  </div>
-                </form>
-              </div>
-            </div>
+            <Calendly />
+          </div>
           </div>
         </div>
       </div>
