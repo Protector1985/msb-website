@@ -36,6 +36,11 @@ const BlogGrid: React.FC = () => {
     setCurrentPage(page); // Update current page
   };
 
+  useEffect(() => {
+    const fourthPageHeight = document.documentElement.scrollHeight / 4;
+    window.scrollTo({ top: fourthPageHeight, behavior: "smooth" });
+  }, [currentPage]);
+
   return (
     <section className="blog-area ptb-100">
       <div className="container">

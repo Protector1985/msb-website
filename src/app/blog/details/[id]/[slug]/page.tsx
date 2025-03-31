@@ -77,7 +77,7 @@ export default async function Page({
     author: {
       "@type": "Person",
       name: author?.data.name,
-      url: "https://www.linkedin.com/in/michael-b-336437333/"
+      url: "https://www.linkedin.com/in/michael-b-336437333/",
     },
     datePublished: new Date(post.date).toISOString(),
     image:
