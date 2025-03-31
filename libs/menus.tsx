@@ -62,13 +62,13 @@ export const menus = [
     link: "#",
     submenu: [
       {
-        label: "Residential Assessment",
+        label: "Security Assessment",
         link: "/security_assessment/",
       },
-      // {
-      //   label: "Services Style 2",
-      //   link: "/services/2/",
-      // },
+      {
+        label: "Residential Security",
+        link: "/services/2/",
+      },
       // {
       //   label: "Services Style 3",
       //   link: "/services/3/",
