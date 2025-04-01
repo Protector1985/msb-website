@@ -33,8 +33,6 @@ export default function Page() {
       <CyberSecurityOperation />
       <EffectiveProtection />
 
-      {/* <ContactInfo /> */}
-
       <SecurityAssessmentContact />
 
       <Footer />

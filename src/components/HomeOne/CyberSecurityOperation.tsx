@@ -1,8 +1,9 @@
-"use client";
+"use server";
 
 import React from "react";
 import Image from "next/image";
 import styles from "./styles/CyberSecurity.module.css";
+
 const CyberSecurityOperation: React.FC = () => {
   return (
     <>
@@ -11,11 +12,14 @@ const CyberSecurityOperation: React.FC = () => {
           <div className="row">
             <div className="col-lg-6">
               <div className="cybersecurity-content">
-                <h2>Comprehensive Security Assessment Report</h2>
+                <h2>Comprehensive Residential Security Recommendations</h2>
                 <p>
-                  After an extensive on-site review, we’ve highlighted the most
-                  impactful strategies to strengthen your security posture.
-                  Below are the key recommendations in brief.
+                  Following an in-depth on-site evaluation of your estate, our
+                  executive protection team has compiled key strategies to
+                  enhance your residential security. These recommendations are
+                  tailored for ultra-high-net-worth individuals and designed
+                  specifically for high-value residences in Beverly Hills,
+                  Malibu, Hidden Hills, and Montecito.
                 </p>
 
                 <div className="row">
@@ -29,19 +33,17 @@ const CyberSecurityOperation: React.FC = () => {
                         <i className="bx bx-check"></i>
                         Perimeter Upgrades
                       </li>
-
                       <li>
                         <i className="bx bx-check"></i>
-                        Alarm & Fire
-                      </li>
-
-                      <li>
-                        <i className="bx bx-check"></i>
-                        Intercom Setup
+                        Alarm & Fire Integration
                       </li>
                       <li>
                         <i className="bx bx-check"></i>
-                        Safe Room
+                        Intercom System
+                      </li>
+                      <li>
+                        <i className="bx bx-check"></i>
+                        Safe Room Design
                       </li>
                     </ul>
                   </div>
@@ -50,35 +52,35 @@ const CyberSecurityOperation: React.FC = () => {
                     <ul>
                       <li>
                         <i className="bx bx-check"></i>
-                        Keyless Access
-                      </li>
-
-                      <li>
-                        <i className="bx bx-check"></i>
-                        Duress Switches
+                        Keyless Entry
                       </li>
                       <li>
                         <i className="bx bx-check"></i>
-                        Glass Protection
+                        Duress Alarms
                       </li>
                       <li>
                         <i className="bx bx-check"></i>
-                        Secure Storage
+                        Glass Break Sensors
                       </li>
                       <li>
                         <i className="bx bx-check"></i>
-                        Staff & Vendors
+                        Secure Storage Areas
+                      </li>
+                      <li>
+                        <i className="bx bx-check"></i>
+                        Staff & Vendor Protocols
                       </li>
                     </ul>
                   </div>
                 </div>
               </div>
             </div>
+
             <div className="col-lg-6 pr-0">
               <Image
                 className={styles.guardPic}
                 src="/img/GuardFence.png"
-                alt="Bodyguard services in Beverly Hills"
+                alt="Residential estate protection in Beverly Hills"
                 width={700}
                 height={350}
               />
