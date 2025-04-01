@@ -50,6 +50,7 @@ module.exports = {
     // Add static routes manually
     const staticRoutes = [
       "/security_assessment/",
+      "/executive_protection/",
       "/residential_security/",
       "/contact/",
     ];
