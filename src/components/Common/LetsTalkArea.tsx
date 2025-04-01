@@ -1,4 +1,4 @@
-"use client";
+"use server";
 
 import React from "react";
 import Link from "next/link";
@@ -9,10 +9,10 @@ const LetsTalkArea: React.FC = () => {
       <div className="lats-talk-area ptb-100">
         <div className="container">
           <div className="lats-talk-content">
-            <h2>Ready to get started? we&apos;re here to help</h2>
+            <h2>Let’s Talk Security</h2>
             <p>
-              Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
-              eiusmod tempor incididunt ut labore et dolore magna aliqua.
+              Reach out to discuss personalized executive or residential
+              protection in Beverly Hills, Malibu, or beyond.
             </p>
 
             <Link href="/contact" className="default-btn six">
