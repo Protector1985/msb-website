@@ -37,9 +37,9 @@ export const metadata: Metadata = {
   icons: {
     icon: "/img/favicon.png",
   },
-  title: "MSB Protection | Best Bodyguard Service in Beverly Hills and Malibu",
+  title: "MSB Protection | Elite Private Protection",
   description:
-    "MSB Protection provides elite security services for ultra-high-net-worth individuals in Beverly Hills, Malibu, Hidden Hills, Westlake Village. Our expert team ensures safety, discretion, and peace of mind with top-tier executive protection, estate security, and personal security solutions.",
+    "MSB Protection provides elite security and bodyguard services for some of the most influential executives, celebrities and other public figures in Beverly Hills, Hidden Hills and Malibu",
 };
 
 export default async function RootLayout({

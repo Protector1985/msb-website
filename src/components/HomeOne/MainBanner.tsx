@@ -23,28 +23,43 @@ const MainBanner: React.FC = () => {
             <div className="col-lg-9">
               <div className="banner-text">
                 <span>
-                  Setting the Standard for Private Security in Beverly Hills and
-                  Beyond
+                  Trusted Leader in Executive Protection Services in Beverly
+                  Hills
                 </span>
-                <h1>Unmatched Public Figure Protection</h1>
+                <h2
+                  style={{
+                    fontSize: "38px",
+                    color: "white",
+                    marginBottom: "20px",
+                    marginTop: "20px",
+                  }}
+                >
+                  Unmatched Executive Protection & Estate Security
+                </h2>
                 <p>
-                  Elite physical security and comprehensive threat assessments
-                  for ultra-high-net-worth individuals and public figures in
-                  Beverly Hills. Supported by world-class training and one of
-                  the industry’s highest ongoing training budgets, our team
-                  consistently excels at protecting lives, assets, and privacy.
-                  From estate protection to discreet executive services, we
-                  deliver unparalleled security solutions tailored to the
-                  affluent lifestyle. Our dedicated Research & Development
-                  department continuously enhances our capabilities with
-                  innovative tools and cutting-edge strategies, keeping us ahead
-                  of evolving threats.
+                  Trusted by ultra-high-net-worth individuals and estate
+                  managers in Beverly Hills, Malibu, and Montecito, we provide
+                  elite <strong>executive protection services</strong>,{" "}
+                  <strong>residential estate security</strong>, and{" "}
+                  <strong>celebrity bodyguard services</strong>. Whether you
+                  need to <strong>hire a bodyguard in Beverly Hills</strong> or
+                  require <strong>VIP event security</strong>, our world-class
+                  team delivers bespoke solutions with discretion and precision.
+                  Backed by one of the industry’s highest ongoing training
+                  budgets, our specialists are equipped for everything from{" "}
+                  <strong>executive travel security</strong> to{" "}
+                  <strong>
+                    kidnapping prevention for high-net-worth families
+                  </strong>
+                  . Our in-house Research & Development department constantly
+                  innovates with cutting-edge tools to proactively counter
+                  threats and deliver unmatched peace of mind.
                 </p>
                 <div className="banner-btn">
                   <Button
                     type="ROUTING"
                     route="/security_assessment"
-                    text="Free Assessment"
+                    text="Security Assessment"
                     color="PINK"
                   />
                   {/* <Button

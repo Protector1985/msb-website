@@ -6,22 +6,31 @@ import { FaHouseUser } from "react-icons/fa";
 import { IoPeople } from "react-icons/io5";
 import { BsAirplaneEngines } from "react-icons/bs";
 import { GiGlassCelebration } from "react-icons/gi";
+
 const PrivateSecurity: React.FC = () => {
   return (
     <>
       <section className={`${"security-area pb-70"} ${styles.wrapper}`}>
         <div className="container">
           <div className="section-title">
-            <h2>Redefining Private Security</h2>
+            <h2>Redefining Private Security in Beverly Hills & Beyond</h2>
             <p>
-              Our team of specialists excels in advanced protection strategies,
-              comprehensive security program planning, and detailed threat
-              assessments to safeguard ultra-high-net-worth individuals and
-              families. Complementing our security expertise is our dedicated
-              Research and Development team, which drives innovation by
-              engineering tools and solutions that enhance protection
-              capabilities, ensuring our clients remain secure in Beverly Hills
-              and throughout Southern California.
+              As a premier provider of{" "}
+              <strong>executive protection services</strong> and{" "}
+              <strong>
+                estate security in Beverly Hills, Malibu, Hidden Hills, and
+                Montecito
+              </strong>
+              , our team safeguards ultra-high-net-worth individuals and
+              families through advanced protection strategies, tailored{" "}
+              <strong>residential security protocols</strong>, and proactive
+              threat assessments. Our in-house Research and Development division
+              continuously engineers innovative solutions to stay ahead of
+              modern threats—from <strong>celebrity stalker prevention</strong>{" "}
+              to <strong>kidnapping risk mitigation</strong>. With a reputation
+              built on discretion, reliability, and precision, we deliver elite{" "}
+              <strong>private security services in Los Angeles</strong> and
+              throughout Southern California.
             </p>
           </div>
 
@@ -33,9 +42,11 @@ const PrivateSecurity: React.FC = () => {
                 </i>
                 <h3>Estate Security</h3>
                 <p>
-                  We ensure your home remains your sanctuary, providing
-                  uncompromising protection for you and your family while
-                  maintaining privacy and comfort.
+                  Offering premium{" "}
+                  <strong>residential estate security services</strong>, we
+                  protect high-value properties and the families who reside in
+                  them. Discreet, armed, or unarmed protection tailored to the
+                  UHNWI lifestyle.
                 </p>
               </div>
             </div>
@@ -47,9 +58,11 @@ const PrivateSecurity: React.FC = () => {
                 </i>
                 <h3>Close Protection</h3>
                 <p>
-                  Whether running daily errands or attending critical
-                  engagements, our team ensures your safety and handles the
-                  logistics so you can focus on what matters.
+                  From public appearances to personal errands, our{" "}
+                  <strong>celebrity close protection services</strong> and{" "}
+                  <strong>bodyguards for high-profile individuals</strong>{" "}
+                  ensure your safety while blending seamlessly into your
+                  day-to-day life.
                 </p>
               </div>
             </div>
@@ -57,14 +70,14 @@ const PrivateSecurity: React.FC = () => {
             <div className="col-lg-3 col-sm-6">
               <div className="single-security">
                 <i>
-                  {" "}
                   <BsAirplaneEngines className={styles.icon} />
                 </i>
                 <h3>Travel Security</h3>
                 <p>
-                  From seamless domestic journeys to international trips, our
-                  bilingual agents provide stress-free security tailored to your
-                  needs, ensuring peace of mind wherever you go.
+                  Whether it’s international business or luxury travel, our{" "}
+                  <strong>executive travel security services</strong> provide
+                  bilingual agents and full-spectrum planning for peace of
+                  mind—before, during, and after the journey.
                 </p>
               </div>
             </div>
@@ -72,14 +85,14 @@ const PrivateSecurity: React.FC = () => {
             <div className="col-lg-3 col-sm-6">
               <div className="single-security">
                 <i>
-                  {" "}
-                  <GiGlassCelebration className={styles.icon} />{" "}
+                  <GiGlassCelebration className={styles.icon} />
                 </i>
                 <h3>Event Security</h3>
                 <p>
-                  Your events are a reflection of your reputation. Our discreet
-                  and professional agents safeguard your gatherings, ensuring
-                  safety and swiftly addressing any incidents.
+                  We specialize in <strong>VIP event security services</strong>{" "}
+                  for private parties, galas, and premieres—delivering discreet
+                  yet vigilant protection that reflects the caliber of your
+                  reputation and guests.
                 </p>
               </div>
             </div>

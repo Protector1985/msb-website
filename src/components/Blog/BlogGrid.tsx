@@ -45,11 +45,16 @@ const BlogGrid: React.FC = () => {
     <section className="blog-area ptb-100">
       <div className="container">
         <div className="section-title">
-          <h2>Our Latest Articles</h2>
+          <h2>Insights on Executive Protection & Private Security</h2>
           <p>
-            Explore our insightful articles designed for security professionals,
-            estate managers, property managers, as well as executive and
-            personal assistants.
+            Explore our latest blog posts focused on{" "}
+            <strong>executive protection services</strong>,{" "}
+            <strong>estate security strategies</strong>,{" "}
+            <strong>celebrity bodyguard services</strong>, and{" "}
+            <strong>risk mitigation for high-net-worth families</strong> in
+            Beverly Hills, Malibu, and beyond. Whether you are an estate
+            manager, personal assistant, or high-profile client, these articles
+            deliver relevant knowledge tailored to your world.
           </p>
         </div>
 
