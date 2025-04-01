@@ -69,14 +69,10 @@ export const menus = [
         label: "Residential Security",
         link: "/residential_security",
       },
-      // {
-      //   label: "Services Style 3",
-      //   link: "/services/3/",
-      // },
-      // {
-      //   label: "Service Details",
-      //   link: "/services/details/",
-      // },
+      {
+        label: "Executive Protection",
+        link: "/executive_protection/",
+      },
     ],
   },
   {
