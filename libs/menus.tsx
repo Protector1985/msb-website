@@ -65,10 +65,10 @@ export const menus = [
         label: "Security Assessment",
         link: "/security_assessment/",
       },
-      // {
-      //   label: "Residential Security",
-      //   link: "/services/2/",
-      // },
+      {
+        label: "Residential Security",
+        link: "/residential_security",
+      },
       // {
       //   label: "Services Style 3",
       //   link: "/services/3/",
@@ -101,8 +101,8 @@ export const menus = [
     //   },
     // ],
   },
-  // {
-  //   label: "Assessment",
-  //   link: "/security_assessment/",
-  // },
+  {
+    label: "Contact",
+    link: "/contact",
+  },
 ];

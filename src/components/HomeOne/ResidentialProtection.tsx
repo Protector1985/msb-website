@@ -3,7 +3,7 @@
 import React from "react";
 import Image from "next/image";
 
-const EffectiveProtection: React.FC = () => {
+const ResidentialProtection: React.FC = () => {
   return (
     <>
       <section className="complete-area ptb-100">
@@ -14,7 +14,7 @@ const EffectiveProtection: React.FC = () => {
               <div
                 className="complete-img"
                 style={{
-                  backgroundImage: `url(/img/shakingHands.png)`,
+                  backgroundImage: `url(/img/discussion.png)`,
                 }}
               ></div>
             </div>
@@ -22,59 +22,62 @@ const EffectiveProtection: React.FC = () => {
             {/* Content section */}
             <div className="col-lg-6">
               <div className="complete-content">
-                <h2>Book Your On-Site Assessment</h2>
+                <h2>24/7 Residential Security in Beverly Hills</h2>
                 <p>
-                  Experience the confidence that comes with world-class
-                  security. Our protectors boast global expertise—serving
-                  clients in Beverly Hills, Malibu, and Ventura County—while
-                  customizing every detail to your specific needs.
+                  Our 24/7 residential protection services are designed to
+                  safeguard ultra-high-net-worth individuals and their estates
+                  with constant vigilance. MSB Protection delivers elite-level
+                  security coverage that adapts to your lifestyle while
+                  neutralizing emerging threats. With a foundation built on
+                  executive protection principles, our residential teams ensure
+                  no detail is overlooked.
                 </p>
 
                 <div className="row">
-                  {/* 1. Global Expertise */}
+                  {/* 1. Armed Coverage */}
                   <div className="col-lg-6 col-sm-6">
                     <div className="single-security">
                       <i className="flaticon-order"></i>
-                      <h3>Global Expertise</h3>
+                      <h3>Armed Coverage</h3>
                       <p>
-                        Harness the skills of top-tier professionals with proven
-                        international credentials.
+                        Our licensed agents provide armed estate protection,
+                        trained for rapid response and discretion.
                       </p>
                     </div>
                   </div>
 
-                  {/* 2. Local Presence */}
+                  {/* 2. Celebrity Protection */}
                   <div className="col-lg-6 col-sm-6">
                     <div className="single-security">
                       <i className="flaticon-anti-virus-software"></i>
-                      <h3>Local Presence</h3>
+                      <h3>Celebrity Protection</h3>
                       <p>
-                        We’re right where you need us most—in Beverly Hills,
-                        Malibu, and beyond.
+                        Trusted by public figures and high-profile clients for
+                        discreet, around-the-clock home security.
                       </p>
                     </div>
                   </div>
 
-                  {/* 3. Discreet & Effective */}
+                  {/* 3. Early Warning Systems */}
                   <div className="col-lg-6 col-sm-6">
                     <div className="single-security mb-0 mb-rs-need">
                       <i className="flaticon-scientist"></i>
-                      <h3>Discreet & Effective</h3>
+                      <h3>Early Warning Systems</h3>
                       <p>
-                        Our methods blend seamlessly into your lifestyle while
-                        delivering maximum protection.
+                        Integrated AI-powered sensors and surveillance tools
+                        alert protectors to baseline deviations in real time.
                       </p>
                     </div>
                   </div>
 
-                  {/* 4. Tailored Solutions */}
+                  {/* 4. Residential Intelligence */}
                   <div className="col-lg-6 col-sm-6">
                     <div className="single-security mb-0">
                       <i className="flaticon-technical-support"></i>
-                      <h3>Tailored Solutions</h3>
+                      <h3>Residential Intelligence</h3>
                       <p>
-                        We adapt our approach to your unique environment,
-                        ensuring personalized, top-level security.
+                        Our in-house R&D team enhances home security through
+                        custom tech and predictive threat modeling.
                       </p>
                     </div>
                   </div>
@@ -88,7 +91,7 @@ const EffectiveProtection: React.FC = () => {
         <div className="complete-shape">
           <Image
             src="/img/complete-shape.png"
-            alt="Image"
+            alt="Residential Protection in Beverly Hills"
             width={423}
             height={611}
           />
@@ -98,4 +101,4 @@ const EffectiveProtection: React.FC = () => {
   );
 };
 
-export default EffectiveProtection;
+export default ResidentialProtection;

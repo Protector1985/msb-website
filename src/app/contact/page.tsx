@@ -1,15 +1,11 @@
 import React from "react";
 import Navbar from "../../components/Layouts/Navbar";
 import PageBanner from "../../components/Common/PageBanner";
+import ContactInfo from "../../components/Contact/ContactInfo";
 
 import Footer from "../../components/Layouts/Footer";
 import { cookies } from "next/headers";
-import SecurityAssessment from "@/components/ServicesStyleOne/SecurityAssessment";
-import CyberSecurityOperation from "@/components/HomeOne/CyberSecurityOperation";
-import EffectiveProtection from "@/components/HomeOne/EffectiveProtection";
-
-import SecurityAssessmentContact from "@/components/Contact/SecurityAssessment";
-
+import ContactForm from "@/components/Contact/ContactForm";
 export default function Page() {
   let isAuthenticated = false;
   const cookieStore = cookies();
@@ -23,11 +19,15 @@ export default function Page() {
       <Navbar isAuthenticated={isAuthenticated} nickName={userNickname} />
 
       <PageBanner
-        pageTitle="Security Assessments"
+        pageTitle="Contact"
         homePageUrl="/"
         homePageText="Home"
-        activePageText="Security Assessments"
+        activePageText="Contact"
       />
+
+      <ContactInfo />
+
+      <ContactForm />
 
       <Footer />
     </>
