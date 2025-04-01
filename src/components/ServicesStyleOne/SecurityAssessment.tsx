@@ -1,4 +1,4 @@
-"use client";
+"use server";
 
 import React from "react";
 import { FaUserSecret } from "react-icons/fa";
@@ -16,11 +16,15 @@ const SecurityAssessment: React.FC = () => {
             <h2>Secure Your Home With a Free Assessment</h2>
             <p>
               Our internationally experienced protectors have served clients in
-              Beverly Hills, Malibu, and Ventura County. Now, for a limited
-              time, we are extending our on-site security assessments free of
-              charge.
+              Beverly Hills, Malibu, Hidden Hills, and Ventura County. For a
+              limited time, we are offering complimentary on-site security
+              assessments tailored to ultra-high-net-worth estates. This is your
+              opportunity to receive expert insights from professionals trained
+              in executive protection, estate security, and residential risk
+              mitigation.
             </p>
           </div>
+
           {/* Scroll-down invitation */}
           <div className="section-title mt-4" style={{ textAlign: "center" }}>
             <BouncingArrow />
@@ -37,7 +41,8 @@ const SecurityAssessment: React.FC = () => {
                 <h3>Discreet</h3>
                 <p>
                   We always sign an NDA before each visit, ensuring your
-                  information remains strictly confidential.
+                  personal security needs and household operations remain
+                  completely confidential.
                 </p>
               </div>
             </div>
@@ -50,8 +55,9 @@ const SecurityAssessment: React.FC = () => {
                 </i>
                 <h3>No Strings Attached</h3>
                 <p>
-                  We will deliver a free, personalized security review for your
-                  property with no obligations.
+                  Receive a no-obligation security review for your
+                  residence—ideal for estate managers and assistants seeking
+                  residential security services in Beverly Hills or Malibu.
                 </p>
               </div>
             </div>
@@ -64,8 +70,9 @@ const SecurityAssessment: React.FC = () => {
                 </i>
                 <h3>Ongoing Guidance</h3>
                 <p>
-                  Our advisors provide routine follow-up guidance and ongoing
-                  support whenever you truly need us.
+                  We provide follow-up recommendations and support based on
+                  executive protection best practices and residential threat
+                  analysis.
                 </p>
               </div>
             </div>
@@ -78,8 +85,9 @@ const SecurityAssessment: React.FC = () => {
                 </i>
                 <h3>Streamlined Onboarding</h3>
                 <p>
-                  If on-site coverage is truly needed, our completed assessment
-                  makes onboarding simple and swift.
+                  Should you require estate protection, our completed assessment
+                  makes transitioning into 24/7 residential coverage fast and
+                  seamless.
                 </p>
               </div>
             </div>

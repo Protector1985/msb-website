@@ -22,12 +22,15 @@ const EffectiveProtection: React.FC = () => {
             {/* Content section */}
             <div className="col-lg-6">
               <div className="complete-content">
-                <h2>Book Your On-Site Assessment</h2>
+                <h2>Protect What Matters Most</h2>
                 <p>
-                  Experience the confidence that comes with world-class
-                  security. Our protectors boast global expertise—serving
-                  clients in Beverly Hills, Malibu, and Ventura County—while
-                  customizing every detail to your specific needs.
+                  Our 24/7 residential and executive protection services are
+                  trusted by ultra-high-net-worth individuals across Beverly
+                  Hills, Malibu, Hidden Hills, and Ventura County. We bring
+                  global protection expertise and discreet local presence to
+                  safeguard your home, your privacy, and your lifestyle with
+                  proactive residential security planning and personalized
+                  estate coverage.
                 </p>
 
                 <div className="row">
@@ -37,44 +40,47 @@ const EffectiveProtection: React.FC = () => {
                       <i className="flaticon-order"></i>
                       <h3>Global Expertise</h3>
                       <p>
-                        Harness the skills of top-tier professionals with proven
-                        international credentials.
+                        Our protectors are trained internationally and equipped
+                        to operate at the highest levels of private security.
                       </p>
                     </div>
                   </div>
 
-                  {/* 2. Local Presence */}
+                  {/* 2. Local Precision */}
                   <div className="col-lg-6 col-sm-6">
                     <div className="single-security">
                       <i className="flaticon-anti-virus-software"></i>
-                      <h3>Local Presence</h3>
+                      <h3>Local Precision</h3>
                       <p>
-                        We’re right where you need us most—in Beverly Hills,
-                        Malibu, and beyond.
+                        We specialize in estate security for high-net-worth
+                        residences in Beverly Hills, Malibu, and nearby coastal
+                        communities.
                       </p>
                     </div>
                   </div>
 
-                  {/* 3. Discreet & Effective */}
+                  {/* 3. Discreet Coverage */}
                   <div className="col-lg-6 col-sm-6">
                     <div className="single-security mb-0 mb-rs-need">
                       <i className="flaticon-scientist"></i>
-                      <h3>Discreet & Effective</h3>
+                      <h3>Discreet Coverage</h3>
                       <p>
-                        Our methods blend seamlessly into your lifestyle while
-                        delivering maximum protection.
+                        Our security agents operate with full
+                        discretion—protecting your household without disrupting
+                        your lifestyle.
                       </p>
                     </div>
                   </div>
 
-                  {/* 4. Tailored Solutions */}
+                  {/* 4. Tailored Protection */}
                   <div className="col-lg-6 col-sm-6">
                     <div className="single-security mb-0">
                       <i className="flaticon-technical-support"></i>
-                      <h3>Tailored Solutions</h3>
+                      <h3>Tailored Protection</h3>
                       <p>
-                        We adapt our approach to your unique environment,
-                        ensuring personalized, top-level security.
+                        Every detail is customized to your risk profile,
+                        household dynamics, and the unique demands of UHNWI
+                        estate security.
                       </p>
                     </div>
                   </div>
@@ -88,7 +94,7 @@ const EffectiveProtection: React.FC = () => {
         <div className="complete-shape">
           <Image
             src="/img/complete-shape.png"
-            alt="Image"
+            alt="Estate security and executive protection"
             width={423}
             height={611}
           />

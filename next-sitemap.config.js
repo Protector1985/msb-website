@@ -48,7 +48,7 @@ module.exports = {
     const dynamicBlogRoutes = await fetchDynamicBlogRoutes();
 
     // Add static routes manually
-    const staticRoutes = ["/security_assessment/"];
+    const staticRoutes = ["/security_assessment/", "/residential_security/"];
 
     const allRoutes = [...dynamicBlogRoutes, ...staticRoutes];
 

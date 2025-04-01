@@ -45,11 +45,7 @@ export default function Page() {
         homePageText="Home"
         activePageText="Residential Security"
       />
-      {/* <FeaturesCard />
-      <ServicesCard />
-      <Features /> */}
 
-      {/* <ServiceDetailsContent/> */}
       <ResidentialSecurity />
       <ProtectYourResidence />
       <ResidentialProtection />
