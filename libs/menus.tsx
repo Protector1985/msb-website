@@ -73,6 +73,10 @@ export const menus = [
         label: "Executive Protection",
         link: "/executive_protection/",
       },
+      {
+        label: "Travel Security",
+        link: "/travel_security/",
+      },
     ],
   },
   {

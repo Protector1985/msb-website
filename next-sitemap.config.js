@@ -51,6 +51,7 @@ module.exports = {
     const staticRoutes = [
       "/security_assessment/",
       "/executive_protection/",
+      "/travel_security/",
       "/residential_security/",
       "/contact/",
     ];
