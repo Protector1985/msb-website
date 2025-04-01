@@ -5,9 +5,9 @@ const ComingSoon = () => {
   const endDate = "March 23, 2025 17:00:00 PDT";
 
   const seoContent = {
-    title: "MSB Protection | Best Bodyguard Service in Beverly Hills and Malibu",
+    title: "MSB Protection | Elite Private Protection",
     description:
-      "Experience premier security services tailored for ultra-high-net-worth individuals in Beverly Hills, Malibu, and Ventura County. Our elite team delivers unparalleled protection, ensuring safety, discretion, and peace of mind. Stay ahead with top-tier security solutions designed for those who demand excellence.",
+      "MSB Protection provides elite security and bodyguard services for some of the most influential executives, celebrities and other public figures in Beverly Hills, Hidden Hills and Malibu",
     socialLinks: [
       { platform: "facebook", url: "https://www.facebook.com/" },
       { platform: "twitter", url: "https://www.twitter.com/" },

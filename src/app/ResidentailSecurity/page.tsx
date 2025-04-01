@@ -29,8 +29,6 @@ export default function Page() {
         activePageText="Security Assessments"
       />
 
-      
-
       <Footer />
     </>
   );

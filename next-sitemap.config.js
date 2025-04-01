@@ -46,14 +46,12 @@ module.exports = {
   ],
   additionalPaths: async (config) => {
     const dynamicBlogRoutes = await fetchDynamicBlogRoutes();
-  
+
     // Add static routes manually
-    const staticRoutes = [
-      "/security_assessment/",
-    ];
-  
+    const staticRoutes = ["/security_assessment/"];
+
     const allRoutes = [...dynamicBlogRoutes, ...staticRoutes];
-  
+
     return allRoutes.map((route) => ({
       loc: `${config.siteUrl}${route}`,
       changefreq: "daily",
