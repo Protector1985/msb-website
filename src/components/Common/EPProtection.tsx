@@ -3,7 +3,7 @@
 import React from "react";
 import Image from "next/image";
 
-const ProtectYourResidence: React.FC = () => {
+const EPProtection: React.FC = () => {
   return (
     <>
       <div className="manual-area bg-color ptb-100">
@@ -12,8 +12,8 @@ const ProtectYourResidence: React.FC = () => {
             <div className="col-lg-6">
               <div className="manual-img">
                 <Image
-                  src="/img/houseParts.png"
-                  alt="Residential Security Protocol"
+                  src="/img/executiveCartoon.png"
+                  alt="Executive Protection Services in Beverly Hills"
                   width={662}
                   height={597}
                 />
@@ -22,25 +22,23 @@ const ProtectYourResidence: React.FC = () => {
 
             <div className="col-lg-6">
               <div className="manual-content mr-auto ml-0">
-                <h2>How We Approach Residential Protection</h2>
+                <h2>How We Deliver Executive Protection</h2>
                 <p>
-                  At MSB Protection, our approach to residential security begins
-                  with one clear truth: your home is your most critical safe
-                  zone. As the operational backbone of any executive protection
-                  detail, residential coverage demands precise planning and
-                  proactive threat management to safeguard you and your loved
-                  ones. Led by CEO Michael Braun—a former member of an elite
-                  German police unit specializing in violent crime—we deliver
-                  exceptional residential security services to
-                  ultra-high-net-worth individuals in Beverly Hills, Malibu,
-                  Hidden Hills, and Montecito.
+                  Executive protection at MSB is about more than physical
+                  coverage—it’s a tailored operation designed to support
+                  ultra-high-net-worth individuals and public figures as they
+                  navigate dynamic schedules, sensitive environments, and
+                  elevated threat levels. With our roots in European law
+                  enforcement and our presence in Beverly Hills, Malibu, and
+                  Hidden Hills, we bring discretion, discipline, and planning to
+                  every assignment.
                 </p>
                 <p>
-                  From physical perimeter defense and armed estate protection to
-                  AI-enhanced surveillance and proactive threat intelligence, we
-                  offer comprehensive solutions designed for high-profile
-                  households. Every detail is tailored to your lifestyle, your
-                  staff, and your specific threat profile.
+                  Our close protection agents are trained to operate in both
+                  high-profile and low-visibility settings. From international
+                  travel and media exposure to corporate boardrooms and private
+                  estates, we deliver proactive, personalized protection guided
+                  by intelligence and backed by real-world experience.
                 </p>
 
                 <div className="row">
@@ -48,19 +46,19 @@ const ProtectYourResidence: React.FC = () => {
                     <ul className="cybersecurity-item">
                       <li>
                         <i className="bx bx-check"></i>
-                        Estate Security
+                        Advance Planning
                       </li>
                       <li>
                         <i className="bx bx-check"></i>
-                        Smart Surveillance
+                        Route Security
                       </li>
                       <li>
                         <i className="bx bx-check"></i>
-                        Armed Coverage
+                        Secure Transport
                       </li>
                       <li>
                         <i className="bx bx-check"></i>
-                        Live Monitoring
+                        Travel Protection
                       </li>
                     </ul>
                   </div>
@@ -69,19 +67,19 @@ const ProtectYourResidence: React.FC = () => {
                     <ul>
                       <li>
                         <i className="bx bx-check"></i>
-                        Staff Protocols
+                        Public Appearances
                       </li>
                       <li>
                         <i className="bx bx-check"></i>
-                        Risk Assessments
+                        Event Coverage
                       </li>
                       <li>
                         <i className="bx bx-check"></i>
-                        Integrated Coverage
+                        Threat Intelligence
                       </li>
                       <li>
                         <i className="bx bx-check"></i>
-                        In-House R&D
+                        Executive Privacy
                       </li>
                     </ul>
                   </div>
@@ -95,4 +93,4 @@ const ProtectYourResidence: React.FC = () => {
   );
 };
 
-export default ProtectYourResidence;
+export default EPProtection;
