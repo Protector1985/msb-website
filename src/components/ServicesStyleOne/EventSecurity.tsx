@@ -6,20 +6,20 @@ import { LuFileBadge } from "react-icons/lu";
 import { RiGuideFill } from "react-icons/ri";
 import { PiSecurityCameraBold } from "react-icons/pi";
 
-const TSecurity: React.FC = () => {
+const EventSecurity: React.FC = () => {
   return (
     <>
       <div className="security-area pt-100 pb-70">
         <div className="container">
           <div className="section-title">
-            <h2>Travel Security for High-Net-Worth Clients</h2>
+            <h2>Event Security Services in Beverly Hills</h2>
             <p>
-              MSB Protection offers world-class travel security services
-              designed to safeguard ultra-high-net-worth individuals,
-              celebrities, and executives during domestic and international
-              movements. From secure ground transport in Beverly Hills and
-              Malibu to advance teams overseas, we provide close protection that
-              ensures your itinerary remains safe, private, and uninterrupted.
+              MSB Protection provides discreet and highly coordinated event
+              security for ultra-high-net-worth clients, celebrities, and public
+              figures hosting private functions, red carpet appearances, and
+              exclusive brand activations. Our detail integrates seamlessly with
+              your team to manage access, anticipate risks, and safeguard your
+              guests without compromising the atmosphere.
             </p>
           </div>
 
@@ -33,9 +33,8 @@ const TSecurity: React.FC = () => {
                 </i>
                 <h3>Discreet</h3>
                 <p>
-                  Our travel protection teams remain unseen yet
-                  ever-present—perfect for clients who demand privacy during
-                  transit, events, and downtime.
+                  Our agents blend into the environment while maintaining visual
+                  command and access control at all entry points.
                 </p>
               </div>
             </div>
@@ -48,36 +47,37 @@ const TSecurity: React.FC = () => {
                 </i>
                 <h3>Coordinated</h3>
                 <p>
-                  We liaise with hotels, drivers, airfields, and event staff to
-                  ensure secure and seamless movement from start to finish.
+                  We work directly with event planners, estate managers, and
+                  venue staff to create a cohesive security perimeter.
                 </p>
               </div>
             </div>
 
-            {/* 3. Anticipatory */}
+            {/* 3. Proactive */}
             <div className="col-lg-3 col-sm-6 d-flex">
               <div className="single-security">
                 <i>
                   <RiGuideFill />
                 </i>
-                <h3>Anticipatory</h3>
+                <h3>Proactive</h3>
                 <p>
-                  Advance teams, route planning, and real-time intel allow us to
-                  mitigate risks before they materialize.
+                  Our team conducts pre-event walkthroughs, threat assessments,
+                  and venue sweeps to neutralize risks before they appear.
                 </p>
               </div>
             </div>
 
-            {/* 4. Global */}
+            {/* 4. Scalable */}
             <div className="col-lg-3 col-sm-6 d-flex">
               <div className="single-security">
                 <i>
                   <PiSecurityCameraBold />
                 </i>
-                <h3>Global</h3>
+                <h3>Scalable</h3>
                 <p>
-                  Our international network and multilingual agents ensure
-                  reliable protection across borders, time zones, and languages.
+                  Whether protecting a private dinner or managing a 500-person
+                  gala, our detail expands fluidly based on guest count and
+                  threat profile.
                 </p>
               </div>
             </div>
@@ -88,4 +88,4 @@ const TSecurity: React.FC = () => {
   );
 };
 
-export default TSecurity;
+export default EventSecurity;

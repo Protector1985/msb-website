@@ -3,7 +3,7 @@
 import React from "react";
 import Image from "next/image";
 
-const TravelProtection: React.FC = () => {
+const EventProtection: React.FC = () => {
   return (
     <>
       <section className="complete-area ptb-100">
@@ -14,7 +14,7 @@ const TravelProtection: React.FC = () => {
               <div
                 className="complete-img"
                 style={{
-                  backgroundImage: `url(/img/beachGuard.png)`,
+                  backgroundImage: `url(/img/redCarpet.png)`,
                 }}
               ></div>
             </div>
@@ -22,69 +22,69 @@ const TravelProtection: React.FC = () => {
             {/* Content section */}
             <div className="col-lg-6">
               <div className="complete-content">
-                <h2>Travel Security for High-Profile Clients</h2>
+                <h2>Comprehensive Event Protection</h2>
                 <p>
-                  When you are on the move—whether for business, leisure, or
-                  family—MSB Protection ensures that every step of your journey
-                  is secure. Our travel security services are designed for
-                  high-net-worth individuals, entertainers, executives, and
-                  dignitaries who require discreet, coordinated movement across
-                  borders, time zones, and threat environments.
+                  MSB Protection provides tailored event security solutions for
+                  private gatherings, VIP galas, and high-profile brand events
+                  in Beverly Hills, Malibu, and surrounding areas. Our agents
+                  specialize in managing both visible and behind-the-scenes
+                  protective operations, ensuring a secure environment without
+                  interrupting the tone or purpose of your event.
                 </p>
                 <p>
-                  From ground transport and hotel liaison to airport protocols,
-                  advance teams, and multilingual agents, we deliver seamless
-                  protective travel support backed by intelligence and powered
-                  by real-time logistics. Our goal: keep you focused on your
-                  mission, not the risks around it.
+                  We collaborate directly with planners, venues, estate
+                  managers, and guest coordinators to ensure smooth access
+                  control, detailed planning, and proactive security posture
+                  from setup through post-event debriefing.
                 </p>
 
                 <div className="row">
-                  {/* 1. Secure Transport */}
+                  {/* 1. Armed Agents */}
                   <div className="col-lg-6 col-sm-6">
                     <div className="single-security">
                       <i className="flaticon-order"></i>
-                      <h3>Secure Transport</h3>
+                      <h3>Armed Agents</h3>
                       <p>
-                        Private vehicles with trained security drivers and
-                        real-time tracking tailored to your itinerary.
+                        Our licensed security agents provide discreet but
+                        effective protection tailored to your event’s size and
+                        risk profile.
                       </p>
                     </div>
                   </div>
 
-                  {/* 2. Global Access */}
+                  {/* 2. Guest Management */}
                   <div className="col-lg-6 col-sm-6">
                     <div className="single-security">
                       <i className="flaticon-anti-virus-software"></i>
-                      <h3>Global Access</h3>
+                      <h3>Guest Management</h3>
                       <p>
-                        International coverage through vetted protection
-                        partners and local intelligence networks.
+                        Credential checks, list screening, and secure entry
+                        protocols designed to match the tone of your guest
+                        experience.
                       </p>
                     </div>
                   </div>
 
-                  {/* 3. Airport & Hotel Coordination */}
+                  {/* 3. Site Recon & Setup */}
                   <div className="col-lg-6 col-sm-6">
                     <div className="single-security mb-0 mb-rs-need">
                       <i className="flaticon-scientist"></i>
-                      <h3>Airport & Hotel Coordination</h3>
+                      <h3>Site Recon & Setup</h3>
                       <p>
-                        Advance arrival planning, private terminal access, and
-                        direct liaison with accommodations.
+                        Pre-event sweeps, camera coordination, and security
+                        positioning built into the venue layout from day one.
                       </p>
                     </div>
                   </div>
 
-                  {/* 4. Live Travel Intelligence */}
+                  {/* 4. Intelligence Support */}
                   <div className="col-lg-6 col-sm-6">
                     <div className="single-security mb-0">
                       <i className="flaticon-technical-support"></i>
-                      <h3>Live Travel Intelligence</h3>
+                      <h3>Intelligence Support</h3>
                       <p>
-                        Real-time alerts, local threat monitoring, and
-                        responsive route adjustments to maintain flow and
-                        safety.
+                        Onsite support powered by real-time threat intelligence,
+                        situational monitoring, and post-event analysis.
                       </p>
                     </div>
                   </div>
@@ -98,7 +98,7 @@ const TravelProtection: React.FC = () => {
         <div className="complete-shape">
           <Image
             src="/img/complete-shape.png"
-            alt="Travel Security in Beverly Hills"
+            alt="Event Security Beverly Hills"
             width={423}
             height={611}
           />
@@ -108,4 +108,4 @@ const TravelProtection: React.FC = () => {
   );
 };
 
-export default TravelProtection;
+export default EventProtection;
