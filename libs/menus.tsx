@@ -77,6 +77,10 @@ export const menus = [
         label: "Travel Security",
         link: "/travel_security/",
       },
+      {
+        label: "Event Security",
+        link: "/event_security/",
+      },
     ],
   },
   {

@@ -7,10 +7,9 @@ import { cookies } from "next/headers";
 
 import LetsTalkArea from "@/components/Common/LetsTalkArea";
 
-import ExecutiveProtection from "@/components/HomeOne/ExecutiveProtection";
-import TSecurity from "@/components/ServicesStyleOne/TSecurity";
-import TProtection from "@/components/Common/TProtection";
-import TravelProtection from "@/components/HomeOne/TravelProtection";
+import EventSecurity from "@/components/ServicesStyleOne/EventSecurity";
+import EVProtection from "@/components/Common/EVProtection";
+import EventProtection from "@/components/HomeOne/EventProtection";
 
 export default function Page() {
   let isAuthenticated = false;
@@ -25,15 +24,15 @@ export default function Page() {
       <Navbar isAuthenticated={isAuthenticated} nickName={userNickname} />
 
       <PageBanner
-        pageTitle="Travel Security"
+        pageTitle="Event Security"
         homePageUrl="/"
         homePageText="Home"
-        activePageText="Travel Security"
+        activePageText="Event Security"
       />
 
-      <TSecurity />
-      <TProtection />
-      <TravelProtection />
+      <EventSecurity />
+      <EVProtection />
+      <EventProtection />
       <LetsTalkArea />
 
       <Footer />

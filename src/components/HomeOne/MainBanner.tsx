@@ -39,21 +39,17 @@ const MainBanner: React.FC = () => {
                 <p>
                   Trusted by ultra-high-net-worth individuals and estate
                   managers in Beverly Hills, Malibu, and Montecito, we provide
-                  elite executive protection services,{" "}
-                  residential estate security, and{" "}
-                  celebrity bodyguard services. Whether you
-                  need to hire a bodyguard in Beverly Hills or
-                  require VIP event Security, our world-class
-                  team delivers bespoke solutions with discretion and precision.
-                  Backed by one of the industry’s highest ongoing training
-                  budgets, our specialists are equipped for everything from{" "}
-                  executive travel security to{" "}
-                  
-                    kidnapping prevention for high-net-worth families
-                  
-                  . Our in-house Research & Development department constantly
-                  innovates with cutting-edge tools to proactively counter
-                  threats and deliver unmatched peace of mind.
+                  elite executive protection services, residential estate
+                  security, and celebrity bodyguard services. Whether you need
+                  to hire a bodyguard in Beverly Hills or require VIP event
+                  Security, our world-class team delivers bespoke solutions with
+                  discretion and precision. Backed by one of the industry’s
+                  highest ongoing training budgets, our specialists are equipped
+                  for everything from executive travel security to kidnapping
+                  prevention for high-net-worth families . Our in-house Research
+                  & Development department constantly innovates with
+                  cutting-edge tools to proactively counter threats and deliver
+                  unmatched peace of mind.
                 </p>
                 <div className="banner-btn">
                   <Button

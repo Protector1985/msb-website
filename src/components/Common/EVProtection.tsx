@@ -3,7 +3,7 @@
 import React from "react";
 import Image from "next/image";
 
-const TProtection: React.FC = () => {
+const EVProtection: React.FC = () => {
   return (
     <>
       <div className="manual-area bg-color ptb-100">
@@ -12,8 +12,8 @@ const TProtection: React.FC = () => {
             <div className="col-lg-6">
               <div className="manual-img">
                 <Image
-                  src="/img/travelCartoon.png"
-                  alt="Travel Security for Executives and High-Net-Worth Individuals"
+                  src="/img/eventCartoon.png"
+                  alt="Event Security Services in Beverly Hills"
                   width={662}
                   height={597}
                 />
@@ -22,22 +22,19 @@ const TProtection: React.FC = () => {
 
             <div className="col-lg-6">
               <div className="manual-content mr-auto ml-0">
-                <h2>How We Secure Your Travel</h2>
+                <h2>How We Secure High-Profile Events</h2>
                 <p>
-                  At MSB Protection, travel security is engineered for
-                  executives, celebrities, and high-net-worth individuals who
-                  operate across multiple cities, time zones, and media
-                  spotlights. We understand that secure movement is about more
-                  than physical protection—it’s about anticipation, discretion,
-                  and strategic coordination.
+                  MSB Protection offers discreet, scalable event security
+                  tailored to luxury gatherings, red carpet premieres, estate
+                  functions, and brand activations. Based in Beverly Hills, our
+                  protection teams work behind the scenes to safeguard guests,
+                  manage access, and prevent disruption—without impacting the
+                  elegance or intent of your event.
                 </p>
                 <p>
-                  Our travel protection services cover everything from airport
-                  arrivals and armored transportation to multilingual agents and
-                  on-the-ground advance teams. Whether your itinerary includes
-                  international business meetings or leisure travel with family,
-                  our team ensures every step is secure, predictable, and
-                  interruption-free.
+                  From early venue walkthroughs and staff vetting to day-of
+                  logistics and protective overwatch, we anticipate the
+                  unexpected and ensure your event runs flawlessly and securely.
                 </p>
 
                 <div className="row">
@@ -45,19 +42,19 @@ const TProtection: React.FC = () => {
                     <ul className="cybersecurity-item">
                       <li>
                         <i className="bx bx-check"></i>
-                        Advance Planning
+                        Venue Sweeps
                       </li>
                       <li>
                         <i className="bx bx-check"></i>
-                        Route Security
+                        Access Control
                       </li>
                       <li>
                         <i className="bx bx-check"></i>
-                        Secure Transport
+                        Guest List Protection
                       </li>
                       <li>
                         <i className="bx bx-check"></i>
-                        Global Support
+                        Credential Verification
                       </li>
                     </ul>
                   </div>
@@ -66,19 +63,19 @@ const TProtection: React.FC = () => {
                     <ul>
                       <li>
                         <i className="bx bx-check"></i>
-                        Airport Coordination
+                        Threat Assessment
                       </li>
                       <li>
                         <i className="bx bx-check"></i>
-                        International Coverage
+                        Media Presence Support
                       </li>
                       <li>
                         <i className="bx bx-check"></i>
-                        Multilingual Agents
+                        Protective Overwatch
                       </li>
                       <li>
                         <i className="bx bx-check"></i>
-                        Travel Intelligence
+                        Post-Event Debriefing
                       </li>
                     </ul>
                   </div>
@@ -92,4 +89,4 @@ const TProtection: React.FC = () => {
   );
 };
 
-export default TProtection;
+export default EVProtection;

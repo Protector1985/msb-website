@@ -53,6 +53,7 @@ module.exports = {
       "/executive_protection/",
       "/travel_security/",
       "/residential_security/",
+      "/event_security/",
       "/contact/",
     ];
 
