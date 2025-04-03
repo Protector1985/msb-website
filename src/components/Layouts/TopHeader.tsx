@@ -17,7 +17,7 @@ const TopHeader: React.FC = () => {
                 <li>
                   <div className={styles.content}>
                     <div className={styles.subItem}>
-                      <i className="bx bx-envelope"></i>
+                      <i style={{marginBottom:"5px"}} className="bx bx-envelope"></i>
                       Email:{" "}
                       <a
                         className={styles.aTag}

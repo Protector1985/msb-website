@@ -1,9 +1,13 @@
 .phoneIcon {
-  margin-top: 6px;
+  margin-top: 1px;
+
 }
 
 .content {
-  text-align: left;
+  display:flex;
+  flex-direction:row;
+  flex-wrap:wrap;
+  
 }
 
 .subItem {
@@ -11,6 +15,7 @@
   flex-direction: row;
   justify-content: flex-start;
   align-items: center;
+  margin-left: 20px!important;
 }
 
 .aTag {
