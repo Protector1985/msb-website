@@ -13,20 +13,29 @@ const TopHeader: React.FC = () => {
         <div className="container-fluid">
           <div className="row align-items-center">
             <div className="col-lg-6 col-sm-8">
-              <ul className="header-content-left">
+              <ul className={`header-content-left`}>
                 <li>
-                  <div>
-                    <i className="bx bx-envelope"></i>
-                    Email:{" "}
-                    <a href="mailto:contact@msbprotection.com">
-                      contact@msbprotection.com
-                    </a>
-                    <FaPhone
-                      className={styles.phoneIcon}
-                      size={11}
-                      color="white"
-                    />
-                    Phone: <a href="tel:+18052852807">{`+1 (805) 285-2807`}</a>
+                  <div className={styles.content}>
+                    <div className={styles.subItem}>
+                      <i className="bx bx-envelope"></i>
+                      Email:{" "}
+                      <a
+                        className={styles.aTag}
+                        href="mailto:contact@msbprotection.com"
+                      >
+                        contact@msbprotection.com
+                      </a>
+                    </div>
+                    <div className={styles.subItem}>
+                      <FaPhone
+                        className={styles.phoneIcon}
+                        size={11}
+                        color="white"
+                      />
+                      <a className={styles.aTag} href="tel:+18052852807">
+                        Phone: {`+1 (805) 285-2807`}
+                      </a>
+                    </div>
                   </div>
                 </li>
               </ul>
