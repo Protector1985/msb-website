@@ -76,7 +76,12 @@ const NavbarThree: React.FC = () => {
                   <div className={classOne} id="navbarSupportedContent">
                     <ul className="navbar-nav m-auto">
                       {menus.map((menuItem) => (
-                        <MenuItem key={menuItem.label} {...menuItem} />
+                        <MenuItem
+                          click={() => null}
+                          menuOpen={false}
+                          key={menuItem.label}
+                          {...menuItem}
+                        />
                       ))}
                     </ul>
                   </div>
