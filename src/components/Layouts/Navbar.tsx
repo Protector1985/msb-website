@@ -15,6 +15,7 @@ interface NavbarInterface {
 }
 
 const Navbar: React.FC<NavbarInterface> = ({ isAuthenticated, nickName }) => {
+  const [subMenuOpen, setSubMenuOpen] = useState(false);
   const [menu, setMenu] = useState(true);
   const toggleNavbar = () => {
     setMenu(!menu);
@@ -78,9 +79,27 @@ const Navbar: React.FC<NavbarInterface> = ({ isAuthenticated, nickName }) => {
 
                   <div className={classOne} id="navbarSupportedContent">
                     <ul className="navbar-nav m-auto">
-                      {menus.map((menuItem) => (
-                        <MenuItem key={menuItem.label} {...menuItem} />
-                      ))}
+                      {menus.map((menuItem) => {
+                        if (menuItem.label === "Services") {
+                          return (
+                            <MenuItem
+                              click={() => setSubMenuOpen(!subMenuOpen)}
+                              menuOpen={subMenuOpen}
+                              key={menuItem.label}
+                              {...menuItem}
+                            />
+                          );
+                        } else {
+                          return (
+                            <MenuItem
+                              click={() => null}
+                              menuOpen={subMenuOpen}
+                              key={menuItem.label}
+                              {...menuItem}
+                            />
+                          );
+                        }
+                      })}
                     </ul>
                   </div>
 
