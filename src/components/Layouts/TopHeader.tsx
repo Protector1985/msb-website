@@ -7,6 +7,7 @@ import { FaInstagramSquare } from "react-icons/fa";
 import { FaPhone } from "react-icons/fa";
 import styles from "./navbarStyles/topheader.module.css";
 const TopHeader: React.FC = () => {
+  //..
   return (
     <>
       <div className="top-header-area">
@@ -17,7 +18,10 @@ const TopHeader: React.FC = () => {
                 <li>
                   <div className={styles.content}>
                     <div className={styles.subItem}>
-                      <i style={{marginBottom:"5px"}} className="bx bx-envelope"></i>
+                      <i
+                        style={{ marginBottom: "5px" }}
+                        className="bx bx-envelope"
+                      ></i>
                       Email:{" "}
                       <a
                         className={styles.aTag}

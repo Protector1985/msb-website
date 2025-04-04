@@ -1,4 +1,4 @@
-"use server";
+"use client";
 
 import React from "react";
 import Link from "next/link";
@@ -28,20 +28,58 @@ const LatesNews: React.FC<any> = ({ posts }) => {
                   className="col-lg-4 col-sm-6"
                 >
                   <div className="single-blog">
-                    <Image
-                      src={post.jetpack_featured_media_url}
-                      alt="Image"
-                      width={570}
-                      height={600}
-                    />
+                    <div
+                      style={{
+                        position: "relative",
+                        width: "100%",
+                        paddingTop: "100%",
+                        overflow: "hidden",
+                      }}
+                    >
+                      {/* Title Overlay */}
+                      <div
+                        style={{
+                          position: "absolute",
+                          top: 20,
+                          left: 0,
+                          width: "100%",
+                          background: "rgba(0, 0, 0, 0.5)",
+                          color: "#fff",
+                          padding: "10px",
+                          fontSize: "1.3rem",
+                          zIndex: 2,
+                          textAlign: "center",
+                        }}
+                      >
+                        <Link
+                          href={`/blog/details/${post.id}/${post.slug}`}
+                          style={{
+                            color: "white",
+                            textDecoration: "none",
+                          }}
+                        >
+                          <strong
+                            dangerouslySetInnerHTML={{
+                              __html: post.title.rendered,
+                            }}
+                          />
+                        </Link>
+                      </div>
+
+                      {/* Image */}
+                      <Image
+                        src={post.jetpack_featured_media_url}
+                        alt="Image"
+                        fill
+                        style={{
+                          objectFit: "cover",
+                          objectPosition: "center",
+                          borderRadius: "8px",
+                        }}
+                      />
+                    </div>
 
                     <div className="blog-content">
-                      <h3>
-                        <Link href={`/blog/details/${post.id}/${post.slug}`}>
-                          {post.title.rendered}
-                        </Link>
-                      </h3>
-
                       <p>{`${trimToWords(post.excerpt.rendered, 20)}... `}</p>
 
                       <Link
